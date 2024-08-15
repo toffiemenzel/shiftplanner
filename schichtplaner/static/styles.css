@@ -1,0 +1,224 @@
+/* General Styling */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #3B0A45; /* Dark violet background */
+    color: #FFFFFF; /* White text color */
+    margin: 0;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* Headers */
+h1, h2, h3 {
+    color: #FFD700; /* Gold text for headers */
+}
+
+a {
+    color: #7777FF; /* Gold text for headers */
+}
+
+label {
+    white-space: nowrap;
+}
+
+/* General Label */
+.label-notification {
+    color: #0000FF; /* Gold text for labels */
+    padding: 10px;
+    margin-left: 100px;
+    box-sizing: border-box;
+    border: 1px solid #FFD700; /* Gold border */
+    border-radius: 5px;
+    background-color: #f5deb3; /* Warm creamy color */
+}
+
+/* General Label */
+.label-primary {
+    color: #FFD700; /* Gold text for labels */
+}
+
+.label-small {
+    font-size: 12px;
+}
+
+.big {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.line-break {
+    white-space: normal;
+}
+
+/* Collapsible Sections */
+.collapsible {
+    background-color: #444; /* Dark background for collapsibles */
+    color: #FFD700; /* Gold text */
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    border: 1px solid #FFD700; /* Gold border */
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555; /* Slightly darker when active or hovered */
+}
+
+.content {
+    padding: 0 0px;
+    display: block;
+    overflow: hidden;
+    background-color: #3B0A45; /* Warm creamy color */
+    padding: 15px;
+    margin-bottom: 0px;
+    color: #000000; /* Dark text inside content */
+}
+
+.collapsed + .content {
+    display: none;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 1px solid #FFD700; /* Gold border */
+}
+
+.table-slim {
+    width: auto;
+    margin-bottom: 0px;
+}
+
+.table-stretch {
+    height: 100%;
+    margin-bottom: 0px;
+}
+
+.table-invisible {
+    border: 0px;
+    margin-bottom: 0px;
+}
+
+.table-results {
+    border: 1px;
+}
+
+th {
+    background-color: #333333; /* Dark background for header */
+    color: #FFD700; /* Gold text */
+    font-weight: bold;
+    padding: 5px;
+}
+
+td {
+    background-color: #f5deb3; /* Warm creamy background for cells */
+    color: #000000; /* Dark text */
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.td-left-head {
+    background-color: #999999;
+    font-weight: bold;
+}
+
+.td-dark-padded {
+    background-color: #3B0A45;
+    padding: 20px;
+}
+
+.td-dark {
+    background-color: #3B0A45;
+    padding: 0px;
+}
+
+/* Form Inputs */
+input[type="text"], input[type="number"], input[type="file"], select {
+    /*width: calc(100% - 0px);*/
+    padding: 10px;
+    margin: 0px 0;
+    box-sizing: border-box;
+    border: 1px solid #FFD700; /* Gold border */
+    border-radius: 5px;
+    background-color: #444; /* Dark background for input fields */
+    color: #FFD700; /* Gold text */
+}
+
+input[type="submit"] {
+    background-color: #FFD700; /* Gold background */
+    color: #3B0A45; /* Dark violet text */
+    padding: 10px 20px;
+    border: 2px solid #FFD700; /* Gold border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+}
+
+input[type="checkbox"] {
+    margin-right: 0px;
+    background-color: #444;
+}
+
+/* Buttons */
+button {
+    background-color: #FFD700; /* Gold background */
+    color: #3B0A45; /* Dark violet text */
+    padding: 10px 20px;
+    border: 2px solid #FFD700; /* Gold border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+}
+
+button:hover {
+    background-color: #3B0A45; /* Dark violet background */
+    color: #FFD700; /* Gold text */
+}
+
+/* Input Sizes */
+.small-input {
+    width: 80px;
+}
+
+.medium-input {
+    width: 150px;
+}
+
+.large-input {
+    width: 100%;
+}
+
+.centered {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.align-right {
+    text-align: right;
+    vertical-align: middle;
+}
+
+.align-top {
+    vertical-align: top;
+}
+
+.extra-padding {
+    padding: 15px;
+}
+
+.bold {
+    font-weight: bold;
+}

@@ -1,0 +1,1132 @@
+{
+    "calculation_key": "1db238c8-ecad-43f8-acc1-231f06a2d7a9",
+    "calculation_start_time": 1723735402.318462,
+    "experience_penalty": "100",
+    "gender_penalty": "10",
+    "message": "Shift table changes saved!",
+    "min_distance_between_shifts": "2",
+    "not_enough_shifts": false,
+    "num_assignments_per_person": "2",
+    "opt_balance_gender": "on",
+    "opt_consider_travel": "on",
+    "opt_enforce_shift_dist": "on",
+    "opt_match_partners": "on",
+    "opt_max_shift_dist": "on",
+    "opt_same_time_slots": "on",
+    "partner_bonus": "10",
+    "penalty_for_same_time_slot": "30",
+    "penalty_outside_window": "100",
+    "persons": [
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 16",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "d",
+            "inexperienced_roles": [
+                "Hintergrund"
+            ],
+            "latest_shift": 8,
+            "name": "Divers1",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 20",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 1,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "d",
+            "inexperienced_roles": [
+                "Hintergrund"
+            ],
+            "latest_shift": 8,
+            "name": "Divers2",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "d",
+            "inexperienced_roles": [
+                "Info/Chai"
+            ],
+            "latest_shift": 8,
+            "name": "Divers3",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 10",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 3,
+            "experienced_roles": [],
+            "gender": "d",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Divers4",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 15",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 4,
+            "experienced_roles": [],
+            "gender": "d",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Divers5",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [],
+            "gender": "d",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Divers6",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 19",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 1,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Hintergrund"
+            ],
+            "latest_shift": 8,
+            "name": "FRAU1",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 11",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 4,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Hintergrund"
+            ],
+            "latest_shift": 8,
+            "name": "FRAU2",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Hintergrund"
+            ],
+            "latest_shift": 8,
+            "name": "FRAU3",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 20",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 5,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Hintergrund"
+            ],
+            "latest_shift": 8,
+            "name": "FRAU4",
+            "options": "",
+            "preferred_partners": "MANN3"
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 15",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Hintergrund"
+            ],
+            "latest_shift": 8,
+            "name": "FRAU5",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 12",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info/Chai"
+            ],
+            "latest_shift": 8,
+            "name": "FRAU6",
+            "options": "",
+            "preferred_partners": "MANN6"
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 14",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info/Chai"
+            ],
+            "latest_shift": 8,
+            "name": "FRAU7",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 13",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Frau10",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 19",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 1,
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Frau11",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 20",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 1,
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Frau12",
+            "options": "",
+            "preferred_partners": "Mann12"
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Frau13",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 9",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 3,
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Frau8",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 10",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 3,
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Frau9",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 13",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Hintergrund"
+            ],
+            "latest_shift": 8,
+            "name": "MANN1",
+            "options": "",
+            "preferred_partners": "FRAU1, FRAU2"
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 19",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 1,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Hintergrund"
+            ],
+            "latest_shift": 8,
+            "name": "MANN2",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Hintergrund"
+            ],
+            "latest_shift": 8,
+            "name": "MANN3",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 21",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 1,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Hintergrund",
+                "Info/Chai"
+            ],
+            "latest_shift": 8,
+            "name": "MANN4",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 15",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 4,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Hintergrund",
+                "Info/Chai"
+            ],
+            "latest_shift": 8,
+            "name": "MANN5",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info/Chai"
+            ],
+            "latest_shift": 8,
+            "name": "MANN6",
+            "options": "",
+            "preferred_partners": "FRAU6"
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info/Chai"
+            ],
+            "latest_shift": 8,
+            "name": "MANN7",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Mann10",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 18",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 1,
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Mann11",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Mann12",
+            "options": "",
+            "preferred_partners": "Frau12"
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Mann8",
+            "options": "",
+            "preferred_partners": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "earliest_shift": 0,
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info/Chai",
+                "Ambulanz"
+            ],
+            "latest_shift": 8,
+            "name": "Mann9",
+            "options": "",
+            "preferred_partners": ""
+        }
+    ],
+    "recommended_nums_people": 30,
+    "results": {
+        "people_table": [
+            [
+                "Person",
+                "Thu 16 - 22",
+                "Thu 22 - 04",
+                "Fri 04 - 10",
+                "Fri 10 - 16",
+                "Fri 16 - 22",
+                "Fri 22 - 04",
+                "Sat 04 - 10",
+                "Sat 10 - 16",
+                "Sat 16 - 22"
+            ],
+            [
+                "Divers1",
+                "Ambulanz",
+                "",
+                "",
+                "Hintergrund",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Divers2",
+                "",
+                "",
+                "Hintergrund",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Hintergrund"
+            ],
+            [
+                "Divers3",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "Info/Chai",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Divers4",
+                "",
+                "",
+                "",
+                "Info/Chai",
+                "",
+                "",
+                "Info/Chai",
+                "",
+                ""
+            ],
+            [
+                "Divers5",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "Ambulanz",
+                ""
+            ],
+            [
+                "Divers6",
+                "Info/Chai",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                ""
+            ],
+            [
+                "FRAU1",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "Hintergrund",
+                ""
+            ],
+            [
+                "FRAU2",
+                "",
+                "",
+                "",
+                "",
+                "Hintergrund",
+                "",
+                "",
+                "Ambulanz",
+                ""
+            ],
+            [
+                "FRAU3",
+                "Hintergrund",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Hintergrund",
+                "",
+                ""
+            ],
+            [
+                "FRAU4",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "Ambulanz"
+            ],
+            [
+                "FRAU5",
+                "Ambulanz",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "FRAU6",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "Info/Chai",
+                "",
+                "",
+                ""
+            ],
+            [
+                "FRAU7",
+                "",
+                "Info/Chai",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                ""
+            ],
+            [
+                "Frau10",
+                "",
+                "Info/Chai",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                ""
+            ],
+            [
+                "Frau11",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Frau12",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz"
+            ],
+            [
+                "Frau13",
+                "",
+                "",
+                "Info/Chai",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Frau8",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "Info/Chai",
+                "",
+                ""
+            ],
+            [
+                "Frau9",
+                "",
+                "",
+                "",
+                "Info/Chai",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz"
+            ],
+            [
+                "MANN1",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "Ambulanz",
+                ""
+            ],
+            [
+                "MANN2",
+                "",
+                "Hintergrund",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                ""
+            ],
+            [
+                "MANN3",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Hintergrund",
+                "",
+                "",
+                "Ambulanz"
+            ],
+            [
+                "MANN4",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "Info/Chai"
+            ],
+            [
+                "MANN5",
+                "",
+                "",
+                "",
+                "",
+                "Info/Chai",
+                "",
+                "",
+                "Info/Chai",
+                ""
+            ],
+            [
+                "MANN6",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                ""
+            ],
+            [
+                "MANN7",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info/Chai",
+                ""
+            ],
+            [
+                "Mann10",
+                "Info/Chai",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Mann11",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                ""
+            ],
+            [
+                "Mann12",
+                "",
+                "",
+                "Info/Chai",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info/Chai"
+            ],
+            [
+                "Mann8",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                ""
+            ],
+            [
+                "Mann9",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "Info/Chai",
+                "",
+                "",
+                ""
+            ]
+        ],
+        "shift_table": [
+            [
+                "Role",
+                "Thu 16 - 22",
+                "Thu 22 - 04",
+                "Fri 04 - 10",
+                "Fri 10 - 16",
+                "Fri 16 - 22",
+                "Fri 22 - 04",
+                "Sat 04 - 10",
+                "Sat 10 - 16",
+                "Sat 16 - 22"
+            ],
+            [
+                "Hintergrund",
+                "FRAU3",
+                "MANN2",
+                "Divers2",
+                "Divers1",
+                "FRAU2",
+                "MANN3",
+                "FRAU3",
+                "FRAU1",
+                "Divers2"
+            ],
+            [
+                "Info/Chai",
+                "Divers6, Mann10",
+                "FRAU7, Frau10",
+                "Frau13, Mann12",
+                "Divers4, Frau9",
+                "Divers3, MANN5",
+                "FRAU6, Mann9",
+                "Divers4, Frau8",
+                "MANN5, MANN7",
+                "MANN4, Mann12"
+            ],
+            [
+                "Ambulanz",
+                "Divers1, FRAU5, Mann8",
+                "Divers3, Frau11, MANN7, Mann11",
+                "FRAU6, Frau12, MANN6, Mann9",
+                "FRAU5, Frau8, MANN4, Mann10",
+                "Divers5, FRAU1, Frau11, MANN1",
+                "Divers6, FRAU4, Frau13, MANN6",
+                "FRAU7, MANN2, Mann11, Mann8",
+                "Divers5, FRAU2, Frau10, MANN1",
+                "FRAU4, Frau12, Frau9, MANN3"
+            ]
+        ],
+        "stats": {
+            "experience_balance_score": 1,
+            "gender_parity_score": 0,
+            "max_shift_distance_score": 50.806451612903224,
+            "partner_matching_score": 0,
+            "score": 138.0,
+            "time_slot_repetition_score": 0,
+            "time_window_violation_score": 0
+        },
+        "status": "OPTIMAL"
+    },
+    "role_columns": [
+        "Hintergrund",
+        "Info/Chai",
+        "Ambulanz"
+    ],
+    "role_counts": {
+        "Ambulanz": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+        ],
+        "Hintergrund": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        "Info/Chai": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+        ]
+    },
+    "role_experience_required": {
+        "Ambulanz": true,
+        "Hintergrund": false,
+        "Info/Chai": false
+    },
+    "roles": [
+        "Hintergrund",
+        "Info/Chai",
+        "Ambulanz"
+    ],
+    "shift_datetimes": [
+        "2024-01-04T16:00:00+00:00",
+        "2024-01-04T22:00:00+00:00",
+        "2024-01-05T04:00:00+00:00",
+        "2024-01-05T10:00:00+00:00",
+        "2024-01-05T16:00:00+00:00",
+        "2024-01-05T22:00:00+00:00",
+        "2024-01-06T04:00:00+00:00",
+        "2024-01-06T10:00:00+00:00",
+        "2024-01-06T16:00:00+00:00"
+    ],
+    "shift_message": "",
+    "shift_names": [
+        "Thu 16 - 22",
+        "Thu 22 - 04",
+        "Fri 04 - 10",
+        "Fri 10 - 16",
+        "Fri 16 - 22",
+        "Fri 22 - 04",
+        "Sat 04 - 10",
+        "Sat 10 - 16",
+        "Sat 16 - 22"
+    ],
+    "shift_params": {
+        "first_shift_start": "Thu 16",
+        "num_shifts": 9,
+        "roles_min": "Hintergrund, Info/Chai(2), Ambulanz(3)!",
+        "shift_duration_hours": "6"
+    },
+    "shift_table": [
+        [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+        ],
+        [
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+        ]
+    ],
+    "solver_timeout_sec": "30",
+    "total_assignments_needed": 60
+}

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eclipse Shift Planner</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Psycare Shift Planner</h1>
+
+    <!-- Save and Restore Buttons -->
+    <form action="/save_state" method="POST" enctype="multipart/form-data" style="display:inline;">
+        <button type="submit">Save progress</button>
+    </form>&nbsp;&nbsp;
+    <form action="/restore_state" method="POST" enctype="multipart/form-data" style="display:inline;">
+        <input type="file" id="state_file" name="state_file" accept=".json">
+        <button type="submit">Restore data</button>
+    </form>&nbsp;&nbsp;
+    <form action="/reset_state" method="POST" enctype="multipart/form-data" style="display:inline;">
+        <button type="submit">Reset Everything</button>
+    </form>&nbsp;&nbsp;
+    <form action="/show_example" method="POST" enctype="multipart/form-data" style="display:inline;">
+        <button type="submit">Example</button>
+    </form>
+    {% if app_data.message %}<label class="label-notification">{{ app_data.message }}</label>{% endif %}
+    <br><br>
+
+    <!-- Shift Definition Section -->
+    <button type="button" class="collapsible">Shift Definition</button>
+    <div class="content">
+        <table class="table-invisible">
+            <tr>
+                <td width="10%" class="td-dark align-top">
+                    <form action="/submit_shift_table" method="POST" enctype="multipart/form-data">
+                    <table class="table-invisible">
+                        <tr>
+                            <td colspan="2"><b>Shift Parameters</b></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="first_shift_start" style="white-space: nowrap">First Shift Start:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="first_shift_start" name="first_shift_start" value="{{ app_data.shift_params.get('first_shift_start', 'Thu 16') }}" class="small-input" required> e.g. <i>Thu 16</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="shift_duration_hours" style="white-space: nowrap">Shift Duration:</label>
+                            </td>
+                            <td>
+                                <input type="number" id="shift_duration_hours" name="shift_duration_hours" value="{{ app_data.shift_params.get('shift_duration_hours', '6') }}" class="small-input" min="1" required> hours
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="num_shifts">Number of shifts:</label>
+                            </td>
+                            <td>
+                                <input type="number" id="num_shifts" name="num_shifts" value="{{ app_data.shift_params.get('num_shifts', '10') }}" class="small-input" min="1" required> shifts
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="roles_min">Roles:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="roles_min" name="roles_min" value="{{ app_data.shift_params.get('roles_min', 'Hintergrund, Info/Chai(2), Ambulanz(3)!') }}" class="large-input" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Create Shift Table"></td>
+                        </tr>
+                    </table>
+                    </form>
+                    {% if app_data.shift_message %}
+                    <label>{{ app_data.shift_message }}</label><br>
+                    {% endif %}
+                </td>
+                <td class="td-dark-padded">
+                    {% if app_data.shift_table %}
+                    <label class="label-primary">This is the overview over the shifts throughout the festival. You can set the <b>minimum</b> number of people for each role and shift.</label><br><br>
+                    <form action="/submit_shift_changes" method="POST">
+                        <table border="1">
+                            <tr>
+                                <th>Roles</th>
+                                <th>Experience</th>
+                                {% for shift in app_data.shift_names %}
+                                <th>{{ shift }}</th>
+                                {% endfor %}
+                            </tr>
+                            {% for role_index in range(app_data.roles|length) %}
+                            <tr>
+                                <td class="centered">{{ app_data.roles[role_index] }}</td>
+                                <td class="centered">
+                                    <label>balanced 
+                                        <input type="checkbox" name="experience_balance_{{ role_index }}" {% if app_data.role_experience_required.get(app_data.roles[role_index], False) %}checked{% endif %}>
+                                    </label>
+                                </td>
+                                {% for shift_index in range(app_data.shift_params.num_shifts) %}
+                                <td class="centered"><input type="number" name="shift_{{ role_index }}_{{ shift_index }}" value="{{ app_data.shift_table[role_index][shift_index] }}" min="0" class="small-input"></td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        <label class="label-primary">For roles where experience is checked as <i>balanced</i>, the planner will try to balance experienced and less experienced people for each shift.</label>
+                        <br><br>
+                        <button type="submit">Save Changes</button>
+                        <label class="label-primary big">&nbsp;&nbsp;{{ app_data.get('total_assignments_needed', 0) }} shift spots</label>
+                        <label class="label-primary">/ at least {{ app_data.get('recommended_nums_people', 1) }} people with {{ (app_data.get('total_assignments_needed', 0) / app_data.get('recommended_nums_people', 1) ) | ceil }} shifts recommended</label>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    {% if app_data.shift_table %}
+    <button type="button" id="participants" class="collapsible">Participants</button>
+    <div class="content">
+        
+        <table class="table-invisible">
+            <tr>
+                <td>
+                    <table class="table-invisible table-slim">
+                        <tr>
+                            <td>
+                                <form action="/create_person_table" method="POST" enctype="multipart/form-data">
+                                    <input type="submit" value="Create New Table">
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/submit_person_table" method="POST" enctype="multipart/form-data">
+                                    <b>or upload CSV file:</b>
+                                    <input type="file" id="csv_file" name="csv_file" accept=".csv" required>
+                                    <input type="submit" value="Create Table from File">
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/download_sample_file" method="POST" enctype="multipart/form-data">
+                                    <b>or </b>
+                                    <input type="submit" value="Download sample file">
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-dark">
+                    {% if app_data.persons %}
+                    <a name="edit_participants"></a>
+                    <h2>Edit Participants</h2>
+                    <form id="participant-form" action="/submit_person_change" method="POST">
+                        <table border="1" id="participant-table">
+                            <tr>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                {% for role in app_data.role_columns %}
+                                <th>{{ role }}</th>
+                                {% endfor %}
+                                <th>Arrival Time</th>
+                                <th>Departure Time</th>
+                                <th>Preferred Partners</th>
+                                <th>Options</th>
+                                <th>Actions</th>
+                            </tr>
+                            {% for i in range(app_data.persons|length) %}
+                            <tr id="row_{{ i }}">
+                                <td class="centered"><input type="text" name="name_{{ i }}" value="{{ app_data.persons[i]['name'] }}" class="large-input"></td>
+                                <td class="centered">
+                                    <select name="gender_{{ i }}">
+                                        <option value="m" {% if app_data.persons[i]['gender'] == 'm' %}selected{% endif %}>m</option>
+                                        <option value="w" {% if app_data.persons[i]['gender'] == 'w' %}selected{% endif %}>w</option>
+                                        <option value="d" {% if app_data.persons[i]['gender'] == 'd' %}selected{% endif %}>d</option>
+                                    </select>
+                                </td>
+                                {% for role in app_data.role_columns %}
+                                <td class="centered">
+                                    <label>Available
+                                        <input type="checkbox" name="roles_{{ i }}_{{ role }}_available"
+                                            {% if role in app_data.persons[i]['inexperienced_roles'] or role in app_data.persons[i]['experienced_roles'] %}checked{% endif %}
+                                            onclick="toggleExperienceCheckbox({{ i }}, '{{ role }}')">
+                                    </label>
+                                    
+                                    {% if app_data.role_experience_required.get(role, False) %}
+                                    <label>Experienced 
+                                        <input type="checkbox" id="roles_{{ i }}_{{ role }}_experienced" name="roles_{{ i }}_{{ role }}_experienced" 
+                                            {% if role in app_data.persons[i]['experienced_roles'] %}checked{% endif %}
+                                            {% if role not in app_data.persons[i]['inexperienced_roles'] %}disabled{% endif %}>
+                                    </label>
+                                    {% endif %}
+                                </td>
+                                {% endfor %}
+                                <td class="centered">
+                                    <input type="text" name="arrival_time_{{ i }}" value="{{ app_data.persons[i]['arrival_time'] }}" class="small-input">
+                                    <label>hard
+                                        <input type="checkbox" name="arrival_hard_{{ i }}" {% if app_data.persons[i]['arrival_hard'] %}checked{% endif %}>
+                                    </label>
+                                </td>
+                                <td class="centered">
+                                    <input type="text" name="departure_time_{{ i }}" value="{{ app_data.persons[i]['departure_time'] }}"  class="small-input">
+                                    <label>hard
+                                        <input type="checkbox" name="departure_hard_{{ i }}" {% if app_data.persons[i]['departure_hard'] %}checked{% endif %}>
+                                    </label>
+                                </td>
+                                <td class="centered"><input type="text" name="preferred_partners_{{ i }}" value="{{ app_data.persons[i]['preferred_partners'] }}" class="large-input"></td>
+                                <td class="centered"><input type="text" name="options_{{ i }}" value="{{ app_data.persons[i]['options'] }}" class="large-input"></td>
+                                <td class="centered">
+                                    <button type="button" class="delete-btn" onclick="deletePerson({{ i }})">Delete</button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        <table class="table-invisible">
+                            <tr>
+                                <td class="td-dark"><input type="submit" value="Save Participant Changes"><label class="label-primary big">&nbsp;&nbsp;{{ app_data.persons | length }} persons</label></td>
+                                <td class="td-dark align-right"><button type="button" onclick="addPerson()">Add Participant</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% endif %}
+    
+    {% if app_data.persons %}
+    <!-- Shift Plan -->
+    <button type="button" id="planner" class="collapsible">Shift Planner</button>
+    <div class="content">
+        <form action="/submit_generate_plan" method="POST" enctype="multipart/form-data">
+        <table class="table-invisible table-slim">
+            <tr>
+                <td>
+                    <table class="table-invisible">
+                        <tr>
+                            <td colspan="2"><b>Basic Parameters</b></td>
+                        </tr>
+                        <tr>
+                            <td><label for="num_assignments_per_person">Shifts per person:</label></td>
+                            <td><input type="number" id="num_assignments_per_person" name="num_assignments_per_person" value="{{ app_data.get('num_assignments_per_person', '2') }}" class="small-input" min="1" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="opt_balance_gender">Try balance genders per shift:</label></td>
+                            <td><input type="checkbox" name="opt_balance_gender" {% if app_data.opt_balance_gender %}checked{% endif %}></td>
+                        </tr>
+                        <tr>
+                            <td><label for="opt_match_partners">Try match preferred partners:</label></td>
+                            <td><input type="checkbox" name="opt_match_partners" {% if app_data.opt_match_partners %}checked{% endif %}></td>
+                        </tr>
+                        <tr>
+                            <td><label for="opt_same_time_slots">Try avoid same time slots per person:</label></td>
+                            <td><input type="checkbox" name="opt_same_time_slots" {% if app_data.opt_same_time_slots %}checked{% endif %}></td>
+                        </tr>
+                        <tr>
+                            <td><label for="opt_consider_travel">Consider arrival/departure time per person:</label></td>
+                            <td><input type="checkbox" name="opt_consider_travel" {% if app_data.opt_consider_travel %}checked{% endif %}></td>
+                        </tr>
+                        <tr>
+                            <td><label for="opt_max_shift_dist">Try maximize time between shifts per person:</label></td>
+                            <td><input type="checkbox" name="opt_max_shift_dist" {% if app_data.opt_max_shift_dist %}checked{% endif %}></td>
+                        </tr>
+                        <tr>
+                            <td><label for="opt_enforce_shift_dist">Enforce pause between shifts per person:</label></td>
+                            <td><input type="checkbox" name="opt_enforce_shift_dist" {% if app_data.opt_enforce_shift_dist %}checked{% endif %}></td>
+                        </tr>
+                        <tr>
+                            <td><label for="min_distance_between_shifts">Min. shifts off between shifts per person:</label></td>
+                            <td><input type="number" id="min_distance_between_shifts" name="min_distance_between_shifts" value="{{ app_data.get('min_distance_between_shifts', '2') }}" class="small-input" min="0" required></td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="25"></td>
+                <td>
+                    <table class="table-invisible">
+                        <tr>
+                            <td colspan="2"><b>Advanced Parameters</b></td>
+                        </tr>
+                        <tr>
+                            <td><label for="partner_bonus">Partner Bonus Parameter:</label></td>
+                            <td><input type="number" id="partner_bonus" name="partner_bonus" value="{{ app_data.get('partner_bonus', '10') }}" min="0" class="small-input" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="experience_penalty">Experience Penalty Parameter:</label></td>
+                            <td><input type="number" id="experience_penalty" name="experience_penalty" value="{{ app_data.get('experience_penalty', '100') }}" min="0" class="small-input" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="penalty_outside_window">Early/Late Shift Penalty Parameter:</label></td>
+                            <td><input type="number" id="penalty_outside_window" name="penalty_outside_window" value="{{ app_data.get('penalty_outside_window', '1000') }}" min="0" class="small-input" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="gender_penalty">Inequal Gender Penalty Parameter:</label></td>
+                            <td><input type="number" id="gender_penalty" name="gender_penalty" value="{{ app_data.get('gender_penalty', '10') }}" min="0" class="small-input" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="penalty_for_same_time_slot">Same Time Slot Penalty Parameter:</label></td>
+                            <td><input type="number" id="penalty_for_same_time_slot" name="penalty_for_same_time_slot" value="{{ app_data.get('penalty_for_same_time_slot', '30') }}" min="0" class="small-input" required></td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="td-dark-padded" rowspan="2">
+                    {% if app_data.not_enough_shifts %}
+                    <label class="label-primary big line-break">{{ app_data.persons | length }} persons * {{ app_data.get('num_assignments_per_person', '2') }} shifts = {{ (app_data.persons | length) * (app_data.get('num_assignments_per_person', 2) | int) }} available shift spots<br><br>{{ app_data.get('total_assignments_needed', '0') }} shift spots are required<br><br>
+                        What you can do:
+                        <ul>
+                            <li>add more people to the team</li>
+                            <li>reduce size of some shifts</li>
+                            <li>increase shifts per person</li>
+                            <li>allow individual extra shifts</li>
+                          </ul> 
+                        </label>
+                    {% endif %}
+                    {% if app_data.results and app_data.results.get('status', "") == "NOT FEASIBLE" %}
+                    <label class="label-primary big line-break"><u>No solution feasible!</u> Possible reasons:
+                          <ul>
+                            <li>too few people available for some roles</li>
+                            <li>too many time constraints on shifts</li>
+                            <li>some parameters too far from default</li>
+                          </ul> 
+                          Try to:
+                          <ul>
+                            <li>allow some more roles for people</li>
+                            <li>remove some hard time constraints</li>
+                            <li>use default parameters</li>
+                          </ul>
+                        </label>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <table class="table-invisible">
+                        <tr><td class="align-right">
+                            <label for="solver_timeout_sec"><b>Stop optimizing after (sec):&nbsp;</b></label>
+                            <input type="number" id="solver_timeout_sec" name="solver_timeout_sec" value="{{ app_data.get('solver_timeout_sec', '30') }}" class="small-input" min="0" required>
+                            <input type="submit" value="Generate Shift Schedule!">
+                        </td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    {% endif %}
+
+    {% if app_data.results and app_data.results.get('status', "") != "NOT FEASIBLE" %}
+    <table class="table-invisible">
+        <tr>
+            <td class="td-dark-padded">
+                <h2 id="results" >Generated Shift Plan</h2>
+                <h3>Statistics</h3>
+                <table class="table-slim" border="1">
+                    <tr>
+                        <th>Criteria</th>
+                        <th>Best score</th>
+                        <th>Good score</th>
+                        <th>Actual score</th>
+                    </tr>
+                    <!--<tr>
+                        <td class="td-left-head">Solver Score</td>
+                        <td>highest</td>
+                        <td>
+                            {% if app_data.results.get('stats', {}).get('status', "") == "OPTIMAL" %}
+                            optimal
+                            {% else %}
+                            {{ app_data.results.get('stats', {}).get('score', 0.0) }}
+                            {% endif %}
+                        </td>
+                    </tr>-->
+                    <tr>
+                        <td class="td-left-head">Distance Score</td>
+                        <td>100</td>
+                        <td>60</td>
+                        <td class="{% if app_data.opt_max_shift_dist %}bold{% endif %}">{{ app_data.results.get('stats', {}).get('max_shift_distance_score', 0.0) | round(2) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-left-head">Gender Imbalance</td>
+                        <td>0</td>
+                        <td>{{ (app_data.shift_params.get('num_shifts', '0') | int / 4) | ceil | int }}</td>
+                        <td class="{% if app_data.opt_balance_gender %}bold{% endif %}">{{ app_data.results.get('stats', {}).get('gender_parity_score', 0.0) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-left-head">Time Slot Repetitions</td>
+                        <td>0</td>
+                        <td>{{ (app_data.shift_params.get('num_shifts', '0') | int / 6) | ceil | int }}</td>
+                        <td class="{% if app_data.opt_same_time_slots %}bold{% endif %}">{{ app_data.results.get('stats', {}).get('time_slot_repetition_score', 0.0) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-left-head">Time Window Violations</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td class="{% if app_data.opt_consider_travel %}bold{% endif %}">{{ app_data.results.get('stats', {}).get('time_window_violation_score', 0.0) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-left-head">Experience Imbalances</td>
+                        <td>0</td>
+                        <td>{{ (app_data.shift_params.get('num_shifts', '0') | int / 2) | ceil | int }}</td>
+                        <td class="{% if app_data.role_experience_required.values() | select('equalto', True) | list | length > 0 %}bold{% endif %}">{{ app_data.results.get('stats', {}).get('experience_balance_score', 0.0) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="td-left-head">Missed Partners</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td class="{% if app_data.opt_match_partners %}bold{% endif %}">{{ app_data.results.get('stats', {}).get('partner_matching_score', 0.0) }}</td>
+                    </tr>
+                </table>
+                <h3>Overview</h3>
+                <table border="1">
+                    {% for row in app_data.results.get('shift_table', []) %}
+                    <tr>
+                        {% if loop.index == 1 %}
+                        {% for column in row %}
+                        <th><label>{{ column }}</label></th>
+                        {% endfor %}
+                        {% else %}
+                        {% for column in row %}
+                        {% if loop.index == 1 %}
+                        <td class="td-left-head centered extra-padding"><label>{{ column }}</label></td>
+                        {% else %}
+                        <td class="centered extra-padding"><label>{{ column | replace(', ', '<br>') | safe }}</label></td>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                <h3>Person view</h3>
+                <table border="1">
+                    {% for row in app_data.results.get('people_table', []) %}
+                    <tr>
+                        {% if loop.index == 1 %}
+                        {% for column in row %}
+                        <th><label>{{ column }}</label></th>
+                        {% endfor %}
+                        {% else %}
+                        {% for column in row %}
+                        {% if loop.index == 1 %}
+                        <td class="td-left-head centered extra-padding"><label>{{ column }}</label></td>
+                        {% else %}
+                        <td class="centered extra-padding"><label>{{ column | replace(', ', '<br>') | safe }}</label></td>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+    </table>
+    {% endif %}
+
+    <script>
+        function toggleExperienceCheckbox(personIndex, role) {
+            var availableCheckbox = document.getElementsByName(`roles_${personIndex}_${role}_available`)[0];
+            var experiencedCheckbox = document.getElementsByName(`roles_${personIndex}_${role}_experienced`)[0];
+            
+            if (availableCheckbox && experiencedCheckbox) {
+                if (availableCheckbox.checked) {
+                    experiencedCheckbox.disabled = false;
+                } else {
+                    experiencedCheckbox.checked = false;
+                    experiencedCheckbox.disabled = true;
+                }
+            }
+        }
+
+        function deletePerson(index) {
+            fetch('/delete_person', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ index: index })
+            }).then(response => response.json())
+              .then(data => {
+                  if (data.status === 'success') {
+                      const row = document.getElementById(`row_${index}`);
+                      if (row) {
+                          row.remove();
+                      }
+                  }
+              });
+        }
+
+        function addPerson() {
+            fetch('/add_person', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }).then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    const newPerson = data.person;
+                    const table = document.getElementById('participant-table');
+                    const newRow = document.createElement('tr');
+                    const lastIndex = table.rows.length - 1;
+                    newRow.id = `row_${lastIndex}`;
+                    newRow.innerHTML = `
+                        <td class="centered"><input type="text" name="name_${lastIndex}" value="${newPerson.name}" class="large-input"></td>
+                        <td class="centered">
+                            <select name="gender_${lastIndex}">
+                                <option value="m" ${newPerson.gender === 'm' ? 'selected' : ''}>m</option>
+                                <option value="w" ${newPerson.gender === 'w' ? 'selected' : ''}>w</option>
+                                <option value="d" ${newPerson.gender === 'd' ? 'selected' : ''}>d</option>
+                            </select>
+                        </td>
+                    `;
+
+                    // Add role columns dynamically
+                    const roleColumns = JSON.parse(document.getElementById('role-columns-data').textContent);
+                    const roleExperienceRequired = data.role_experience_required || {};
+                    
+                    roleColumns.forEach(role => {
+                        newRow.innerHTML += `
+                            <td class="centered">
+                                <label>Available
+                                    <input type="checkbox" name="roles_${lastIndex}_${role}_available" checked>
+                                </label>
+                                ${roleExperienceRequired[role] ? `
+                                    <label>Experienced
+                                        <input type="checkbox" id="roles_${lastIndex}_${role}_experienced" name="roles_${lastIndex}_${role}_experienced" ${newPerson.experienced_roles.includes(role) ? 'checked' : ''}>
+                                    </label>
+                                ` : ''}
+                            </td>
+                        `;
+                    });
+
+                    // Continue with other fields
+                    newRow.innerHTML += `
+                        <td class="centered"><input type="text" name="arrival_time_${lastIndex}" value="${newPerson.arrival_time}" class="small-input">
+                            <label>hard
+                                <input type="checkbox" name="arrival_hard_${lastIndex}" ${newPerson.arrival_hard ? 'checked' : ''}>
+                            </label>
+                            </td>
+                        <td class="centered"><input type="text" name="departure_time_${lastIndex}" value="${newPerson.departure_time}" class="small-input">
+                            <label>hard
+                                <input type="checkbox" name="departure_hard_${lastIndex}" ${newPerson.departure_hard ? 'checked' : ''}>
+                            </label>
+                        </td>
+                        <td class="centered"><input type="text" name="preferred_partners_${lastIndex}" value="${newPerson.preferred_partners}" class="large-input"></td>
+                        <td class="centered"><input type="text" name="options_${lastIndex}" value="${newPerson.options}" class="large-input"></td>
+                        <td class="centered">
+                            <button type="button" class="delete-btn" onclick="deletePerson(${lastIndex})">Delete</button>
+                        </td>
+                    `;
+                    table.appendChild(newRow);
+                }
+            });
+        }
+
+
+
+        // Initialize checkboxes on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            var persons = JSON.parse(document.getElementById('persons-data').textContent);
+            var roleColumns = JSON.parse(document.getElementById('role-columns-data').textContent);
+            
+            persons.forEach(function(person, i) {
+                roleColumns.forEach(function(role) {
+                    toggleExperienceCheckbox(i, role);
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var section = "{{ scroll_to }}";
+            if (section) {
+                var element = document.getElementById(section);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+    <script type="application/json" id="persons-data">{{ app_data.persons | tojson }}</script>
+    <script type="application/json" id="role-columns-data">{{ app_data.role_columns | tojson }}</script>    
+</body>
+</html>

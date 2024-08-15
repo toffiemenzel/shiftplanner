@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation Started</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        window.onload = function() {
+            // Record the start time when the page loads
+            const calculationStartTime = new Date().getTime();
+
+            // Function to update the counter
+            function updateCounter() {
+                const currentTime = new Date().getTime();
+                const elapsedTime = (currentTime - calculationStartTime) / 1000; // Convert to seconds
+                document.getElementById("counter").innerText = elapsedTime.toFixed(1);
+                setTimeout(updateCounter, 100); // Update every 0.1 seconds
+            }
+
+            // Function to periodically check if the calculation is finished
+            function checkCalculationStatus() {
+                fetch("/check_calculation")
+                    .then(response => {
+                        if (response.redirected) {
+                            window.location.href = response.url; // Redirect if the calculation is finished
+                        } else {
+                            setTimeout(checkCalculationStatus, 1000); // Check again in 1 seconds
+                        }
+                    })
+                    .catch(error => console.error('Error checking calculation status:', error));
+            }
+
+            // Start the counter and status check
+            updateCounter();
+            checkCalculationStatus();
+        };
+    </script>
+</head>
+<body>
+    <h2>Calculation in Progress...&nbsp;&nbsp;<span id="counter">0.0</span> sec</h2>
+    <p>Please wait while the shift schedule is being generated. This may take a few moments.</p>
+</body>
+</html>
