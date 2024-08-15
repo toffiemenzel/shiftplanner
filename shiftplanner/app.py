@@ -26,13 +26,13 @@ def setDefaults(app_data):
     app_data.setdefault("shift_names", [])
     app_data.setdefault("role_experience_required", {})
     app_data.setdefault("num_assignments_per_person", 2)
-    app_data.setdefault("opt_consider_travel", False)
+    app_data.setdefault("opt_consider_travel", True)
     app_data.setdefault("opt_balance_gender", True)
-    app_data.setdefault("opt_same_time_slots", False)
+    app_data.setdefault("opt_same_time_slots", True)
     app_data.setdefault("opt_max_shift_dist", True)
     app_data.setdefault("opt_enforce_shift_dist", True)
     app_data.setdefault("min_distance_between_shifts", 2)
-    app_data.setdefault("opt_match_partners", False)
+    app_data.setdefault("opt_match_partners", True)
     app_data.setdefault("partner_bonus", 10)
     app_data.setdefault("experience_penalty", 100)
     app_data.setdefault("penalty_outside_window", 1000)
@@ -598,6 +598,11 @@ def update_collapse_state():
         session['app_data'] = app_data
         return jsonify({"status": "success"}), 200
     return jsonify({"status": "error"}), 400
+
+
+@app.route('/show_impressum')
+def show_impressum():
+    return render_template('impressum.html')
 
 
 if __name__ == '__main__':

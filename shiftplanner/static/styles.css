@@ -14,7 +14,8 @@ h1, h2, h3 {
 }
 
 a {
-    color: #7777FF; /* Gold text for headers */
+    color: #FFD700; /* Gold text for headers */
+    text-decoration: none;
 }
 
 label {

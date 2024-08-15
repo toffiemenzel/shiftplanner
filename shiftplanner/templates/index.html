@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Eclipse Shift Planner</title>
+    <title>Psycare Shift Planner</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Psycare Shift Planner</h1>
-
-    <!-- Save and Restore Buttons -->
-    <form action="/save_state" method="POST" enctype="multipart/form-data" style="display:inline;">
-        <button type="submit">Save progress</button>
-    </form>&nbsp;&nbsp;
-    <form action="/restore_state" method="POST" enctype="multipart/form-data" style="display:inline;">
-        <input type="file" id="state_file" name="state_file" accept=".json">
-        <button type="submit">Restore data</button>
-    </form>&nbsp;&nbsp;
-    <form action="/reset_state" method="POST" enctype="multipart/form-data" style="display:inline;">
-        <button type="submit">Reset Everything</button>
-    </form>&nbsp;&nbsp;
-    <form action="/show_example" method="POST" enctype="multipart/form-data" style="display:inline;">
-        <button type="submit">Example</button>
-    </form>
-    {% if app_data.message %}<label class="label-notification">{{ app_data.message }}</label>{% endif %}
-    <br><br>
+    <a href="{{ url_for('home') }}"><h1>Psycare Shift Planner</h1></a>
+    <table class="table-invisible">
+        <tr>
+            <td class="td-dark">
+                <form action="/save_state" method="POST" enctype="multipart/form-data" style="display:inline;">
+                    <button type="submit">Save progress</button>
+                </form>&nbsp;&nbsp;
+                <form action="/restore_state" method="POST" enctype="multipart/form-data" style="display:inline;">
+                    <input type="file" id="state_file" name="state_file" accept=".json">
+                    <button type="submit">Restore data</button>
+                </form>&nbsp;&nbsp;
+                <form action="/reset_state" method="POST" enctype="multipart/form-data" style="display:inline;">
+                    <button type="submit">Reset Everything</button>
+                </form>&nbsp;&nbsp;
+                <form action="/show_example" method="POST" enctype="multipart/form-data" style="display:inline;">
+                    <button type="submit">Example</button>
+                </form>
+                {% if app_data.message %}<label class="label-notification">{{ app_data.message }}</label>{% endif %}
+            </td>
+            <td class="td-dark align-right">
+                <label class="label-primary"><a href="{{ url_for('show_impressum') }}">Impressum</a>&nbsp;&nbsp;</label>
+            </td>
+        </tr>
+    </table><br>
 
     <!-- Shift Definition Section -->
     <button type="button" class="collapsible">Shift Definition</button>
