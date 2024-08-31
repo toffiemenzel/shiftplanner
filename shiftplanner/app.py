@@ -52,7 +52,21 @@ def get_unique_filename(filename):
 
 
 def parse_csv(file_path):
-    df = pd.read_csv(file_path)
+    try:
+        # Try reading with comma delimiter first
+        df = pd.read_csv(file_path, delimiter=',')
+        df = df.sort_values(by='name')
+    except (KeyError, pd.errors.ParserError) as e:
+        try:
+            # If comma fails, try with semicolon delimiter
+            df = pd.read_csv(file_path, delimiter=';')
+            df = df.sort_values(by='name')
+        except (KeyError, pd.errors.ParserError) as e:
+            # If both attempts fail, raise a custom error
+            raise e
+    
+    # Remove any leading/trailing whitespace from column names
+    df.columns = df.columns.str.strip()
     return df
 
 
@@ -110,8 +124,8 @@ def home():
     return render_template('index.html', app_data=app_data)
 
 
-@app.route('/submit_shift_table', methods=['POST'])
-def submit_shift_table():
+@app.route('/create_shift_table', methods=['POST'])
+def create_shift_table():
     shift_params = {
         'shift_duration_hours': request.form.get('shift_duration_hours', ''),
         'first_shift_start': request.form.get('first_shift_start', ''),
@@ -174,9 +188,9 @@ def submit_shift_table():
     
     return render_template('index.html', app_data=app_data)
 
-
-@app.route('/submit_shift_changes', methods=['POST'])
-def submit_shift_changes():
+'''
+@app.route('/change_shift_table', methods=['POST'])
+def change_shift_table():
     app_data = session.get('app_data', {})
 
     # Update the shift table based on form submission
@@ -208,7 +222,45 @@ def submit_shift_changes():
     session['app_data'] = app_data
     
     return render_template('index.html', app_data=app_data)
+'''
 
+@app.route('/ajax_change_shift_table', methods=['POST'])
+def ajax_change_shift_table():
+    app_data = session.get('app_data', {})
+
+    # Update the shift table based on form submission
+    shift_table = []
+    role_experience_required = {}
+
+    for role_index in range(len(app_data.get('roles', []))):
+        # Check if experience balancing is required
+        role_name = app_data['roles'][role_index]
+        role_experience_required[role_name] = request.form.get(f'experience_balance_{role_index}') is not None
+
+        # Update the shift table
+        shift_table.append([
+            int(request.form.get(f'shift_{role_index}_{shift_index}', 0))
+            for shift_index in range(app_data.get('shift_params', {}).get('num_shifts', 0))
+        ])
+    
+    total_assignments_needed = sum(sum(role) for role in shift_table)
+    recommended_nums_people = math.ceil(total_assignments_needed/int(12/int(app_data.get('shift_params', {}).get('shift_duration_hours', 0))))
+
+    # Update the session data
+    app_data.update({
+        'shift_table': shift_table,
+        'total_assignments_needed': total_assignments_needed,
+        'recommended_nums_people': recommended_nums_people,
+        'role_experience_required': role_experience_required,
+        'message': "Shift table changes saved!"
+    })
+    session['app_data'] = app_data
+
+    # Return a simple response to acknowledge the AJAX request
+    return jsonify({
+        'total_assignments_needed': total_assignments_needed,
+        'recommended_nums_people': recommended_nums_people
+    }), 200
 
 @app.route('/create_person_table', methods=['POST'])
 def create_person_table():
@@ -246,8 +298,8 @@ def create_person_table():
     return render_template('index.html', app_data=app_data, scroll_to='participants')
 
 
-@app.route('/submit_person_table', methods=['POST'])
-def submit_person_table():
+@app.route('/load_person_table', methods=['POST'])
+def load_person_table():
     csv_file = request.files.get('csv_file')
     persons = []
 
@@ -263,42 +315,63 @@ def submit_person_table():
         csv_file.save(file_path)
         session['uploaded_file'] = file_path
         
-        # Parse the CSV file and update the data
-        df = parse_csv(file_path)
-        df = df.fillna('')
-        df = df.sort_values(by='name')
-        
-        for _, row in df.iterrows():
-            experienced_roles, inexperienced_roles = process_roles(row['roles'])
-            arrival_time, arrival_hard = process_time_field(row['arrival_time'])
-            departure_time, departure_hard = process_time_field(row['departure_time'])
-
-            # Add gender field, defaulting to 'd' if not provided
-            gender = row['gender'].strip().lower() if row['gender'].strip().lower() in ['m', 'w', 'd'] else 'd'
+        try:
+            # Parse the CSV file and update the data
+            df = parse_csv(file_path)
+            df = df.fillna('')
+            df = df.sort_values(by='name')
             
-            persons.append({
-                'name': row['name'],
-                'gender': gender,
-                'experienced_roles': experienced_roles,
-                'inexperienced_roles': inexperienced_roles,
-                'arrival_time': arrival_time,
-                'arrival_hard': arrival_hard,
-                'departure_time': departure_time,
-                'departure_hard': departure_hard,
-                'preferred_partners': row['preferred_partners'],
-                'options': row['options']
-            })
-        
-        # Delete temporary file
-        os.remove(file_path)
+            for _, row in df.iterrows():
+                experienced_roles, inexperienced_roles = process_roles(row['roles'])
+                arrival_time, arrival_hard = process_time_field(row['arrival_time'])
+                departure_time, departure_hard = process_time_field(row['departure_time'])
 
-        # Update the app data
-        app_data.update({
-            'message': "Participants table created from file!",
-            'persons': persons,
-            'role_columns': roles  # Use roles from the shift definition
-        })
-        session['app_data'] = app_data
+                # Add gender field, defaulting to 'd' if not provided
+                gender = row['gender'].strip().lower() if row['gender'].strip().lower() in ['m', 'w', 'd'] else 'd'
+                
+                persons.append({
+                    'name': row['name'],
+                    'gender': gender,
+                    'experienced_roles': experienced_roles,
+                    'inexperienced_roles': inexperienced_roles,
+                    'arrival_time': arrival_time,
+                    'arrival_hard': arrival_hard,
+                    'departure_time': departure_time,
+                    'departure_hard': departure_hard,
+                    'assign_shifts': row['assign_shifts'],
+                    'veto_shifts': row['veto_shifts'],
+                    'preferred_partners': row['preferred_partners'],
+                    'options': row['options']
+                })
+            
+            # Delete temporary file
+            os.remove(file_path)
+
+            # Update the app data
+            app_data.update({
+                'message': "Participants table created from file!",
+                'persons': persons,
+                'role_columns': roles  # Use roles from the shift definition
+            })
+            session['app_data'] = app_data
+
+        except (KeyError, ValueError, pd.errors.EmptyDataError) as e:
+            if isinstance(e, KeyError):
+                missing_column = str(e).strip("'")  # Extract the missing column name from the error message
+                error_message = f"Invalid CSV file: Missing required column '{missing_column}'."
+            else:
+                error_message = f"Invalid CSV file: {str(e)}"
+            
+            # If there's an error parsing the CSV, set an error message with details
+            app_data.update({
+                'message': error_message,
+                'persons': None,
+                'role_columns': roles  # Reset roles if CSV loading fails
+            })
+            session['app_data'] = app_data
+
+
+        return render_template('index.html', app_data=app_data, scroll_to='participants')
 
         return render_template('index.html', app_data=app_data, scroll_to='participants')
 
@@ -316,8 +389,8 @@ def submit_person_table():
             return render_template('index.html', app_data=app_data)
 
 
-@app.route('/submit_person_change', methods=['POST'])
-def submit_person_change():
+@app.route('/change_person_table', methods=['POST'])
+def change_person_table():
     app_data = session.get('app_data', {})
 
     # Retrieve current person data
@@ -355,6 +428,8 @@ def submit_person_change():
             'arrival_hard': request.form.get(f'arrival_hard_{i}') is not None and len(request.form.get(f'arrival_time_{i}', '')) > 0,
             'departure_time': request.form.get(f'departure_time_{i}', ''),
             'departure_hard': request.form.get(f'departure_hard_{i}') is not None and len(request.form.get(f'departure_time_{i}', '')) > 0,
+            'assign_shifts': request.form.get(f'assign_shifts_{i}', ''),
+            'veto_shifts': request.form.get(f'veto_shifts_{i}', ''),
             'preferred_partners': request.form.get(f'preferred_partners_{i}', ''),
             'options': request.form.get(f'options_{i}', '')
         })
@@ -397,6 +472,8 @@ def add_person():
         'arrival_hard': False,
         'departure_time': '',
         'departure_hard': False,
+        'assign_shifts': '',
+        'veto_shifts': '',
         'preferred_partners': '',
         'options': ''
     }
@@ -416,8 +493,8 @@ def add_person():
 
 
 
-@app.route('/submit_generate_plan', methods=['POST'])
-def submit_generate_plan():
+@app.route('/generate_plan', methods=['POST'])
+def generate_plan():
     app_data = session.get('app_data', {})
 
     # Generate a unique key for the current calculation
@@ -462,11 +539,6 @@ def submit_generate_plan():
 
         # Display a page to indicate that the calculation has started
         return render_template('calculation_started.html')
-    
-
-@app.route('/confirm_generate_plan', methods=['POST'])
-def confirm_generate_plan():
-    return redirect(url_for('submit_generate_plan'))
 
 
 def run_calculation(calculation_key, app_data):
@@ -556,8 +628,8 @@ def restore_state():
     return render_template('index.html', app_data=app_data)
 
 
-@app.route('/show_example', methods=['POST'])
-def show_example():
+@app.route('/load_example', methods=['POST'])
+def load_example():
     try:
         # Load the example data file
         with open('example_state.json', 'r') as example_file:
@@ -586,22 +658,8 @@ def reset_state():
     return render_template('index.html', app_data=app_data)
 
 
-@app.route('/update_collapse_state', methods=['POST'])
-def update_collapse_state():
-    data = request.get_json()
-    section = data.get("section")
-    is_collapsed = data.get("collapsed")
-    print(section)
-    if section and isinstance(is_collapsed, bool):
-        app_data = session.get('app_data', {})
-        app_data[section] = is_collapsed
-        session['app_data'] = app_data
-        return jsonify({"status": "success"}), 200
-    return jsonify({"status": "error"}), 400
-
-
-@app.route('/show_impressum')
-def show_impressum():
+@app.route('/impressum')
+def impressum():
     return render_template('impressum.html')
 
 

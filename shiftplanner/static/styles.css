@@ -78,18 +78,63 @@ label {
     padding: 15px;
     margin-bottom: 0px;
     color: #000000; /* Dark text inside content */
+
+    /* Firefox scrollbar styles */
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #FFD700 #444; /* thumb color track color */
 }
 
 .collapsed + .content {
     display: none;
 }
 
-/* Tables */
+.frame-container {
+    width: 100%; /* Frame width */
+    overflow: hidden; /* Hides overflow */
+    border: 2px solid #FFD700; /* Gold border */
+    background-color: #3B0A45; /* Match body background */
+    max-width: 100%; /* Prevents overflow beyond page width */
+}
+
+.scrollable-container {
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap; /* Prevents line breaks */
+    padding: 10px; /* Adds padding */
+
+    /* Firefox scrollbar styles */
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #FFD700 #444; /* thumb color track color */
+}
+
+/* WebKit-based browsers (Chrome, Safari, Edge) scrollbar styles */
+.content::-webkit-scrollbar {
+    width: 12px; /* Width of the vertical scrollbar */
+    height: 12px; /* Height of the horizontal scrollbar */
+}
+
+.content::-webkit-scrollbar-thumb {
+    background-color: #FFD700; /* Gold color for the thumb */
+    border-radius: 6px; /* Rounded corners for the thumb */
+    border: 3px solid #3B0A45; /* Dark violet border around the thumb */
+}
+
+.content::-webkit-scrollbar-track {
+    background-color: #444; /* Dark background for the track */
+    border-radius: 6px; /* Rounded corners for the track */
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background-color: #e6b800; /* Darker gold color when hovered */
+}
+
 table {
-    width: 100%;
+    width: auto;
     border-collapse: collapse;
     margin-bottom: 20px;
-    border: 1px solid #FFD700; /* Gold border */
+    border: 0px solid #FFD700;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .table-slim {

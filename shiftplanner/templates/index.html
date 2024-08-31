@@ -20,13 +20,13 @@
                 <form action="/reset_state" method="POST" enctype="multipart/form-data" style="display:inline;">
                     <button type="submit">Reset Everything</button>
                 </form>&nbsp;&nbsp;
-                <form action="/show_example" method="POST" enctype="multipart/form-data" style="display:inline;">
+                <form action="/load_example" method="POST" enctype="multipart/form-data" style="display:inline;">
                     <button type="submit">Example</button>
                 </form>
                 {% if app_data.message %}<label class="label-notification">{{ app_data.message }}</label>{% endif %}
             </td>
-            <td class="td-dark align-right">
-                <label class="label-primary"><a href="{{ url_for('show_impressum') }}">Impressum</a>&nbsp;&nbsp;</label>
+            <td class="td-dark align-right" width="100%">
+                <label class="label-primary"><a href="{{ url_for('impressum') }}">Impressum</a>&nbsp;&nbsp;</label>
             </td>
         </tr>
     </table><br>
@@ -37,7 +37,7 @@
         <table class="table-invisible">
             <tr>
                 <td width="10%" class="td-dark align-top">
-                    <form action="/submit_shift_table" method="POST" enctype="multipart/form-data">
+                    <form action="/create_shift_table" method="POST" enctype="multipart/form-data">
                     <table class="table-invisible">
                         <tr>
                             <td colspan="2"><b>Shift Parameters</b></td>
@@ -86,8 +86,10 @@
                 </td>
                 <td class="td-dark-padded">
                     {% if app_data.shift_table %}
-                    <label class="label-primary">This is the overview over the shifts throughout the festival. You can set the <b>minimum</b> number of people for each role and shift.</label><br><br>
-                    <form action="/submit_shift_changes" method="POST">
+                    <label class="label-primary">This is the overview over the shifts throughout the festival. You can set the <b>minimum</b> number of people for each role and shift.</label><br>
+                    <label class="label-primary">For roles where experience is checked as <i>balanced</i>, the planner will try to balance experienced and less experienced people for each shift.</label>
+                    <br><br>
+                    <form id="shifts-form" method="POST">
                         <table border="1">
                             <tr>
                                 <th>Roles</th>
@@ -110,11 +112,8 @@
                             </tr>
                             {% endfor %}
                         </table>
-                        <label class="label-primary">For roles where experience is checked as <i>balanced</i>, the planner will try to balance experienced and less experienced people for each shift.</label>
-                        <br><br>
-                        <button type="submit">Save Changes</button>
-                        <label class="label-primary big">&nbsp;&nbsp;{{ app_data.get('total_assignments_needed', 0) }} shift spots</label>
-                        <label class="label-primary">/ at least {{ app_data.get('recommended_nums_people', 1) }} people with {{ (app_data.get('total_assignments_needed', 0) / app_data.get('recommended_nums_people', 1) ) | ceil }} shifts recommended</label>
+                        <label id="label-total_assignments_needed" class="label-primary big">{{ app_data.get('total_assignments_needed', 0) }} shift spots</label>
+                        <label id="label-recommended_nums_people" class="label-primary">/ at least {{ app_data.get('recommended_nums_people', 1) }} people with {{ (app_data.get('total_assignments_needed', 0) / app_data.get('recommended_nums_people', 1) ) | ceil }} shifts recommended</label>
                     </form>
                     {% endif %}
                 </td>
@@ -137,7 +136,7 @@
                                 </form>
                             </td>
                             <td>
-                                <form action="/submit_person_table" method="POST" enctype="multipart/form-data">
+                                <form action="/load_person_table" method="POST" enctype="multipart/form-data">
                                     <b>or upload CSV file:</b>
                                     <input type="file" id="csv_file" name="csv_file" accept=".csv" required>
                                     <input type="submit" value="Create Table from File">
@@ -158,7 +157,7 @@
                     {% if app_data.persons %}
                     <a name="edit_participants"></a>
                     <h2>Edit Participants</h2>
-                    <form id="participant-form" action="/submit_person_change" method="POST">
+                    <form id="participant-form" action="/change_person_table" method="POST">
                         <table border="1" id="participant-table">
                             <tr>
                                 <th>Name</th>
@@ -168,6 +167,8 @@
                                 {% endfor %}
                                 <th>Arrival Time</th>
                                 <th>Departure Time</th>
+                                <th>Assign Shifts</th>
+                                <th>Veto Shifts</th>
                                 <th>Preferred Partners</th>
                                 <th>Options</th>
                                 <th>Actions</th>
@@ -211,6 +212,8 @@
                                         <input type="checkbox" name="departure_hard_{{ i }}" {% if app_data.persons[i]['departure_hard'] %}checked{% endif %}>
                                     </label>
                                 </td>
+                                <td class="centered"><input type="text" name="assign_shifts_{{ i }}" value="{{ app_data.persons[i]['assign_shifts'] }}" class="large-input"></td>
+                                <td class="centered"><input type="text" name="veto_shifts_{{ i }}" value="{{ app_data.persons[i]['veto_shifts'] }}" class="large-input"></td>
                                 <td class="centered"><input type="text" name="preferred_partners_{{ i }}" value="{{ app_data.persons[i]['preferred_partners'] }}" class="large-input"></td>
                                 <td class="centered"><input type="text" name="options_{{ i }}" value="{{ app_data.persons[i]['options'] }}" class="large-input"></td>
                                 <td class="centered">
@@ -221,8 +224,7 @@
                         </table>
                         <table class="table-invisible">
                             <tr>
-                                <td class="td-dark"><input type="submit" value="Save Participant Changes"><label class="label-primary big">&nbsp;&nbsp;{{ app_data.persons | length }} persons</label></td>
-                                <td class="td-dark align-right"><button type="button" onclick="addPerson()">Add Participant</button></td>
+                                <td class="td-dark"><button type="button" onclick="addPerson()">Add Participant</button><label class="label-primary big">&nbsp;&nbsp;{{ app_data.persons | length }} persons</label></td>
                             </tr>
                         </table>
                     </form>
@@ -237,7 +239,7 @@
     <!-- Shift Plan -->
     <button type="button" id="planner" class="collapsible">Shift Planner</button>
     <div class="content">
-        <form action="/submit_generate_plan" method="POST" enctype="multipart/form-data">
+        <form action="/generate_plan" method="POST" enctype="multipart/form-data">
         <table class="table-invisible table-slim">
             <tr>
                 <td>
@@ -324,12 +326,14 @@
                           <ul>
                             <li>too few people available for some roles</li>
                             <li>too many time constraints on shifts</li>
+                            <li>pre-assigned shift role not available</li>
                             <li>some parameters too far from default</li>
                           </ul> 
                           Try to:
                           <ul>
                             <li>allow some more roles for people</li>
                             <li>remove some hard time constraints</li>
+                            <li>person can work pre-assigned shift</li>
                             <li>use default parameters</li>
                           </ul>
                         </label>
@@ -558,7 +562,61 @@
             });
         }
 
+        document.addEventListener("DOMContentLoaded", function() {
+            // Attach event listeners to all input elements in the participant form
+            const participantForm = document.getElementById('participant-form');
+            
+            participantForm.addEventListener('input', function(event) {
+                submitFormData();
+            });
 
+            function submitFormData() {
+                const formData = new FormData(participantForm);
+                
+                fetch('/change_person_table', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.text())
+                .then(data => {
+                            // Update the page content if necessary
+                    // You could use this to update a message area, refresh a part of the page, etc.
+                    console.log("Participant data saved successfully.");
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
+        }); 
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Attach event listeners to all input elements in the shift table form
+            const shiftTableForm = document.getElementById('shifts-form');
+            
+            shiftTableForm.addEventListener('input', function(event) {
+                submitShiftTableData();
+            });
+
+            function submitShiftTableData() {
+                const formData = new FormData(shiftTableForm);
+                
+                fetch('/ajax_change_shift_table', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Update the labels dynamically
+                    document.getElementById('label-total_assignments_needed').innerHTML = `${data.total_assignments_needed} shift spots`;
+                    document.getElementById('label-recommended_nums_people').innerHTML = `/ at least ${data.recommended_nums_people} people with ${Math.ceil(data.total_assignments_needed / data.recommended_nums_people)} shifts recommended`;
+                    
+                    console.log("Shift table data saved successfully.");
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
+        });
 
         // Initialize checkboxes on page load
         document.addEventListener("DOMContentLoaded", function() {

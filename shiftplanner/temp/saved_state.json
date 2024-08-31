@@ -1,12 +1,12 @@
 {
-    "calculation_key": "1db238c8-ecad-43f8-acc1-231f06a2d7a9",
-    "calculation_start_time": 1723735402.318462,
+    "calculation_key": "ad71369d-9e59-40ab-a907-869326984747",
+    "calculation_start_time": 1725104871.414112,
     "experience_penalty": "100",
     "gender_penalty": "10",
-    "message": "Shift table changes saved!",
+    "message": "Participant data saved successfully!",
     "min_distance_between_shifts": "2",
     "not_enough_shifts": false,
-    "num_assignments_per_person": "2",
+    "num_assignments_per_person": "3",
     "opt_balance_gender": "on",
     "opt_consider_travel": "on",
     "opt_enforce_shift_dist": "on",
@@ -15,1033 +15,1217 @@
     "opt_same_time_slots": "on",
     "partner_bonus": "10",
     "penalty_for_same_time_slot": "30",
-    "penalty_outside_window": "100",
+    "penalty_outside_window": "1000",
     "persons": [
         {
             "arrival_hard": false,
-            "arrival_time": "Thu 16",
+            "arrival_time": "Wed 12",
+            "assign_shifts": "",
             "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "d",
-            "inexperienced_roles": [
-                "Hintergrund"
-            ],
-            "latest_shift": 8,
-            "name": "Divers1",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Thu 20",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 1,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "d",
-            "inexperienced_roles": [
-                "Hintergrund"
-            ],
-            "latest_shift": 8,
-            "name": "Divers2",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "d",
-            "inexperienced_roles": [
-                "Info/Chai"
-            ],
-            "latest_shift": 8,
-            "name": "Divers3",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Fri 10",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 3,
+            "departure_time": "Mon 12",
             "experienced_roles": [],
-            "gender": "d",
-            "inexperienced_roles": [
-                "Info/Chai",
-                "Ambulanz"
-            ],
-            "latest_shift": 8,
-            "name": "Divers4",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Fri 15",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 4,
-            "experienced_roles": [],
-            "gender": "d",
-            "inexperienced_roles": [
-                "Info/Chai",
-                "Ambulanz"
-            ],
-            "latest_shift": 8,
-            "name": "Divers5",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
-            "experienced_roles": [],
-            "gender": "d",
-            "inexperienced_roles": [
-                "Info/Chai",
-                "Ambulanz"
-            ],
-            "latest_shift": 8,
-            "name": "Divers6",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Thu 19",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 1,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
             "gender": "w",
             "inexperienced_roles": [
-                "Hintergrund"
-            ],
-            "latest_shift": 8,
-            "name": "FRAU1",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Fri 11",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 4,
-            "experienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
                 "Ambulanz"
             ],
-            "gender": "w",
-            "inexperienced_roles": [
-                "Hintergrund"
-            ],
-            "latest_shift": 8,
-            "name": "FRAU2",
+            "name": "Albrecht_Charlie",
             "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "w",
-            "inexperienced_roles": [
-                "Hintergrund"
-            ],
-            "latest_shift": 8,
-            "name": "FRAU3",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Fri 20",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 5,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "w",
-            "inexperienced_roles": [
-                "Hintergrund"
-            ],
-            "latest_shift": 8,
-            "name": "FRAU4",
-            "options": "",
-            "preferred_partners": "MANN3"
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Thu 15",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "w",
-            "inexperienced_roles": [
-                "Hintergrund"
-            ],
-            "latest_shift": 8,
-            "name": "FRAU5",
-            "options": "",
-            "preferred_partners": ""
+            "preferred_partners": "",
+            "veto_shifts": ""
         },
         {
             "arrival_hard": false,
             "arrival_time": "Thu 12",
+            "assign_shifts": "",
             "departure_hard": false,
             "departure_time": "",
-            "earliest_shift": 0,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "w",
-            "inexperienced_roles": [
-                "Info/Chai"
-            ],
-            "latest_shift": 8,
-            "name": "FRAU6",
-            "options": "",
-            "preferred_partners": "MANN6"
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Thu 14",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "w",
-            "inexperienced_roles": [
-                "Info/Chai"
-            ],
-            "latest_shift": 8,
-            "name": "FRAU7",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Thu 13",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
             "experienced_roles": [],
-            "gender": "w",
+            "gender": "m",
             "inexperienced_roles": [
-                "Info/Chai",
+                "Info",
+                "Bauchladen",
+                "Chai",
                 "Ambulanz"
             ],
-            "latest_shift": 8,
-            "name": "Frau10",
+            "name": "Amaral_Kevin",
             "options": "",
-            "preferred_partners": ""
+            "preferred_partners": "",
+            "veto_shifts": ""
         },
         {
             "arrival_hard": false,
-            "arrival_time": "Thu 19",
+            "arrival_time": "Thu 12",
+            "assign_shifts": "",
             "departure_hard": false,
             "departure_time": "",
-            "earliest_shift": 1,
             "experienced_roles": [],
-            "gender": "w",
+            "gender": "m",
             "inexperienced_roles": [
-                "Info/Chai",
+                "Info",
+                "Bauchladen",
                 "Ambulanz"
             ],
-            "latest_shift": 8,
-            "name": "Frau11",
+            "name": "Ambroziak_Marian",
             "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Thu 20",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 1,
-            "experienced_roles": [],
-            "gender": "w",
-            "inexperienced_roles": [
-                "Info/Chai",
-                "Ambulanz"
-            ],
-            "latest_shift": 8,
-            "name": "Frau12",
-            "options": "",
-            "preferred_partners": "Mann12"
+            "preferred_partners": "",
+            "veto_shifts": ""
         },
         {
             "arrival_hard": false,
             "arrival_time": "",
+            "assign_shifts": "",
             "departure_hard": false,
             "departure_time": "",
-            "earliest_shift": 0,
             "experienced_roles": [],
             "gender": "w",
             "inexperienced_roles": [
-                "Info/Chai",
+                "Info",
+                "Bauchladen",
                 "Ambulanz"
             ],
-            "latest_shift": 8,
-            "name": "Frau13",
+            "name": "Anke",
             "options": "",
-            "preferred_partners": ""
+            "preferred_partners": "",
+            "veto_shifts": ""
         },
         {
             "arrival_hard": false,
-            "arrival_time": "Fri 9",
+            "arrival_time": "",
+            "assign_shifts": "",
             "departure_hard": false,
             "departure_time": "",
-            "earliest_shift": 3,
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen"
+            ],
+            "name": "Bake_Can",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Sun 12",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Becker_Konstantin",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Belkaid_Sammy",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai"
+            ],
+            "name": "Blomeyer_Amrei",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
             "experienced_roles": [],
             "gender": "w",
             "inexperienced_roles": [
-                "Info/Chai",
-                "Ambulanz"
+                "Info",
+                "Bauchladen",
+                "Chai"
             ],
-            "latest_shift": 8,
-            "name": "Frau8",
+            "name": "Clasen_Malina",
             "options": "",
-            "preferred_partners": ""
+            "preferred_partners": "",
+            "veto_shifts": ""
         },
         {
             "arrival_hard": false,
-            "arrival_time": "Fri 10",
+            "arrival_time": "",
+            "assign_shifts": "",
             "departure_hard": false,
             "departure_time": "",
-            "earliest_shift": 3,
             "experienced_roles": [],
             "gender": "w",
             "inexperienced_roles": [
-                "Info/Chai",
+                "Info",
+                "Bauchladen",
+                "Chai",
                 "Ambulanz"
             ],
-            "latest_shift": 8,
-            "name": "Frau9",
+            "name": "Csaszar_Tata",
             "options": "",
-            "preferred_partners": ""
+            "preferred_partners": "",
+            "veto_shifts": ""
         },
         {
             "arrival_hard": false,
-            "arrival_time": "Thu 13",
+            "arrival_time": "Thu 12",
+            "assign_shifts": "",
             "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "m",
-            "inexperienced_roles": [
-                "Hintergrund"
-            ],
-            "latest_shift": 8,
-            "name": "MANN1",
-            "options": "",
-            "preferred_partners": "FRAU1, FRAU2"
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Thu 19",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 1,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "m",
-            "inexperienced_roles": [
-                "Hintergrund"
-            ],
-            "latest_shift": 8,
-            "name": "MANN2",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "m",
-            "inexperienced_roles": [
-                "Hintergrund"
-            ],
-            "latest_shift": 8,
-            "name": "MANN3",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Thu 21",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 1,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "m",
-            "inexperienced_roles": [
-                "Hintergrund",
-                "Info/Chai"
-            ],
-            "latest_shift": 8,
-            "name": "MANN4",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Fri 15",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 4,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "m",
-            "inexperienced_roles": [
-                "Hintergrund",
-                "Info/Chai"
-            ],
-            "latest_shift": 8,
-            "name": "MANN5",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "m",
-            "inexperienced_roles": [
-                "Info/Chai"
-            ],
-            "latest_shift": 8,
-            "name": "MANN6",
-            "options": "",
-            "preferred_partners": "FRAU6"
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
-            "experienced_roles": [
-                "Ambulanz"
-            ],
-            "gender": "m",
-            "inexperienced_roles": [
-                "Info/Chai"
-            ],
-            "latest_shift": 8,
-            "name": "MANN7",
-            "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
+            "departure_time": "Tue 12",
             "experienced_roles": [],
             "gender": "m",
             "inexperienced_roles": [
-                "Info/Chai",
+                "Info",
+                "Bauchladen",
                 "Ambulanz"
             ],
-            "latest_shift": 8,
-            "name": "Mann10",
+            "name": "Dominiecki_Mikolaj",
             "options": "",
-            "preferred_partners": ""
-        },
-        {
-            "arrival_hard": false,
-            "arrival_time": "Thu 18",
-            "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 1,
-            "experienced_roles": [],
-            "gender": "m",
-            "inexperienced_roles": [
-                "Info/Chai",
-                "Ambulanz"
-            ],
-            "latest_shift": 8,
-            "name": "Mann11",
-            "options": "",
-            "preferred_partners": ""
+            "preferred_partners": "",
+            "veto_shifts": ""
         },
         {
             "arrival_hard": false,
             "arrival_time": "",
+            "assign_shifts": "",
             "departure_hard": false,
-            "departure_time": "",
-            "earliest_shift": 0,
+            "departure_time": "Sun 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Eckardt_Mascha",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Wed 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
             "experienced_roles": [],
             "gender": "m",
             "inexperienced_roles": [
-                "Info/Chai",
+                "Info",
+                "Bauchladen",
                 "Ambulanz"
             ],
-            "latest_shift": 8,
-            "name": "Mann12",
+            "name": "Ehmann_Frederick",
             "options": "",
-            "preferred_partners": "Frau12"
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen"
+            ],
+            "name": "Fiolka_Anna",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Wed 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Fischer_Sahra",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Wed 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Frehse_Frank",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Bauchladen",
+                "Chai"
+            ],
+            "name": "Hager_Michael",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Wed 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Hassenstein_Moritz",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Hoffmann_Christian",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Wed 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Hoffmann_Vivienne",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
         },
         {
             "arrival_hard": false,
             "arrival_time": "",
+            "assign_shifts": "",
             "departure_hard": false,
             "departure_time": "",
-            "earliest_shift": 0,
             "experienced_roles": [],
-            "gender": "m",
+            "gender": "w",
             "inexperienced_roles": [
-                "Info/Chai",
-                "Ambulanz"
+                "Bauchladen",
+                "Chai"
             ],
-            "latest_shift": 8,
-            "name": "Mann8",
+            "name": "Huegli_Karin",
             "options": "",
-            "preferred_partners": ""
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Bauchladen",
+                "Chai"
+            ],
+            "name": "Huntenberg_Julia",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
         },
         {
             "arrival_hard": false,
             "arrival_time": "",
+            "assign_shifts": "",
             "departure_hard": false,
             "departure_time": "",
-            "earliest_shift": 0,
+            "experienced_roles": [],
+            "gender": "d",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai"
+            ],
+            "name": "Jansen_Luca",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Wed 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
             "experienced_roles": [],
             "gender": "m",
             "inexperienced_roles": [
-                "Info/Chai",
+                "Info",
+                "Bauchladen",
                 "Ambulanz"
             ],
-            "latest_shift": 8,
-            "name": "Mann9",
+            "name": "Jehnert_Stephan",
             "options": "",
-            "preferred_partners": ""
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Jungnickel_Evelyn",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Karczewska_Roxana",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Knöpfel_Hannah",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Koeppen_Linda",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Krüger_Sophia",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Sun 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Kulesza_Aleksandra",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai"
+            ],
+            "name": "Köppen, Antonia",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Lang_Janina",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Link_Leo",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Loose_Kerstin",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Maichrowitz_Verena",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Maler_Sven",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Manegold_Philipp",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Marquardt_Annabell",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Wed 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Sun 12",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Menzel_Christoph",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Michalzik_Maximilian",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Moroni_Wilko",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Nolting_Luca",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Pamler_Lina",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai"
+            ],
+            "name": "Pekmezci_Ozan",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Pfisterer_Hannah",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen"
+            ],
+            "name": "Pleiß_Annett",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai"
+            ],
+            "name": "Royes_Bradley",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Sanna Feltrin_Benedetta",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Thu 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Schroeter_Helen",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Ambulanz"
+            ],
+            "name": "Schwamborn_Natalie",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Sat 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Sun 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Schüngel_Andrea",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai"
+            ],
+            "name": "Skye",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Wed 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Speck_Jerome",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Stepien_Iwona",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Stuhr_Marla",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Stühring_Laura",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Mon 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Thüringer_Sophia",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Wed 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "m",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Timm_Nils",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Vistorin_Renate",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Wessel_Sandra",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
+        },
+        {
+            "arrival_hard": false,
+            "arrival_time": "Fri 12",
+            "assign_shifts": "",
+            "departure_hard": false,
+            "departure_time": "Tue 12",
+            "experienced_roles": [],
+            "gender": "w",
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "name": "Zinzius_Tanja",
+            "options": "",
+            "preferred_partners": "",
+            "veto_shifts": ""
         }
     ],
-    "recommended_nums_people": 30,
-    "results": {
-        "people_table": [
-            [
-                "Person",
-                "Thu 16 - 22",
-                "Thu 22 - 04",
-                "Fri 04 - 10",
-                "Fri 10 - 16",
-                "Fri 16 - 22",
-                "Fri 22 - 04",
-                "Sat 04 - 10",
-                "Sat 10 - 16",
-                "Sat 16 - 22"
-            ],
-            [
-                "Divers1",
-                "Ambulanz",
-                "",
-                "",
-                "Hintergrund",
-                "",
-                "",
-                "",
-                "",
-                ""
-            ],
-            [
-                "Divers2",
-                "",
-                "",
-                "Hintergrund",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "Hintergrund"
-            ],
-            [
-                "Divers3",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "Info/Chai",
-                "",
-                "",
-                "",
-                ""
-            ],
-            [
-                "Divers4",
-                "",
-                "",
-                "",
-                "Info/Chai",
-                "",
-                "",
-                "Info/Chai",
-                "",
-                ""
-            ],
-            [
-                "Divers5",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "Ambulanz",
-                ""
-            ],
-            [
-                "Divers6",
-                "Info/Chai",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                ""
-            ],
-            [
-                "FRAU1",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "Hintergrund",
-                ""
-            ],
-            [
-                "FRAU2",
-                "",
-                "",
-                "",
-                "",
-                "Hintergrund",
-                "",
-                "",
-                "Ambulanz",
-                ""
-            ],
-            [
-                "FRAU3",
-                "Hintergrund",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "Hintergrund",
-                "",
-                ""
-            ],
-            [
-                "FRAU4",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "Ambulanz"
-            ],
-            [
-                "FRAU5",
-                "Ambulanz",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "",
-                "",
-                ""
-            ],
-            [
-                "FRAU6",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "Info/Chai",
-                "",
-                "",
-                ""
-            ],
-            [
-                "FRAU7",
-                "",
-                "Info/Chai",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                ""
-            ],
-            [
-                "Frau10",
-                "",
-                "Info/Chai",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                ""
-            ],
-            [
-                "Frau11",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "",
-                ""
-            ],
-            [
-                "Frau12",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz"
-            ],
-            [
-                "Frau13",
-                "",
-                "",
-                "Info/Chai",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                ""
-            ],
-            [
-                "Frau8",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "Info/Chai",
-                "",
-                ""
-            ],
-            [
-                "Frau9",
-                "",
-                "",
-                "",
-                "Info/Chai",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz"
-            ],
-            [
-                "MANN1",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "Ambulanz",
-                ""
-            ],
-            [
-                "MANN2",
-                "",
-                "Hintergrund",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                ""
-            ],
-            [
-                "MANN3",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "Hintergrund",
-                "",
-                "",
-                "Ambulanz"
-            ],
-            [
-                "MANN4",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "",
-                "",
-                "Info/Chai"
-            ],
-            [
-                "MANN5",
-                "",
-                "",
-                "",
-                "",
-                "Info/Chai",
-                "",
-                "",
-                "Info/Chai",
-                ""
-            ],
-            [
-                "MANN6",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                ""
-            ],
-            [
-                "MANN7",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "Info/Chai",
-                ""
-            ],
-            [
-                "Mann10",
-                "Info/Chai",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "",
-                "",
-                ""
-            ],
-            [
-                "Mann11",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                ""
-            ],
-            [
-                "Mann12",
-                "",
-                "",
-                "Info/Chai",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "Info/Chai"
-            ],
-            [
-                "Mann8",
-                "Ambulanz",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                ""
-            ],
-            [
-                "Mann9",
-                "",
-                "",
-                "Ambulanz",
-                "",
-                "",
-                "Info/Chai",
-                "",
-                "",
-                ""
-            ]
-        ],
-        "shift_table": [
-            [
-                "Role",
-                "Thu 16 - 22",
-                "Thu 22 - 04",
-                "Fri 04 - 10",
-                "Fri 10 - 16",
-                "Fri 16 - 22",
-                "Fri 22 - 04",
-                "Sat 04 - 10",
-                "Sat 10 - 16",
-                "Sat 16 - 22"
-            ],
-            [
-                "Hintergrund",
-                "FRAU3",
-                "MANN2",
-                "Divers2",
-                "Divers1",
-                "FRAU2",
-                "MANN3",
-                "FRAU3",
-                "FRAU1",
-                "Divers2"
-            ],
-            [
-                "Info/Chai",
-                "Divers6, Mann10",
-                "FRAU7, Frau10",
-                "Frau13, Mann12",
-                "Divers4, Frau9",
-                "Divers3, MANN5",
-                "FRAU6, Mann9",
-                "Divers4, Frau8",
-                "MANN5, MANN7",
-                "MANN4, Mann12"
-            ],
-            [
-                "Ambulanz",
-                "Divers1, FRAU5, Mann8",
-                "Divers3, Frau11, MANN7, Mann11",
-                "FRAU6, Frau12, MANN6, Mann9",
-                "FRAU5, Frau8, MANN4, Mann10",
-                "Divers5, FRAU1, Frau11, MANN1",
-                "Divers6, FRAU4, Frau13, MANN6",
-                "FRAU7, MANN2, Mann11, Mann8",
-                "Divers5, FRAU2, Frau10, MANN1",
-                "FRAU4, Frau12, Frau9, MANN3"
-            ]
-        ],
-        "stats": {
-            "experience_balance_score": 1,
-            "gender_parity_score": 0,
-            "max_shift_distance_score": 50.806451612903224,
-            "partner_matching_score": 0,
-            "score": 138.0,
-            "time_slot_repetition_score": 0,
-            "time_window_violation_score": 0
-        },
-        "status": "OPTIMAL"
-    },
+    "recommended_nums_people": 61,
+    "results": null,
     "role_columns": [
-        "Hintergrund",
-        "Info/Chai",
+        "Info",
+        "Bauchladen",
+        "Chai",
         "Ambulanz"
     ],
     "role_counts": {
         "Ambulanz": [
-            3,
-            3,
-            3,
-            3,
-            3,
-            3,
-            3,
-            3,
-            3
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
         ],
-        "Hintergrund": [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
+        "Bauchladen": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
         ],
-        "Info/Chai": [
+        "Chai": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+        ],
+        "Info": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
             2,
             2,
             2,
@@ -1055,78 +1239,169 @@
     },
     "role_experience_required": {
         "Ambulanz": true,
-        "Hintergrund": false,
-        "Info/Chai": false
+        "Bauchladen": false,
+        "Chai": false,
+        "Info": false
     },
     "roles": [
-        "Hintergrund",
-        "Info/Chai",
+        "Info",
+        "Bauchladen",
+        "Chai",
         "Ambulanz"
     ],
     "shift_datetimes": [
-        "2024-01-04T16:00:00+00:00",
-        "2024-01-04T22:00:00+00:00",
-        "2024-01-05T04:00:00+00:00",
-        "2024-01-05T10:00:00+00:00",
+        "2024-01-05T12:00:00+00:00",
         "2024-01-05T16:00:00+00:00",
-        "2024-01-05T22:00:00+00:00",
+        "2024-01-05T20:00:00+00:00",
+        "2024-01-06T00:00:00+00:00",
         "2024-01-06T04:00:00+00:00",
-        "2024-01-06T10:00:00+00:00",
-        "2024-01-06T16:00:00+00:00"
+        "2024-01-06T08:00:00+00:00",
+        "2024-01-06T12:00:00+00:00",
+        "2024-01-06T16:00:00+00:00",
+        "2024-01-06T20:00:00+00:00",
+        "2024-01-07T00:00:00+00:00",
+        "2024-01-07T04:00:00+00:00",
+        "2024-01-07T08:00:00+00:00",
+        "2024-01-07T12:00:00+00:00",
+        "2024-01-07T16:00:00+00:00",
+        "2024-01-07T20:00:00+00:00",
+        "2024-01-08T00:00:00+00:00",
+        "2024-01-08T04:00:00+00:00",
+        "2024-01-08T08:00:00+00:00",
+        "2024-01-08T12:00:00+00:00",
+        "2024-01-08T16:00:00+00:00",
+        "2024-01-08T20:00:00+00:00",
+        "2024-01-09T00:00:00+00:00"
     ],
     "shift_message": "",
     "shift_names": [
-        "Thu 16 - 22",
-        "Thu 22 - 04",
-        "Fri 04 - 10",
-        "Fri 10 - 16",
-        "Fri 16 - 22",
-        "Fri 22 - 04",
-        "Sat 04 - 10",
-        "Sat 10 - 16",
-        "Sat 16 - 22"
+        "Fri 12 - 16",
+        "Fri 16 - 20",
+        "Fri 20 - 00",
+        "Sat 00 - 04",
+        "Sat 04 - 08",
+        "Sat 08 - 12",
+        "Sat 12 - 16",
+        "Sat 16 - 20",
+        "Sat 20 - 00",
+        "Sun 00 - 04",
+        "Sun 04 - 08",
+        "Sun 08 - 12",
+        "Sun 12 - 16",
+        "Sun 16 - 20",
+        "Sun 20 - 00",
+        "Mon 00 - 04",
+        "Mon 04 - 08",
+        "Mon 08 - 12",
+        "Mon 12 - 16",
+        "Mon 16 - 20",
+        "Mon 20 - 00",
+        "Tue 00 - 04"
     ],
     "shift_params": {
-        "first_shift_start": "Thu 16",
-        "num_shifts": 9,
-        "roles_min": "Hintergrund, Info/Chai(2), Ambulanz(3)!",
-        "shift_duration_hours": "6"
+        "first_shift_start": "Fri 12",
+        "num_shifts": 22,
+        "roles_min": " Info(2), Bauchladen(2), Chai(2), Ambulanz(4)!",
+        "shift_duration_hours": "4"
     },
     "shift_table": [
         [
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+        ],
+        [
+            0,
+            0,
+            2,
+            2,
+            0,
+            0,
+            2,
+            0,
+            2,
+            2,
+            2,
+            0,
+            2,
+            2,
+            2,
+            2,
+            2,
+            0,
+            2,
+            2,
+            0,
             1
         ],
         [
             2,
             2,
+            0,
             2,
+            0,
+            0,
             2,
+            0,
+            0,
             2,
+            0,
+            0,
             2,
+            0,
+            0,
             2,
+            0,
+            0,
+            2,
+            0,
             2,
             2
         ],
         [
+            2,
+            2,
             3,
+            3,
+            3,
+            2,
+            2,
+            2,
             4,
+            5,
+            5,
+            3,
+            2,
+            2,
             4,
+            5,
+            5,
             4,
-            4,
-            4,
-            4,
-            4,
-            4
+            3,
+            3,
+            3,
+            3
         ]
     ],
     "solver_timeout_sec": "30",
-    "total_assignments_needed": 60
+    "total_assignments_needed": 182
 }
