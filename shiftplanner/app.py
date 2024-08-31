@@ -8,6 +8,35 @@ from planner import generate_schedule
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'  # Necessary for session handling
 
+# Define a folder to store session data
+SESSION_DATA_FOLDER = 'session_data'
+if not os.path.exists(SESSION_DATA_FOLDER):
+    os.makedirs(SESSION_DATA_FOLDER)
+
+
+def get_session_filename():
+    session_id = session.get('session_id')
+    if not session_id:
+        session_id = str(uuid.uuid4())  # Generate a new session ID
+        session['session_id'] = session_id  # Store the session ID in the cookie
+    return os.path.join(SESSION_DATA_FOLDER, f"app_data_{session_id}.json")
+
+
+def load_app_data():
+    filename = get_session_filename()
+    if os.path.exists(filename):
+        with open(filename, 'r') as f:
+            return json.load(f)
+    else:
+        return setDefaults({})  # Return a default app_data structure if no file exists
+
+
+def save_app_data(app_data):
+    filename = get_session_filename()
+    with open(filename, 'w') as f:
+        json.dump(app_data, f, cls=CustomJSONEncoder, ensure_ascii=False, indent=4)
+
+
 @app.template_filter('ceil')
 def ceil_filter(value):
     return math.ceil(value)
@@ -115,12 +144,8 @@ def generate_shifts(start_str, duration_hours, num_shifts):
 
 @app.route('/')
 def home():
-    # Load data from session
-    app_data = session.get('app_data', {})
-    if app_data is None:
-        app_data = {}
-    app_data = setDefaults(app_data=app_data)
-    session['app_data'] = app_data
+    # Load data for session
+    app_data = load_app_data()
     return render_template('index.html', app_data=app_data)
 
 
@@ -171,7 +196,7 @@ def create_shift_table():
     recommended_nums_people = math.ceil(total_assignments_needed/int(12/int(shift_params['shift_duration_hours'])))
 
     # Update the session data
-    app_data = session.get('app_data', {})
+    app_data = load_app_data()
     app_data.update({
         'roles': roles,
         'role_counts': role_counts,
@@ -184,14 +209,14 @@ def create_shift_table():
         'recommended_nums_people': recommended_nums_people,
         'message': message
     })
-    session['app_data'] = app_data
+    save_app_data(app_data)
     
     return render_template('index.html', app_data=app_data)
 
 '''
 @app.route('/change_shift_table', methods=['POST'])
 def change_shift_table():
-    app_data = session.get('app_data', {})
+    app_data = load_app_data()
 
     # Update the shift table based on form submission
     shift_table = []
@@ -219,14 +244,14 @@ def change_shift_table():
         'role_experience_required': role_experience_required,
         'message': "Shift table changes saved!"
     })
-    session['app_data'] = app_data
+    save_app_data(app_data)
     
     return render_template('index.html', app_data=app_data)
 '''
 
 @app.route('/ajax_change_shift_table', methods=['POST'])
 def ajax_change_shift_table():
-    app_data = session.get('app_data', {})
+    app_data = load_app_data()
 
     # Update the shift table based on form submission
     shift_table = []
@@ -254,7 +279,7 @@ def ajax_change_shift_table():
         'role_experience_required': role_experience_required,
         'message': "Shift table changes saved!"
     })
-    session['app_data'] = app_data
+    save_app_data(app_data)
 
     # Return a simple response to acknowledge the AJAX request
     return jsonify({
@@ -264,7 +289,7 @@ def ajax_change_shift_table():
 
 @app.route('/create_person_table', methods=['POST'])
 def create_person_table():
-    app_data = session.get('app_data', {})
+    app_data = load_app_data()
     roles = app_data.get('roles', [])
     persons = []
     genders = ['d', 'w', 'm']
@@ -293,7 +318,7 @@ def create_person_table():
         'persons': persons,
         'role_columns': roles  # Use roles from the shift definition
     })
-    session['app_data'] = app_data
+    save_app_data(app_data)
 
     return render_template('index.html', app_data=app_data, scroll_to='participants')
 
@@ -303,7 +328,7 @@ def load_person_table():
     csv_file = request.files.get('csv_file')
     persons = []
 
-    app_data = session.get('app_data', {})
+    app_data = load_app_data()
     roles = app_data.get('roles', [])
     role_experience_required = app_data.get('role_experience_required', {})
 
@@ -353,7 +378,7 @@ def load_person_table():
                 'persons': persons,
                 'role_columns': roles  # Use roles from the shift definition
             })
-            session['app_data'] = app_data
+            save_app_data(app_data)
 
         except (KeyError, ValueError, pd.errors.EmptyDataError) as e:
             if isinstance(e, KeyError):
@@ -368,7 +393,7 @@ def load_person_table():
                 'persons': None,
                 'role_columns': roles  # Reset roles if CSV loading fails
             })
-            session['app_data'] = app_data
+            save_app_data(app_data)
 
 
         return render_template('index.html', app_data=app_data, scroll_to='participants')
@@ -385,13 +410,13 @@ def load_person_table():
                 'persons': None,
                 'role_columns': roles  # Use roles from the shift definition
             })
-            session['app_data'] = app_data
+            save_app_data(app_data)
             return render_template('index.html', app_data=app_data)
 
 
 @app.route('/change_person_table', methods=['POST'])
 def change_person_table():
-    app_data = session.get('app_data', {})
+    app_data = load_app_data()
 
     # Retrieve current person data
     current_persons = app_data.get('persons', [])
@@ -439,7 +464,7 @@ def change_person_table():
         'persons': persons,
         'message': "Participant data saved successfully!"
     })
-    session['app_data'] = app_data
+    save_app_data(app_data)
     
     return render_template('index.html', app_data=app_data, scroll_to='participants')
 
@@ -447,11 +472,11 @@ def change_person_table():
 @app.route('/delete_person', methods=['POST'])
 def delete_person():
     person_index = request.json.get('index')
-    app_data = session.get('app_data', {})
+    app_data = load_app_data()
 
     if person_index is not None and 0 <= person_index < len(app_data.get('persons', [])):
         del app_data['persons'][person_index]
-        session['app_data'] = app_data
+        save_app_data(app_data)
         return jsonify({'status': 'success'}), 200
 
     return jsonify({'status': 'error'}), 400
@@ -459,7 +484,7 @@ def delete_person():
 
 @app.route('/add_person', methods=['POST'])
 def add_person():
-    app_data = session.get('app_data', {})
+    app_data = load_app_data()
     persons = app_data.get('persons', [])
 
     # Clone the last person but with the name "Unknown"
@@ -483,7 +508,7 @@ def add_person():
 
     # Update the session data
     app_data['persons'] = persons
-    session['app_data'] = app_data
+    save_app_data(app_data)
 
     return jsonify({
         'status': 'success',
@@ -495,7 +520,7 @@ def add_person():
 
 @app.route('/generate_plan', methods=['POST'])
 def generate_plan():
-    app_data = session.get('app_data', {})
+    app_data = load_app_data()
 
     # Generate a unique key for the current calculation
     calculation_key = str(uuid.uuid4())
@@ -519,7 +544,7 @@ def generate_plan():
         'solver_timeout_sec': request.form.get('solver_timeout_sec', ''),
         'not_enough_shifts': False
     })
-    session['app_data'] = app_data
+    save_app_data(app_data)
 
     total_available_shifts = len(app_data['persons']) * int(app_data.get('num_assignments_per_person', 2))
     total_assignments_needed = app_data.get('total_assignments_needed', 0)
@@ -529,7 +554,7 @@ def generate_plan():
         app_data.update({
             'not_enough_shifts': True
         })
-        session['app_data'] = app_data
+        save_app_data(app_data)
         return render_template('index.html', app_data=app_data, scroll_to='planner')
     
     else:
@@ -550,9 +575,11 @@ def run_calculation(calculation_key, app_data):
 
 @app.route('/check_calculation')
 def check_calculation():
-    calculation_key = session.get('app_data', {}).get('calculation_key')
+    app_data = load_app_data()
+    calculation_key = load_app_data().get('calculation_key')
     if calculation_key and calculation_key in calculation_results:
-        session['app_data'] = calculation_results.pop(calculation_key)
+        app_data = calculation_results.pop(calculation_key)
+        save_app_data(app_data)
         return redirect(url_for('display_results'))
     else:
         return render_template('calculation_started.html')
@@ -560,7 +587,7 @@ def check_calculation():
 
 @app.route('/display_results')
 def display_results():
-    app_data = session.get('app_data', {})
+    app_data = load_app_data()
     target = 'planner' if app_data.get('results', {}).get('status', "NOT FEASIBLE") == "NOT FEASIBLE" else 'results'
     return render_template('index.html', app_data=app_data, scroll_to=target)
 
@@ -580,7 +607,7 @@ class CustomJSONEncoder(json.JSONEncoder):
 
 @app.route('/save_state', methods=['POST'])
 def save_state():
-    app_data = session.get('app_data', {})
+    app_data = load_app_data()
     
     # Use a temporary file path to ensure data is written fully
     temp_file_path = os.path.join('temp', 'saved_state_temp.json')
@@ -617,13 +644,13 @@ def restore_state():
         app_data.update({
             'message': "State restored!"
         })
-        session['app_data'] = app_data
+        save_app_data(app_data)
     else:
-        app_data = session.get('app_data', {})
+        app_data = load_app_data()
         app_data.update({
             'message': "Invalid state file."
         })
-        session['app_data'] = app_data
+        save_app_data(app_data)
 
     return render_template('index.html', app_data=app_data)
 
@@ -638,14 +665,14 @@ def load_example():
         app_data.update({
             'message': "Example loaded!"
         })
-        session['app_data'] = app_data
+        save_app_data(app_data)
 
     except FileNotFoundError:
-        app_data = session.get('app_data', {})
+        app_data = load_app_data()
         app_data.update({
             'message': "Example file not found."
         })
-        session['app_data'] = app_data
+        save_app_data(app_data)
 
     return render_template('index.html', app_data=app_data)
 
@@ -654,7 +681,7 @@ def load_example():
 def reset_state():
     app_data = {}
     app_data = setDefaults(app_data)
-    session['app_data'] = app_data
+    save_app_data(app_data)
     return render_template('index.html', app_data=app_data)
 
 

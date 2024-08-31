@@ -62,12 +62,16 @@ def generate_schedule(app_data):
             for _ in range(plus_shifts):
                 # Choose the role to expand by finding the role with multiple values
                 for role, counts in expandable_roles.items():
-                    max_value = max(counts)
                     print(f"Role: {role} / count: {counts}")
-                    second_max_value = max([c for c in counts if c < max_value])
+                    
+                    i = [c for c in counts if c < max(counts)]
+                    if i:
+                        second_max_value = max(i)
+                        # Find the last occurrence of the second-highest value and increase it by 1
+                        last_index = len(counts) - 1 - counts[::-1].index(second_max_value)
+                    else:
+                        i = int(0.66*(len(counts) - 1))
 
-                    # Find the last occurrence of the second-highest value and increase it by 1
-                    last_index = len(counts) - 1 - counts[::-1].index(second_max_value)
                     shift_table[roles.index(role)][last_index] += 1
 
                     # Break out of the loop to reassess plus_shifts after every increment
