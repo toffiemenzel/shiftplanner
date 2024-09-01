@@ -98,6 +98,7 @@
                                 {% for shift in app_data.shift_names %}
                                 <th>{{ shift }}</th>
                                 {% endfor %}
+                                <th>Actions</th>
                             </tr>
                             {% for role_index in range(app_data.roles|length) %}
                             <tr>
@@ -111,6 +112,9 @@
                                 {% for shift_index in range(app_data.shift_params.num_shifts) %}
                                 <td class="centered"><input type="number" name="shift_{{ role_index }}_{{ shift_index }}" value="{{ app_data.shift_table[role_index][shift_index] }}" min="0" class="small-input"></td>
                                 {% endfor %}
+                                <td class="centered">
+                                    <button type="button" class="delete-btn" onclick="deleteRole({{ role_index }})">Delete</button>
+                                </td>
                             </tr>
                             {% endfor %}
                         </table>
@@ -175,6 +179,8 @@
                     <form id="participant-form" action="/change_person_table" method="POST">
                         <table border="1" id="participant-table">
                             <tr>
+                                <th>A</th>
+                                <th>B</th>
                                 <th>Name</th>
                                 <th>Gender</th>
                                 {% for role in app_data.role_columns %}
@@ -191,6 +197,8 @@
                             </tr>
                             {% for i in range(app_data.persons|length) %}
                             <tr id="row_{{ i }}">
+                                <td class="centered"><input type="checkbox" name="marker_a_{{ i }}" {% if app_data.persons[i]['marker_a'] %}checked{% endif %}></td>
+                                <td class="centered"><input type="checkbox" name="marker_b_{{ i }}" {% if app_data.persons[i]['marker_b'] %}checked{% endif %}></td>
                                 <td class="centered"><input type="text" name="name_{{ i }}" value="{{ app_data.persons[i]['name'] }}" class="large-input"></td>
                                 <td class="centered">
                                     <select name="gender_{{ i }}">
@@ -247,6 +255,8 @@
                                     <button type="button" onclick="addPerson()">Add Participant</button>
                                     <label id="label-num-persons" class="label-primary big">&nbsp;&nbsp;{{ app_data.persons | length }} persons&nbsp;&nbsp;</label>
                                     <label id="label-num-genders" class="label-primary">(w: {{ app_data.persons | selectattr('gender', 'equalto', 'w') | list | length }}, m: {{ app_data.persons | selectattr('gender', 'equalto', 'm') | list | length }}, d: {{ app_data.persons | selectattr('gender', 'equalto', 'd') | list | length }})</label>
+                                    <label id="label-num-role-avail" class="label-primary">
+                                        {{ app_data.role_availability_string }}</label>
                                     <label id="label-num-avail-shifts" class="label-primary big">&nbsp;&nbsp;{{ app_data.persons | map(attribute='num_p_shifts') | map('int') | sum }} shift spots</label>
                                     <label id="label-num-req-shifts" class="label-primary big">&nbsp;&nbsp;({{ app_data.get('total_assignments_needed', 0) }} required)</label>
                                 </td>
@@ -439,7 +449,7 @@
                 </table>
                 <h3>Overview</h3>
                 <table border="1">
-                    {% for row in app_data.results.get('shift_table', []) %}
+                    {% for row in app_data.results.get('shifts_table', []) %}
                     <tr>
                         {% if loop.index == 1 %}
                         {% for column in row %}
@@ -531,10 +541,46 @@
 
                     // Append the new row to the table
                     table.appendChild(newRow);
+
+                    document.getElementById('shifts-form').addEventListener('input', function(event) {
+                        if (event.target.tagName.toLowerCase() === 'input') {
+                            submitShiftTableData();
+                        }
+                    });
                 }
             })
             .catch(error => console.error('Error adding new role:', error));
         }
+
+        function deleteRole(roleIndex) {
+            // Confirm before deleting the role
+            if (!confirm('Are you sure you want to delete this role?')) {
+                return;
+            }
+
+            fetch('/delete_shift_role', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ role_index: roleIndex })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Remove the row from the table
+                    const table = document.querySelector('table[border="1"]');
+                    const row = table.rows[roleIndex + 1]; // +1 to account for the header row
+                    if (row) {
+                        row.remove();
+                    }
+                } else {
+                    console.error('Error deleting role:', data.message);
+                }
+            })
+            .catch(error => console.error('Error deleting role:', error));
+        }
+
 
         function toggleExperienceCheckbox(personIndex, role) {
             var availableCheckbox = document.getElementsByName(`roles_${personIndex}_${role}_available`)[0];

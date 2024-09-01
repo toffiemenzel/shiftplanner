@@ -51,6 +51,7 @@ def setDefaults(app_data):
     app_data.setdefault("persons", [])
     app_data.setdefault("roles", [])
     app_data.setdefault("role_columns", [])
+    app_data.setdefault("role_availability_string", {})
     app_data.setdefault("shift_table", [])
     app_data.setdefault("shift_names", [])
     app_data.setdefault("role_experience_required", {})
@@ -182,6 +183,35 @@ def add_new_shift_role():
         'new_role_shifts': new_role_shifts,
         'role_experience_required': app_data['role_experience_required']
     }), 200
+
+
+@app.route('/delete_shift_role', methods=['POST'])
+def delete_shift_role():
+    role_index = int(request.json.get('role_index'))
+
+    app_data = load_app_data()
+
+    # Ensure the role_index is within a valid range
+    if 0 <= role_index < len(app_data['roles']):
+        # Get the role name before removing it from the list
+        role_name = app_data['roles'][role_index]
+        
+        # Remove the role data
+        app_data['roles'].pop(role_index)
+        app_data['role_columns'].pop(role_index)
+        app_data['shift_table'].pop(role_index)
+        
+        # Delete from role_experience_required dictionary
+        if role_name in app_data['role_experience_required']:
+            del app_data['role_experience_required'][role_name]
+
+        # Save updated app data
+        save_app_data(app_data)
+
+        return jsonify({'status': 'success'}), 200
+    else:
+        return jsonify({'status': 'error', 'message': 'Invalid role index'}), 400
+
 
 
 @app.route('/create_shift_table', methods=['POST'])
@@ -339,6 +369,27 @@ def ajax_change_shift_table():
         'recommended_nums_people': recommended_nums_people
     }), 200
 
+
+def compute_role_availability(app_data):
+    # Initialize a dictionary to keep track of available people for each role
+    role_availability = {role: 0 for role in app_data.get('roles', [])}
+
+    # Iterate over all persons in the app_data
+    for person in app_data.get('persons', []):
+        # Count each role in experienced and inexperienced roles
+        for role in person.get('experienced_roles', []):
+            if role in role_availability:
+                role_availability[role] += 1
+
+        for role in person.get('inexperienced_roles', []):
+            if role in role_availability:
+                role_availability[role] += 1
+
+    print(f"role_availability = {role_availability}")
+    return str(role_availability)
+
+
+
 @app.route('/create_person_table', methods=['POST'])
 def create_person_table():
     app_data = load_app_data()
@@ -360,16 +411,19 @@ def create_person_table():
                 'departure_hard': False,
                 'departure_time': "2",
                 'preferred_partners': "",
-                'options': ""
+                'options': "",
+                'marker_a': False,
+                'marker_b': False
             })
         
     #print(persons)
-        
+
     # Update the app data
     app_data.update({
         'message': "Empty participants table created!",
         'persons': persons,
-        'role_columns': roles  # Use roles from the shift definition
+        'role_columns': roles,  # Use roles from the shift definition
+        'role_availability_string': compute_role_availability(app_data)
     })
     save_app_data(app_data)
 
@@ -420,7 +474,9 @@ def load_person_table():
                     'assign_shifts': row['assign_shifts'],
                     'veto_shifts': row['veto_shifts'],
                     'preferred_partners': row['preferred_partners'],
-                    'options': row['options']
+                    'options': row['options'],
+                    'marker_a': row['marker_a'],
+                    'marker_b': row['marker_b']
                 })
             
             # Delete temporary file
@@ -430,7 +486,8 @@ def load_person_table():
             app_data.update({
                 'message': "Participants table created from file!",
                 'persons': persons,
-                'role_columns': roles  # Use roles from the shift definition
+                'role_columns': roles,  # Use roles from the shift definition
+                'role_availability_string': compute_role_availability(app_data)
             })
             save_app_data(app_data)
 
@@ -448,9 +505,6 @@ def load_person_table():
                 'role_columns': roles  # Reset roles if CSV loading fails
             })
             save_app_data(app_data)
-
-
-        return render_template('index.html', app_data=app_data, scroll_to='participants')
 
         return render_template('index.html', app_data=app_data, scroll_to='participants')
 
@@ -511,7 +565,9 @@ def change_person_table():
             'assign_shifts': request.form.get(f'assign_shifts_{i}', ''),
             'veto_shifts': request.form.get(f'veto_shifts_{i}', ''),
             'preferred_partners': request.form.get(f'preferred_partners_{i}', ''),
-            'options': request.form.get(f'options_{i}', '')
+            'options': request.form.get(f'options_{i}', ''),
+            'marker_a': request.form.get(f'marker_a_{i}', ''),
+            'marker_b': request.form.get(f'marker_b_{i}', '')
         })
 
     num_avail_shifts = sum(int(person['num_p_shifts']) for person in persons)
@@ -522,6 +578,7 @@ def change_person_table():
     # Update the session data
     app_data.update({
         'persons': persons,
+        'role_availability_string': compute_role_availability(app_data),
         'message': "Participant data saved successfully!"
     })
     save_app_data(app_data)
@@ -567,7 +624,9 @@ def add_person():
         'assign_shifts': '',
         'veto_shifts': '',
         'preferred_partners': '',
-        'options': ''
+        'options': '',
+        'marker_a': False,
+        'marker_b': False
     }
     new_person = last_person.copy()
     new_person['name'] = 'Unknown'
