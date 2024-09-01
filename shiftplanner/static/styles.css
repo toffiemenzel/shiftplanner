@@ -142,6 +142,11 @@ table {
     margin-bottom: 0px;
 }
 
+.table-wide {
+    width: 100%;
+    display: auto;
+}
+
 .table-stretch {
     height: 100%;
     margin-bottom: 0px;
@@ -182,6 +187,13 @@ td {
 
 .td-dark {
     background-color: #3B0A45;
+    padding: 0px;
+}
+
+.td-warning {
+    background-color: #deceb1;
+    color: #FF0000;
+    font-weight: bold;
     padding: 0px;
 }
 
@@ -240,11 +252,12 @@ button:hover {
 }
 
 .medium-input {
-    width: 150px;
+    width: 100px;
 }
 
 .large-input {
     width: 100%;
+    
 }
 
 .centered {

@@ -119,26 +119,26 @@ def process_time_field(time_str):
         return time_str, False
 
 
-def generate_shifts(start_str, duration_hours, num_shifts):
-    start_day, start_hour = start_str.split()
-    start_hour = int(start_hour)
+def generate_shifts(start_timestamp, duration_hours, num_shifts):
+    # Convert the Unix timestamp to a datetime object
+    start_datetime = datetime.fromtimestamp(start_timestamp)
     duration_hours = int(duration_hours)
-    
-    day_indices = {"Mon": 0, "Tue": 1, "Wed": 2, "Thu": 3, "Fri": 4, "Sat": 5, "Sun": 6}
-    start_day_idx = day_indices[start_day]
-    
-    start_datetime = datetime(2024, 1, 1 + start_day_idx) + timedelta(hours=start_hour)
-    
+
     shift_names = []
     shift_datetimes = []
+
     for i in range(num_shifts):
+        # Calculate the start time for each shift
         shift_start = start_datetime + timedelta(hours=i * duration_hours)
         shift_end = shift_start + timedelta(hours=duration_hours)
         
-        shift_name = f"{shift_start.strftime('%a %H')} - {shift_end.strftime('%H')}"
+        # Format the shift name to show day and hour in the desired format
+        shift_name = f"{shift_start.strftime('%a %H')}-{shift_end.strftime('%H')}"
         shift_names.append(shift_name)
-        shift_datetimes.append(shift_start)
-    
+        
+        # Store shift start as Unix timestamp
+        shift_datetimes.append(int(shift_start.timestamp()))
+
     return shift_names, shift_datetimes
 
 
@@ -153,7 +153,7 @@ def home():
 def create_shift_table():
     shift_params = {
         'shift_duration_hours': request.form.get('shift_duration_hours', ''),
-        'first_shift_start': request.form.get('first_shift_start', ''),
+        'first_shift_start_datetime': request.form.get('first_shift_start_datetime', ''),  # Updated key to match the datetime-local input name
         'num_shifts': int(request.form.get('num_shifts', '0')),
         'roles_min': request.form.get('roles_min', '')
     }
@@ -161,8 +161,22 @@ def create_shift_table():
     success = True
     message = "Shift table created!"
 
-    # Generate the shifts
-    shift_names, shift_datetimes = generate_shifts(shift_params['first_shift_start'], shift_params['shift_duration_hours'], shift_params['num_shifts'])
+    # Parse the datetime input string into a datetime object
+    try:
+        first_shift_start_datetime = datetime.strptime(shift_params['first_shift_start_datetime'], '%Y-%m-%dT%H:%M')
+        
+        # Convert the datetime object to a Unix timestamp
+        first_shift_start_timestamp = int(first_shift_start_datetime.timestamp())
+    except ValueError:
+        # Handle invalid input
+        app_data = load_app_data()
+        app_data.update({
+            'message': "Invalid date and time format. Please select a valid date and time."
+        })
+        return render_template('index.html', app_data=app_data)
+
+    # Generate the shifts using the Unix timestamp
+    shift_names, shift_datetimes = generate_shifts(first_shift_start_timestamp, shift_params['shift_duration_hours'], shift_params['num_shifts'])
     
     # Updated role pattern to make the bracketed value optional
     role_pattern = r'([\w/]+)(?:\(([\d,]*)\))?(!?)(,|$)'
@@ -212,6 +226,7 @@ def create_shift_table():
     save_app_data(app_data)
     
     return render_template('index.html', app_data=app_data)
+
 
 '''
 @app.route('/change_shift_table', methods=['POST'])
@@ -308,6 +323,7 @@ def create_person_table():
                 'arrival_hard': False,
                 'departure_time': "",
                 'departure_hard': False,
+                'departure_time': "2",
                 'preferred_partners': "",
                 'options': ""
             })
@@ -365,6 +381,7 @@ def load_person_table():
                     'arrival_hard': arrival_hard,
                     'departure_time': departure_time,
                     'departure_hard': departure_hard,
+                    'num_p_shifts': row['num_p_shifts'],
                     'assign_shifts': row['assign_shifts'],
                     'veto_shifts': row['veto_shifts'],
                     'preferred_partners': row['preferred_partners'],
@@ -415,7 +432,7 @@ def load_person_table():
             save_app_data(app_data)
             return render_template('index.html', app_data=app_data)
 
-
+# ajax route
 @app.route('/change_person_table', methods=['POST'])
 def change_person_table():
     app_data = load_app_data()
@@ -455,11 +472,17 @@ def change_person_table():
             'arrival_hard': request.form.get(f'arrival_hard_{i}') is not None and len(request.form.get(f'arrival_time_{i}', '')) > 0,
             'departure_time': request.form.get(f'departure_time_{i}', ''),
             'departure_hard': request.form.get(f'departure_hard_{i}') is not None and len(request.form.get(f'departure_time_{i}', '')) > 0,
+            'num_p_shifts': request.form.get(f'num_p_shifts_{i}', ''),
             'assign_shifts': request.form.get(f'assign_shifts_{i}', ''),
             'veto_shifts': request.form.get(f'veto_shifts_{i}', ''),
             'preferred_partners': request.form.get(f'preferred_partners_{i}', ''),
             'options': request.form.get(f'options_{i}', '')
         })
+
+    num_avail_shifts = sum(int(person['num_p_shifts']) for person in persons)
+    num_m = sum(person['gender'] == 'm' for person in persons)
+    num_w = sum(person['gender'] == 'w' for person in persons)
+    num_d = sum(person['gender'] == 'd' for person in persons)
 
     # Update the session data
     app_data.update({
@@ -468,7 +491,14 @@ def change_person_table():
     })
     save_app_data(app_data)
     
-    return render_template('index.html', app_data=app_data, scroll_to='participants')
+    #return render_template('index.html', app_data=app_data, scroll_to='participants')
+    return jsonify({
+            'num_persons': len(persons),
+            'num_avail_shifts': num_avail_shifts,
+            'num_m': num_m,
+            'num_w': num_w,
+            'num_d': num_d,
+        }), 200
 
 
 @app.route('/delete_person', methods=['POST'])
@@ -530,7 +560,6 @@ def generate_plan():
     app_data['calculation_start_time'] = datetime.utcnow().timestamp()
 
     app_data.update({
-        'num_assignments_per_person': request.form.get('num_assignments_per_person', ''),
         'opt_consider_travel': request.form.get('opt_consider_travel', False),
         'opt_balance_gender': request.form.get('opt_balance_gender', False),
         'opt_max_shift_dist': request.form.get('opt_max_shift_dist', False),
@@ -548,7 +577,7 @@ def generate_plan():
     })
     save_app_data(app_data)
 
-    total_available_shifts = len(app_data['persons']) * int(app_data.get('num_assignments_per_person', 2))
+    total_available_shifts = sum(int(person['num_p_shifts']) for person in app_data.get('persons',{}))
     total_assignments_needed = app_data.get('total_assignments_needed', 0)
     plus_shifts = total_available_shifts - total_assignments_needed
 

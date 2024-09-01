@@ -47,7 +47,7 @@
                                 <label for="first_shift_start" style="white-space: nowrap">First Shift Start:</label>
                             </td>
                             <td>
-                                <input type="text" id="first_shift_start" name="first_shift_start" value="{{ app_data.shift_params.get('first_shift_start', 'Thu 16') }}" class="small-input" required> e.g. <i>Thu 16</i>
+                                <input type="datetime-local" id="first_shift_start_date" name="first_shift_start_datetime" value="{{ app_data.shift_params.get('first_shift_start_datetime') }}" required>
                             </td>
                         </tr>
                         <tr>
@@ -127,10 +127,10 @@
     <button type="button" id="participants" class="collapsible">Participants</button>
     <div class="content">
         
-        <table class="table-invisible">
+        <table class="table-invisible table-wide">
             <tr>
                 <td>
-                    <table class="table-invisible table-slim">
+                    <table class="table-invisible table-wide">
                         <tr>
                             <td>
                                 <form action="/create_person_table" method="POST" enctype="multipart/form-data">
@@ -148,6 +148,12 @@
                                 <form action="/download_sample_file" method="POST" enctype="multipart/form-data">
                                     <b>or </b>
                                     <input type="submit" value="Download sample file">
+                                </form>
+                            </td>
+                            <td class="align-right" width="100%">
+                                <form action="/download_participants_file" method="POST" enctype="multipart/form-data">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="submit" value="Save as csv file">
                                 </form>
                             </td>
                         </tr>
@@ -169,10 +175,11 @@
                                 {% endfor %}
                                 <th>Arrival Time</th>
                                 <th>Departure Time</th>
+                                <th>Num. shifts</th>
                                 <th>Assign Shifts</th>
                                 <th>Veto Shifts</th>
                                 <th>Preferred Partners</th>
-                                <th>Options</th>
+                                <!--<th>Options</th>-->
                                 <th>Actions</th>
                             </tr>
                             {% for i in range(app_data.persons|length) %}
@@ -203,21 +210,24 @@
                                 </td>
                                 {% endfor %}
                                 <td class="centered">
-                                    <input type="text" name="arrival_time_{{ i }}" value="{{ app_data.persons[i]['arrival_time'] }}" class="small-input">
+                                    <input type="text" name="arrival_time_{{ i }}" value="{{ app_data.persons[i]['arrival_time'] }}" class="medium-input">
                                     <label>hard
                                         <input type="checkbox" name="arrival_hard_{{ i }}" {% if app_data.persons[i]['arrival_hard'] %}checked{% endif %}>
                                     </label>
                                 </td>
                                 <td class="centered">
-                                    <input type="text" name="departure_time_{{ i }}" value="{{ app_data.persons[i]['departure_time'] }}"  class="small-input">
+                                    <input type="text" name="departure_time_{{ i }}" value="{{ app_data.persons[i]['departure_time'] }}"  class="medium-input">
                                     <label>hard
                                         <input type="checkbox" name="departure_hard_{{ i }}" {% if app_data.persons[i]['departure_hard'] %}checked{% endif %}>
                                     </label>
                                 </td>
+                                <td class="centered">
+                                    <input type="number" name="num_p_shifts_{{ i }}" value="{{ app_data.persons[i]['num_p_shifts'] }}"  class="small-input">
+                                </td>
                                 <td class="centered"><input type="text" name="assign_shifts_{{ i }}" value="{{ app_data.persons[i]['assign_shifts'] }}" class="large-input"></td>
                                 <td class="centered"><input type="text" name="veto_shifts_{{ i }}" value="{{ app_data.persons[i]['veto_shifts'] }}" class="large-input"></td>
                                 <td class="centered"><input type="text" name="preferred_partners_{{ i }}" value="{{ app_data.persons[i]['preferred_partners'] }}" class="large-input"></td>
-                                <td class="centered"><input type="text" name="options_{{ i }}" value="{{ app_data.persons[i]['options'] }}" class="large-input"></td>
+                                <!--<td class="centered"><input type="text" name="options_{{ i }}" value="{{ app_data.persons[i]['options'] }}" class="large-input"></td>-->
                                 <td class="centered">
                                     <button type="button" class="delete-btn" onclick="deletePerson({{ i }})">Delete</button>
                                 </td>
@@ -229,7 +239,9 @@
                                 <td class="td-dark">
                                     <button type="button" onclick="addPerson()">Add Participant</button>
                                     <label id="label-num-persons" class="label-primary big">&nbsp;&nbsp;{{ app_data.persons | length }} persons&nbsp;&nbsp;</label>
-                                    <label id="label-num-genders" class="label-primary">(w: 0, m: 0, d: 0)</label>
+                                    <label id="label-num-genders" class="label-primary">(w: {{ app_data.persons | selectattr('gender', 'equalto', 'w') | list | length }}, m: {{ app_data.persons | selectattr('gender', 'equalto', 'm') | list | length }}, d: {{ app_data.persons | selectattr('gender', 'equalto', 'd') | list | length }})</label>
+                                    <label id="label-num-avail-shifts" class="label-primary big">&nbsp;&nbsp;{{ app_data.persons | map(attribute='num_p_shifts') | map('int') | sum }} shift spots</label>
+                                    <label id="label-num-req-shifts" class="label-primary big">&nbsp;&nbsp;({{ app_data.get('total_assignments_needed', 0) }} required)</label>
                                 </td>
                             </tr>
                         </table>
@@ -252,10 +264,6 @@
                     <table class="table-invisible">
                         <tr>
                             <td colspan="2"><b>Basic Parameters</b></td>
-                        </tr>
-                        <tr>
-                            <td><label for="num_assignments_per_person">Shifts per person:</label></td>
-                            <td><input type="number" id="num_assignments_per_person" name="num_assignments_per_person" value="{{ app_data.get('num_assignments_per_person', '2') }}" class="small-input" min="1" required></td>
                         </tr>
                         <tr>
                             <td><label for="opt_balance_gender">Try balance genders per shift:</label></td>
@@ -317,13 +325,12 @@
                 </td>
                 <td class="td-dark-padded" rowspan="2">
                     {% if app_data.not_enough_shifts %}
-                    <label class="label-primary big line-break">{{ app_data.persons | length }} persons * {{ app_data.get('num_assignments_per_person', '2') }} shifts = {{ (app_data.persons | length) * (app_data.get('num_assignments_per_person', 2) | int) }} available shift spots<br><br>{{ app_data.get('total_assignments_needed', '0') }} shift spots are required<br><br>
+                    <label class="label-primary big line-break">There are only {{ app_data.persons | map(attribute='num_p_shifts') | map('int') | sum }} available shift spots, but {{ app_data.get('total_assignments_needed', '0') }} shift spots are required<br><br>
                         What you can do:
                         <ul>
                             <li>add more people to the team</li>
                             <li>reduce size of some shifts</li>
-                            <li>increase shifts per person</li>
-                            <li>allow individual extra shifts</li>
+                            <li>increase number of shifts per person</li>
                           </ul> 
                         </label>
                     {% endif %}
@@ -456,13 +463,17 @@
                         {% if loop.index == 1 %}
                         <td class="td-left-head centered extra-padding"><label>{{ column }}</label></td>
                         {% else %}
-                        <td class="centered extra-padding"><label>{{ column | replace(', ', '<br>') | safe }}</label></td>
+                        {# Check if the column contains an exclamation mark #}
+                        {% set warning_class = 'td-warning' if '!' in column else '' %}
+                        {# Remove all exclamation marks from the column #}
+                        {% set cleaned_column = column.replace('!', '') %}
+                        <td class="centered extra-padding {{ warning_class }}"><label>{{ cleaned_column | replace(', ', '<br>') | safe }}</label></td>
                         {% endif %}
                         {% endfor %}
                         {% endif %}
                     </tr>
                     {% endfor %}
-                </table>
+                </table>                
             </td>
         </tr>
     </table>
@@ -547,22 +558,25 @@
 
                     // Continue with other fields
                     newRow.innerHTML += `
-                        <td class="centered"><input type="text" name="arrival_time_${lastIndex}" value="${newPerson.arrival_time}" class="small-input">
+                        <td class="centered"><input type="text" name="arrival_time_${lastIndex}" value="${newPerson.arrival_time}" class="medium-input">
                             <label>hard
                                 <input type="checkbox" name="arrival_hard_${lastIndex}" ${newPerson.arrival_hard ? 'checked' : ''}>
                             </label>
                             </td>
-                        <td class="centered"><input type="text" name="departure_time_${lastIndex}" value="${newPerson.departure_time}" class="small-input">
+                        <td class="centered"><input type="text" name="departure_time_${lastIndex}" value="${newPerson.departure_time}" class="medium-input">
                             <label>hard
                                 <input type="checkbox" name="departure_hard_${lastIndex}" ${newPerson.departure_hard ? 'checked' : ''}>
                             </label>
                         </td>
+                        <td class="centered"><input type="number" name="num_p_shifts_${lastIndex}" value="${newPerson.num_p_shifts}" class="small-input"></td>
+                        <td class="centered"><input type="text" name="assign_shifts_${lastIndex}" value="${newPerson.assign_shifts}" class="large-input"></td>
+                        <td class="centered"><input type="text" name="veto_shifts_${lastIndex}" value="${newPerson.veto_shifts}" class="large-input"></td>
                         <td class="centered"><input type="text" name="preferred_partners_${lastIndex}" value="${newPerson.preferred_partners}" class="large-input"></td>
-                        <td class="centered"><input type="text" name="options_${lastIndex}" value="${newPerson.options}" class="large-input"></td>
                         <td class="centered">
                             <button type="button" class="delete-btn" onclick="deletePerson(${lastIndex})">Delete</button>
                         </td>
                     `;
+                    //<td class="centered"><input type="text" name="options_${lastIndex}" value="${newPerson.options}" class="large-input"></td>
                     table.appendChild(newRow);
                 }
             });
@@ -583,10 +597,11 @@
                     method: 'POST',
                     body: formData,
                 })
-                .then(response => response.text())
+                .then(response => response.json())
                 .then(data => {
-                            // Update the page content if necessary
-                    // You could use this to update a message area, refresh a part of the page, etc.
+                    document.getElementById('label-num-persons').innerHTML = `&nbsp;&nbsp;${data.num_persons} persons&nbsp;&nbsp;`;
+                    document.getElementById('label-num-genders').innerHTML = `(w: ${data.num_w}, m: ${data.num_m}, d: ${data.num_d})`;
+                    document.getElementById('label-num-avail-shifts').innerHTML = `&nbsp;&nbsp;${data.num_avail_shifts} shift spots`;
                     console.log("Participant data saved successfully.");
                 })
                 .catch((error) => {
@@ -615,6 +630,7 @@
                     // Update the labels dynamically
                     document.getElementById('label-total_assignments_needed').innerHTML = `${data.total_assignments_needed} shift spots`;
                     document.getElementById('label-recommended_nums_people').innerHTML = `/ at least ${data.recommended_nums_people} people with ${Math.ceil(data.total_assignments_needed / data.recommended_nums_people)} shifts recommended`;
+                    document.getElementById('label-num-req-shifts').innerHTML = `&nbsp;&nbsp;(${data.total_assignments_needed} required)`;
                     
                     console.log("Shift table data saved successfully.");
                 })

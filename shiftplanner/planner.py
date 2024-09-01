@@ -1,7 +1,7 @@
 from flask import request
 from ortools.sat.python import cp_model
 from datetime import datetime, timedelta
-import csv, json
+import csv, json, random, copy
 
 # Constants
 day_indices = {"Mon": 0, "Tue": 1, "Wed": 2, "Thu": 3, "Fri": 4, "Sat": 5, "Sun": 6}
@@ -16,13 +16,15 @@ def run_offline(file_path):
     return generate_schedule(app_data)
     
 
-def generate_schedule(app_data):
+def generate_schedule(ref_app_data):
+    app_data = copy.deepcopy(ref_app_data)
+    print("NOW GENERATE SCHEDULE!")
+
     # Shift Parameters
     shift_duration_hours = int(app_data.get('shift_params', {}).get('shift_duration_hours', 0))  # Duration of each shift in hours
     total_shifts = int(app_data.get('shift_params', {}).get('num_shifts', 0)) # Number of shifts
 
     # Planner Parameters
-    num_assignments_per_person = int(app_data.get('num_assignments_per_person', 0))
     opt_consider_travel = app_data.get('opt_consider_travel', True)
     opt_balance_gender = app_data.get('opt_balance_gender', True)
     opt_same_time_slots = app_data.get('opt_same_time_slots', True)
@@ -50,48 +52,49 @@ def generate_schedule(app_data):
 
     # Calculate the required and available person-shifts
     required_person_shifts = sum(sum(role) for role in shift_table)
-    available_person_shifts = len(persons) * num_assignments_per_person
+    available_person_shifts = sum(int(person['num_p_shifts']) for person in persons)
     plus_shifts = available_person_shifts - required_person_shifts
+    print(f"There are {required_person_shifts} required shifts and {available_person_shifts} available shifts. Extra shift spots: {plus_shifts}")
 
     # If there are more available shifts than required, adjust the shift_table
     if plus_shifts > 0:
-        # Identify roles (and corresponding indices) with multiple values
-        expandable_roles = {role: shift_table[roles.index(role)] for role in roles if len(set(shift_table[roles.index(role)])) > 1}
-        print(f"Expandable roles: {expandable_roles}")
-        if expandable_roles:
-            for _ in range(plus_shifts):
-                # Choose the role to expand by finding the role with multiple values
-                for role, counts in expandable_roles.items():
-                    print(f"Role: {role} / count: {counts}")
+        # Calculate the total number of people assigned to each role across all shifts
+        role_totals = {role: sum(shift_table[roles.index(role)]) for role in roles}
+
+        # Sort roles by the total number of people assigned in descending order
+        sorted_roles = sorted(role_totals.keys(), key=lambda r: role_totals[r], reverse=True)
+        expanding_role = sorted_roles[0]  # Role with the highest total number of people
+        print(f"Expanding role: {expanding_role}")
+
+        role_index = roles.index(expanding_role)  # Get the index of the role in the shift_table
+
+        for _ in range(plus_shifts):
+            counts = shift_table[role_index]
+
+            # Find the unique counts in descending order to determine the second-highest value
+            unique_counts = sorted(set(counts), reverse=True)
+
+            if len(unique_counts) > 1:
+                # Second-highest value (if available)
+                second_highest_value = unique_counts[1]
+
+                # Find all indices where the count is equal to the second-highest value
+                second_highest_indices = [i for i, count in enumerate(counts) if count == second_highest_value]
+
+                if second_highest_indices:
+                    # Randomly select one of the indices where the second-highest value occurs
+                    target_index = random.choice(second_highest_indices)
+
+                    # Increment the count at the selected index
+                    shift_table[role_index][target_index] += 1
                     
-                    i = [c for c in counts if c < max(counts)]
-                    if i:
-                        second_max_value = max(i)
-                        # Find the last occurrence of the second-highest value and increase it by 1
-                        last_index = len(counts) - 1 - counts[::-1].index(second_max_value)
-                    else:
-                        i = int(0.66*(len(counts) - 1))
+            else:
+                # Fallback: If there is no second-highest value (all values are the same), select any index
+                target_index = random.randint(0, len(counts) - 1)
+                shift_table[role_index][target_index] += 1
 
-                    shift_table[roles.index(role)][last_index] += 1
-
-                    # Break out of the loop to reassess plus_shifts after every increment
-                    break
-        else:
-            # If no roles have multiple values, find the role with the highest single value and start individualizing it per shift
-            max_role_index = max(range(len(roles)), key=lambda i: shift_table[i][0])
-            
-            # Calculate the 3/4 position (rounded down)
-            target_index = int(3 * (total_shifts - 1) / 4)
-            shift_table[max_role_index][target_index] += 1
+            print(shift_table[role_index])
             plus_shifts -= 1
-
-            # Adjust the remaining plus_shifts by applying the rule of the last position of the second highest element
-            counts = shift_table[max_role_index]
-            for _ in range(plus_shifts):
-                max_value = max(counts)
-                if target_index > 0:
-                    target_index -= 1
-                counts[target_index] += 1
 
     # Derived parameters
     num_people = len(persons)
@@ -114,7 +117,7 @@ def generate_schedule(app_data):
                 'status': f"Error: Not enough people to fill all shifts. Required shifts: {required_person_shifts}, Available shifts: {available_person_shifts}",
                 'stats': {},
                 'people_table': [],
-                'shift_table': []
+                'shifts_table': []
             }
         return result
     else:
@@ -125,35 +128,60 @@ def generate_schedule(app_data):
         # Create time slots for constraints on shifts
         time_slots = [name.split()[1].split('-')[0] for name in shift_names]
 
-        # Convert shift_datetimes from strings to datetime objects if necessary
+        # Convert shift_datetimes from strings or timestamps to datetime objects if necessary
         shift_datetimes = [
-            datetime.fromisoformat(dt) if isinstance(dt, str) else dt
+            datetime.fromtimestamp(dt) if isinstance(dt, int) else datetime.fromisoformat(dt) if isinstance(dt, str) else dt
             for dt in app_data.get('shift_datetimes', [])
         ]
 
         # Ensure all times are timezone-naive before comparison
         shift_datetimes = [dt.replace(tzinfo=None) for dt in shift_datetimes]
 
-        # Convert arrival and departure times to indices in people_data
-        for person in persons:          
-            arrival_day, arrival_hour = person['arrival_time'].replace('!', '').split() if person['arrival_time'] else (None, None)
-            departure_day, departure_hour = person['departure_time'].replace('!', '').split() if person['departure_time'] else (None, None)
+        # Convert arrival and departure times to Unix timestamps
+        DEFAULT_ARRIVAL_TIME = "15:00"  # 3 PM
+        DEFAULT_DEPARTURE_TIME = "01:00"  # 1 AM
 
-            if arrival_day and arrival_hour:
-                arrival_time = datetime(2024, 1, 1) + timedelta(days=day_indices[arrival_day], hours=int(arrival_hour))
-                earliest_shift = next(idx for idx, dt in enumerate(shift_datetimes) if dt.replace(tzinfo=None) >= arrival_time.replace(tzinfo=None))
+        # Determine the default arrival and departure datetimes based on the shift schedule
+        if shift_datetimes:
+            default_arrival_time = shift_datetimes[0] - timedelta(days=1)  # One day before the first shift
+            default_departure_time = shift_datetimes[-1] + timedelta(days=1)  # One day after the last shift
+
+        for person in persons:
+            # Parse arrival time
+            if person['arrival_time']:
+                if 'T' in person['arrival_time']:
+                    # If time is provided, parse as full datetime
+                    arrival_time = datetime.fromisoformat(person['arrival_time'])
+                else:
+                    # If no time is provided, add default time of 3 PM
+                    arrival_time = datetime.fromisoformat(f"{person['arrival_time']}T{DEFAULT_ARRIVAL_TIME}")
             else:
-                earliest_shift = 0  # No constraint on earliest shift if arrival_time is empty
-            
-            if departure_day and departure_hour:
-                departure_time = datetime(2024, 1, 1) + timedelta(days=day_indices[departure_day], hours=int(departure_hour))
-                latest_shift = next((idx for idx, dt in enumerate(shift_datetimes) 
-                            if dt.replace(tzinfo=None) + timedelta(hours=shift_duration_hours) > departure_time.replace(tzinfo=None)), total_shifts) - 1
+                # If arrival_time is empty, use default arrival time (1 day before the first shift)
+                arrival_time = default_arrival_time
+
+            # Parse departure time
+            if person['departure_time']:
+                if 'T' in person['departure_time']:
+                    # If time is provided, parse as full datetime
+                    departure_time = datetime.fromisoformat(person['departure_time'])
+                else:
+                    # If no time is provided, add default time of 1 AM
+                    departure_time = datetime.fromisoformat(f"{person['departure_time']}T{DEFAULT_DEPARTURE_TIME}")
             else:
-                latest_shift = total_shifts - 1  # No constraint on latest shift if departure_time is empty
-            
+                # If departure_time is empty, use default departure time (1 day after the last shift)
+                departure_time = default_departure_time
+
+            # Convert to Unix timestamps for comparison
+            arrival_timestamp = int(arrival_time.timestamp())
+            departure_timestamp = int(departure_time.timestamp())
+
+            # Calculate earliest and latest shift indices based on Unix timestamps
+            earliest_shift = next(idx for idx, dt in enumerate(shift_datetimes) if int(dt.timestamp()) >= arrival_timestamp)
+            latest_shift = next((idx for idx, dt in enumerate(shift_datetimes) if int(dt.timestamp()) + (shift_duration_hours * 3600) > departure_timestamp), total_shifts) - 1
+
             person['earliest_shift'] = earliest_shift
             person['latest_shift'] = latest_shift
+
 
         # Extract the pre-assigned and vetoed shifts
         for person in persons:    
@@ -176,6 +204,8 @@ def generate_schedule(app_data):
         shifts = {}
         penalties = []  # List to track penalties for scheduling outside of the availability window
         for i, person in enumerate(persons):
+            #print(f"{person['name']} earliest shift is {person['earliest_shift']}")
+            #print(f"{person['name']} latest shift is {person['latest_shift']}")
             for j in range(num_shifts):
                 for r in roles:
                     if r in person['experienced_roles'] + person['inexperienced_roles']:
@@ -185,15 +215,16 @@ def generate_schedule(app_data):
                         # Add penalties for assigning shifts outside availability window
                         if opt_consider_travel and ((j < person['earliest_shift'] or j > person['latest_shift']) and not person['arrival_hard'] and not person['departure_hard']):
                             penalties.append(shift_var * penalty_outside_window)
-                            conditions.append(f'shift_{person["name"]}_{j}_{r} == 1 increases the penalty')
+                            conditions.append(f'shift_{person["name"]}_{j}_{r} == 1 increases pentalty for time window')
                         
                         # Enforce hard constraints (no shifts can be assigned outside the hard limits)
                         if (j < person['earliest_shift'] and person['arrival_hard']) or (j > person['latest_shift'] and person['departure_hard']):
                             shifts[(i, j, r)] = model.NewConstant(0)
-                            conditions.append(f'shift_{person["name"]}_{j}_{r} == 0')
+                            conditions.append(f'shift_{person["name"]}_{j}_{r} == 0 because outside time window')
                     else:
                         shifts[(i, j, r)] = model.NewConstant(0)
-                        conditions.append(f'shift_{person["name"]}_{j}_{r} == 0')
+                        conditions.append(f'shift_{person["name"]}_{j}_{r} == 0 because role is not suitable for person')
+        
         
         # Soft constraint: Try to balance experienced and inexperienced persons for roles requiring experience mix
         imbalance_vars = [] 
@@ -204,9 +235,9 @@ def generate_schedule(app_data):
                     inexperienced = sum(shifts[(i, j, r)] for i in range(num_people) if r in persons[i]['inexperienced_roles'])
                     imbalance = model.NewIntVar(0, num_shifts, f'imbalance_{j}_{r}')
                     model.AddAbsEquality(imbalance, experienced - inexperienced)
-                    conditions.append(f'imbalance_{j}_{r} == abs({experienced} - {inexperienced})')
+                    conditions.append(f'experience imbalance_{j}_{r} == abs({experienced} - {inexperienced})')
                     penalties.append(imbalance * experience_penalty)
-                    conditions.append(f'imbalance_{j}_{r} * {experience_penalty} is added to the penalty')
+                    conditions.append(f'experience imbalance_{j}_{r} * {experience_penalty} is added to the penalty')
                     imbalance_vars.append((j, r, imbalance))
         
         # Soft constraint: Penalize large disparities in gender counts within each shift
@@ -236,14 +267,14 @@ def generate_schedule(app_data):
                 penalties.extend(gender_diffs)
                 conditions.append(f'Penalty for gender disparities in shift {j}: {gender_diffs}')
         
-        # Each person gets exactly n shifts
+        # Each person gets exactly num_p_shifts shifts
         for i in range(num_people):
             if extra_shifts_key in persons[i]['options'] and not enough_shifts:
-                model.Add(sum(shifts[(i, j, r)] for j in range(num_shifts) for r in persons[i]['experienced_roles'] + persons[i]['inexperienced_roles']) >= num_assignments_per_person)   
-                conditions.append(f'{persons[i]["name"]} is allowed at least {num_assignments_per_person} shifts due to extra shifts option')
+                model.Add(sum(shifts[(i, j, r)] for j in range(num_shifts) for r in persons[i]['experienced_roles'] + persons[i]['inexperienced_roles']) >= int(persons[i]["num_p_shifts"]))   
+                conditions.append(f'{persons[i]["name"]} is allowed at least {persons[i]["num_p_shifts"]} shifts due to extra shifts option')
             else:
-                model.Add(sum(shifts[(i, j, r)] for j in range(num_shifts) for r in persons[i]['experienced_roles'] + persons[i]['inexperienced_roles']) == num_assignments_per_person)  
-                conditions.append(f'{persons[i]["name"]} must be assigned exactly {num_assignments_per_person} shifts')  
+                model.Add(sum(shifts[(i, j, r)] for j in range(num_shifts) for r in persons[i]['experienced_roles'] + persons[i]['inexperienced_roles']) == int(persons[i]["num_p_shifts"]))  
+                conditions.append(f'{persons[i]["name"]} must be assigned exactly {persons[i]["num_p_shifts"]} shifts')  
 
         # Each person can have at most one role per shift
         for i in range(num_people):
@@ -395,11 +426,9 @@ def generate_schedule(app_data):
         model.Maximize(sum(total_bonus) + sum(distances) - sum(penalties))
 
         # Print the conditions for debugging
-        
         with open("conditions_output.txt", 'w') as f:
             for condition in conditions:
                 f.write(condition + '\n')
-          
         
         # Create the solver and solve
         solver = cp_model.CpSolver()
@@ -462,7 +491,7 @@ def generate_schedule(app_data):
             for r in roles:
                 print(f"{r:<11} | " + " | ".join([f"{names:<11}" for names in role_assignments[r]]) + " |")
             '''
-            people_table, shift_table = generate_shift_tables(solver, shifts, persons, roles, shift_names, num_shifts)
+            people_table, shifts_table = generate_shift_tables(solver, shifts, persons, roles, shift_names, num_shifts)
             max_shift_distance_score = calculate_max_shift_distance_score(solver, shifts, persons, roles, num_shifts)
             gender_parity_score = calculate_gender_parity_score(solver, shifts, persons, roles, num_shifts)
             time_slot_repetition_score = calculate_time_slot_repetition_score(solver, shifts, persons, roles, num_shifts, time_slots)
@@ -483,14 +512,14 @@ def generate_schedule(app_data):
                 'status': "OPTIMAL" if status == cp_model.OPTIMAL else "FEASIBLE",
                 'stats': stats,
                 'people_table': people_table,
-                'shift_table': shift_table
+                'shifts_table': shifts_table
             }
         else:
             result = {
                 'status': "NOT FEASIBLE",
                 'stats': {},
                 'people_table': [],
-                'shift_table': []
+                'shifts_table': []
             }
         print("PLANNER RESULT: " + result.get('status', "UNKNOWN"))
         return result
@@ -508,10 +537,21 @@ def generate_shift_tables(solver, shifts, persons, roles, shift_names, num_shift
     for i, person in enumerate(persons):
         row = [person['name']]
         for j in range(num_shifts):
-            shifts_str = ''.join([r if solver.BooleanValue(shifts[(i, j, r)]) else '' for r in roles])
+            # Check if the current shift is outside the person's available time window
+            outside_window = (j < person['earliest_shift'] or j > person['latest_shift'])
+
+            # Construct the shifts string with or without exclamation mark based on the window check
+            shifts_str = ''.join(
+                [f"{r}!" if outside_window and solver.BooleanValue(shifts[(i, j, r)])
+                else r if solver.BooleanValue(shifts[(i, j, r)]) 
+                else '!' if outside_window 
+                else '' 
+                for r in roles]
+            )
+            
             row.append(shifts_str)
         people_table.append(row)
-    
+
     # Create the header row for the role-assignment table
     role_header = ['Role'] + shift_names
     role_assignment_table.append(role_header)
@@ -624,6 +664,7 @@ def calculate_time_window_violation_score(solver, shifts, persons, roles, num_sh
             if j < earliest_shift or j > latest_shift:
                 if any(solver.BooleanValue(shifts[(i, j, r)]) for r in roles):
                     total_score += 1
+                    print(f"{person['name']} has to work outside working hours at shift {j}")
 
     return total_score
 
