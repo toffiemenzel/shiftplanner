@@ -1540,13 +1540,17 @@
         "Info",
         "Bauchladen",
         "Chai",
-        "Ambulanz"
+        "Ambulanz",
+        "Role 5",
+        "Springer"
     ],
     "role_columns": [
         "Info",
         "Bauchladen",
         "Chai",
-        "Ambulanz"
+        "Ambulanz",
+        "Role 5",
+        "Springer"
     ],
     "shift_table": [
         [
@@ -1644,6 +1648,54 @@
             3,
             3,
             3
+        ],
+        [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
         ]
     ],
     "shift_names": [
@@ -1674,7 +1726,9 @@
         "Info": false,
         "Bauchladen": false,
         "Chai": false,
-        "Ambulanz": true
+        "Ambulanz": true,
+        "Role 5": false,
+        "Springer": false
     },
     "num_assignments_per_person": "",
     "opt_consider_travel": "on",
@@ -1690,9 +1744,9 @@
     "gender_penalty": "10",
     "penalty_for_same_time_slot": "30",
     "shift_message": "",
-    "message": "Participant data saved successfully!",
+    "message": "Shift table changes saved!",
     "not_enough_shifts": false,
-    "recommended_nums_people": 61,
+    "recommended_nums_people": 68,
     "solver_timeout_sec": "30",
     "role_counts": {
         "Info": [
@@ -1816,12 +1870,13 @@
         1725908400,
         1725922800
     ],
-    "total_assignments_needed": 182,
+    "total_assignments_needed": 204,
     "role_total_counts": [
         66,
         26,
         20,
-        70
+        70,
+        22
     ],
     "calculation_key": "a5a25ace-f371-4549-9491-0eeb5a09de3c",
     "calculation_start_time": 1725210835.510773,

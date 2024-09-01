@@ -149,6 +149,41 @@ def home():
     return render_template('index.html', app_data=app_data)
 
 
+@app.route('/add_new_shift_role', methods=['POST'])
+def add_new_shift_role():
+    app_data = load_app_data()
+
+    # Get the new role count from the form data
+    new_role_count = int(request.form.get('new_role_count', '2'))
+
+    # Create a new role name dynamically, e.g., "Role X"
+    new_role_index = len(app_data['roles']) + 1
+    new_role_name = request.form.get('new_role_name', f'Role {new_role_index}')
+
+    # Append the new role to the roles list
+    app_data['roles'].append(new_role_name)
+
+    # Also update the role_columns for person table parsing
+    app_data['role_columns'].append(new_role_name)
+
+    # Add the new role to the shift_table with uniform initial counts for all shifts
+    new_role_shifts = [new_role_count] * app_data['shift_params'].get('num_shifts', 0)
+    app_data['shift_table'].append(new_role_shifts)
+
+    # Update the role_experience_required dictionary for the new role (set to False by default)
+    app_data['role_experience_required'][new_role_name] = False
+
+    # Save updated app data
+    save_app_data(app_data)
+
+    # Return the new role and shift data as JSON for the AJAX request
+    return jsonify({
+        'new_role_name': new_role_name,
+        'new_role_shifts': new_role_shifts,
+        'role_experience_required': app_data['role_experience_required']
+    }), 200
+
+
 @app.route('/create_shift_table', methods=['POST'])
 def create_shift_table():
     shift_params = {
@@ -547,7 +582,6 @@ def add_person():
         'person': new_person,
         'role_experience_required': app_data.get('role_experience_required', {})
     }), 200
-
 
 
 @app.route('/generate_plan', methods=['POST'])

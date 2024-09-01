@@ -114,9 +114,16 @@
                             </tr>
                             {% endfor %}
                         </table>
-                        <label id="label-total_assignments_needed" class="label-primary big">{{ app_data.get('total_assignments_needed', 0) }} shift spots</label>
-                        <label id="label-recommended_nums_people" class="label-primary">/ at least {{ app_data.get('recommended_nums_people', 1) }} people with {{ (app_data.get('total_assignments_needed', 0) / app_data.get('recommended_nums_people', 1) ) | ceil }} shifts recommended</label>
                     </form>
+                    <form id="add-role-form" method="POST">
+                        <button type="button" onclick="addNewRole()">Add role</button>
+                        <input type="text" id="new_role_name" name="new_role_name" value="Rolename" class="medium-input" required>
+                        <label class="label-primary"> with </label>
+                        <input type="number" id="new_role_count" name="new_role_count" value="2" class="small-input" min="0" required>
+                    </form>                        
+                    <br>
+                    <label id="label-total_assignments_needed" class="label-primary big">{{ app_data.get('total_assignments_needed', 0) }} shift spots</label>
+                    <label id="label-recommended_nums_people" class="label-primary">/ at least {{ app_data.get('recommended_nums_people', 1) }} people with {{ (app_data.get('total_assignments_needed', 0) / app_data.get('recommended_nums_people', 1) ) | ceil }} shifts recommended</label>
                     {% endif %}
                 </td>
             </tr>
@@ -480,6 +487,55 @@
     {% endif %}
 
     <script>
+        function addNewRole() {
+            const formElement = document.getElementById('add-role-form');
+    
+            // Check if the form element exists
+            if (!formElement) {
+                console.error('Form element with id "add-role-form" not found.');
+                return;
+            }
+
+            var formData = new FormData(formElement);
+
+            fetch('/add_new_shift_role', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.new_role_name) {
+                    // Get the shifts table element
+                    const table = document.querySelector('table[border="1"]');
+
+                    // Create a new row for the new role
+                    const newRow = document.createElement('tr');
+                    
+                    // Add role name cell
+                    newRow.innerHTML += `<td class="centered">${data.new_role_name}</td>`;
+                    
+                    // Add experience balance checkbox
+                    newRow.innerHTML += `
+                        <td class="centered">
+                            <label>balanced 
+                                <input type="checkbox" name="experience_balance_${data.new_role_name}" ${data.role_experience_required[data.new_role_name] ? 'checked' : ''}>
+                            </label>
+                        </td>
+                        <td></td>
+                    `;
+
+                    // Add shift counts for each shift
+                    data.new_role_shifts.forEach((shift_count, index) => {
+                        newRow.innerHTML += `<td class="centered"><input type="number" name="shift_${data.new_role_name}_${index}" value="${shift_count}" min="0" class="small-input"></td>`;
+                    });
+
+                    // Append the new row to the table
+                    table.appendChild(newRow);
+                }
+            })
+            .catch(error => console.error('Error adding new role:', error));
+        }
+
         function toggleExperienceCheckbox(personIndex, role) {
             var availableCheckbox = document.getElementsByName(`roles_${personIndex}_${role}_available`)[0];
             var experiencedCheckbox = document.getElementsByName(`roles_${personIndex}_${role}_experienced`)[0];
