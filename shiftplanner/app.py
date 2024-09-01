@@ -268,12 +268,14 @@ def ajax_change_shift_table():
             for shift_index in range(app_data.get('shift_params', {}).get('num_shifts', 0))
         ])
     
+    role_total_counts = [sum(role) for role in shift_table]
     total_assignments_needed = sum(sum(role) for role in shift_table)
     recommended_nums_people = math.ceil(total_assignments_needed/int(12/int(app_data.get('shift_params', {}).get('shift_duration_hours', 0))))
 
     # Update the session data
     app_data.update({
         'shift_table': shift_table,
+        'role_total_counts': role_total_counts,
         'total_assignments_needed': total_assignments_needed,
         'recommended_nums_people': recommended_nums_people,
         'role_experience_required': role_experience_required,
@@ -618,8 +620,8 @@ def save_state():
         if os.path.exists(temp_file_path):
             os.remove(temp_file_path)
         
-        # Write data to the temporary file
-        with open(temp_file_path, 'w') as f:
+        # Write data to the temporary file with explicit encoding
+        with open(temp_file_path, 'w', encoding='utf-8') as f:
             json.dump(app_data, f, cls=CustomJSONEncoder, ensure_ascii=False, indent=4)
         
         # Replace the final file with the temporary file
@@ -635,22 +637,40 @@ def save_state():
     return send_file(final_file_path, as_attachment=True, download_name='planner.json')
 
 
+import io
+
 @app.route('/restore_state', methods=['POST'])
 def restore_state():
     state_file = request.files.get('state_file')
-    
+
     if state_file and state_file.filename.endswith('.json'):
-        app_data = json.load(state_file)
+        try:
+            # Read file content and decode it using utf-8 first
+            file_content = state_file.read().decode('utf-8')
+            app_data = json.loads(file_content)
+        except UnicodeDecodeError:
+            # If there's a decoding error, try another encoding
+            state_file.seek(0)  # Reset file pointer to the beginning
+            try:
+                file_content = state_file.read().decode('latin1')
+                app_data = json.loads(file_content)
+            except Exception as e:
+                # Handle other potential errors and return an error message
+                app_data = session.get('app_data', {})
+                app_data.update({
+                    'message': f"Failed to load state file: {str(e)}"
+                })
+                return render_template('index.html', app_data=app_data)
+
         app_data.update({
             'message': "State restored!"
         })
         save_app_data(app_data)
     else:
-        app_data = load_app_data()
+        app_data = session.get('app_data', {})
         app_data.update({
             'message': "Invalid state file."
         })
-        save_app_data(app_data)
 
     return render_template('index.html', app_data=app_data)
 

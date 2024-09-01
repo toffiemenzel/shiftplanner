@@ -94,6 +94,7 @@
                             <tr>
                                 <th>Roles</th>
                                 <th>Experience</th>
+                                <th>Total</th>
                                 {% for shift in app_data.shift_names %}
                                 <th>{{ shift }}</th>
                                 {% endfor %}
@@ -106,6 +107,7 @@
                                         <input type="checkbox" name="experience_balance_{{ role_index }}" {% if app_data.role_experience_required.get(app_data.roles[role_index], False) %}checked{% endif %}>
                                     </label>
                                 </td>
+                                <td class="centered">{{ app_data.shift_table[role_index] | sum }}</td>
                                 {% for shift_index in range(app_data.shift_params.num_shifts) %}
                                 <td class="centered"><input type="number" name="shift_{{ role_index }}_{{ shift_index }}" value="{{ app_data.shift_table[role_index][shift_index] }}" min="0" class="small-input"></td>
                                 {% endfor %}
@@ -224,7 +226,11 @@
                         </table>
                         <table class="table-invisible">
                             <tr>
-                                <td class="td-dark"><button type="button" onclick="addPerson()">Add Participant</button><label class="label-primary big">&nbsp;&nbsp;{{ app_data.persons | length }} persons</label></td>
+                                <td class="td-dark">
+                                    <button type="button" onclick="addPerson()">Add Participant</button>
+                                    <label id="label-num-persons" class="label-primary big">&nbsp;&nbsp;{{ app_data.persons | length }} persons&nbsp;&nbsp;</label>
+                                    <label id="label-num-genders" class="label-primary">(w: 0, m: 0, d: 0)</label>
+                                </td>
                             </tr>
                         </table>
                     </form>

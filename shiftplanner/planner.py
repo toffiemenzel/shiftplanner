@@ -395,11 +395,11 @@ def generate_schedule(app_data):
         model.Maximize(sum(total_bonus) + sum(distances) - sum(penalties))
 
         # Print the conditions for debugging
-        '''
+        
         with open("conditions_output.txt", 'w') as f:
             for condition in conditions:
                 f.write(condition + '\n')
-        '''    
+          
         
         # Create the solver and solve
         solver = cp_model.CpSolver()
@@ -667,6 +667,7 @@ def calculate_partner_matching_score(solver, shifts, persons, num_shifts, roles)
                     if partner_index is not None:
                         partner_assigned = any(solver.BooleanValue(shifts[(partner_index, j, r)]) for r in roles)
                         if not partner_assigned:
+                            print(f"{person['name']} misses {partner_name} in shift {j}")
                             missing_partners_count += 1
 
                 # Add to the total score
