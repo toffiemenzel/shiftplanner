@@ -1,11 +1,15 @@
-from flask import Flask, render_template, request, session, jsonify, send_file, redirect, url_for
+from flask import Flask, Request, render_template, request, session, jsonify, send_file, redirect, url_for
 from datetime import datetime, timedelta
 import pandas as pd
 import os, re, uuid, json, math
 import threading
 from planner import generate_schedule
 
+class CustomRequest(Request):
+    max_form_parts = 4000  # Increase this number as needed
+
 app = Flask(__name__)
+app.request_class = CustomRequest
 app.secret_key = 'supersecretkey'  # Necessary for session handling
 
 # Define a folder to store session data
@@ -385,7 +389,6 @@ def compute_role_availability(app_data):
             if role in role_availability:
                 role_availability[role] += 1
 
-    print(f"role_availability = {role_availability}")
     return str(role_availability)
 
 
@@ -413,7 +416,8 @@ def create_person_table():
                 'preferred_partners': "",
                 'options': "",
                 'marker_a': False,
-                'marker_b': False
+                'marker_b': False,
+                'comment': ""
             })
         
     #print(persons)
@@ -476,7 +480,8 @@ def load_person_table():
                     'preferred_partners': row['preferred_partners'],
                     'options': row['options'],
                     'marker_a': row['marker_a'],
-                    'marker_b': row['marker_b']
+                    'marker_b': row['marker_b'],
+                    'comment': row['comment']
                 })
             
             # Delete temporary file
@@ -567,7 +572,8 @@ def change_person_table():
             'preferred_partners': request.form.get(f'preferred_partners_{i}', ''),
             'options': request.form.get(f'options_{i}', ''),
             'marker_a': request.form.get(f'marker_a_{i}', ''),
-            'marker_b': request.form.get(f'marker_b_{i}', '')
+            'marker_b': request.form.get(f'marker_b_{i}', ''),
+            'comment': request.form.get(f'comment_{i}', '')
         })
 
     num_avail_shifts = sum(int(person['num_p_shifts']) for person in persons)
@@ -626,7 +632,8 @@ def add_person():
         'preferred_partners': '',
         'options': '',
         'marker_a': False,
-        'marker_b': False
+        'marker_b': False,
+        'comment': ''
     }
     new_person = last_person.copy()
     new_person['name'] = 'Unknown'

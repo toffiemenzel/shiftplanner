@@ -9,10 +9,11 @@
         {
             "name": "Albrecht_Charlie",
             "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
+            "experienced_roles": [
                 "Ambulanz"
+            ],
+            "inexperienced_roles": [
+                "Info"
             ],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
@@ -22,35 +23,20 @@
             "assign_shifts": "",
             "veto_shifts": "Sat 05-09, Sun 05-09",
             "preferred_partners": "Fischer_Sahra, Menzel_Christoph, Kulesza_Aleksandra, Maichrowitz_Verena",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Amaral_Kevin",
             "gender": "m",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
+            "experienced_roles": [
                 "Ambulanz"
             ],
-            "arrival_time": "2024-09-05",
-            "arrival_hard": false,
-            "departure_time": "",
-            "departure_hard": false,
-            "num_p_shifts": "2",
-            "assign_shifts": "",
-            "veto_shifts": "",
-            "preferred_partners": "",
-            "options": ""
-        },
-        {
-            "name": "Ambroziak_Marian",
-            "gender": "m",
-            "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -60,16 +46,43 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
+        },
+        {
+            "name": "Ambroziak_Marian",
+            "gender": "m",
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen"
+            ],
+            "arrival_time": "2024-09-05",
+            "arrival_hard": false,
+            "departure_time": "",
+            "departure_hard": false,
+            "num_p_shifts": "3",
+            "assign_shifts": "",
+            "veto_shifts": "",
+            "preferred_partners": "",
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Anke",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -79,7 +92,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Bake_Can",
@@ -87,8 +103,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -98,7 +113,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Becker_Konstantin",
@@ -115,16 +133,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": "erfahren"
         },
         {
             "name": "Belkaid_Sammy",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -134,7 +156,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Blomeyer_Amrei",
@@ -142,8 +167,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -153,7 +177,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Braun_Timo",
@@ -161,8 +188,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -172,7 +198,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Clasen_Malina",
@@ -180,8 +209,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -191,16 +219,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Csaszar_Tata",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -210,7 +242,10 @@
             "assign_shifts": "Info(Fri 13-17)",
             "veto_shifts": "",
             "preferred_partners": "Michalzik_Maximilian",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": "Hintergrund"
         },
         {
             "name": "Daude_Alicia",
@@ -218,8 +253,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -229,16 +263,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Dominiecki_Mikolaj",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -248,36 +286,41 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Eckardt_Mascha",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
             "departure_time": "2024-09-08",
             "departure_hard": false,
-            "num_p_shifts": "3",
-            "assign_shifts": "",
+            "num_p_shifts": "1",
+            "assign_shifts": "Info(Fri 13-17)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Ehmann_Frederick",
             "gender": "m",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
+            "experienced_roles": [
                 "Ambulanz"
             ],
+            "inexperienced_roles": [],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
             "departure_time": "2024-09-10",
@@ -286,7 +329,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Einhorn_Fabiola",
@@ -294,8 +340,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -305,7 +350,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Fiolka_Anna",
@@ -313,8 +361,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -324,15 +371,19 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Fischer_Sahra",
             "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
+            "experienced_roles": [
                 "Ambulanz"
+            ],
+            "inexperienced_roles": [
+                "Info"
             ],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
@@ -342,17 +393,16 @@
             "assign_shifts": "",
             "veto_shifts": "Sat 05-09, Sun 05-09",
             "preferred_partners": "Albrecht_Charlie, Menzel_Christoph, Kulesza_Aleksandra",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Frehse_Frank",
             "gender": "m",
             "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
-                "Ambulanz"
-            ],
+            "inexperienced_roles": [],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
             "departure_time": "2024-09-10",
@@ -361,7 +411,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": "Hintergrund"
         },
         {
             "name": "Hager_Michael",
@@ -380,16 +433,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Hassenstein_Moritz",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
@@ -399,16 +456,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Hoffmann_Christian",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -418,15 +479,19 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Hoffmann_Vivienne",
             "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Chai",
+            "experienced_roles": [
                 "Ambulanz"
+            ],
+            "inexperienced_roles": [
+                "Chai"
             ],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
@@ -436,7 +501,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": "Hintergrund?"
         },
         {
             "name": "Huegli_Karin",
@@ -454,16 +522,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Huntenberg_Julia",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -473,7 +545,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Jansen_Luca",
@@ -491,16 +566,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Jehnert_Stephan",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
@@ -510,16 +589,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Jungnickel_Evelyn",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -529,16 +612,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Karczewska_Roxana",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -548,16 +635,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Knöpfel_Hannah",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -567,16 +658,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Koeppen_Linda",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -586,7 +681,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Krüger_Sophia",
@@ -605,17 +703,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Kulesza_Aleksandra",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Chai",
-                "Ambulanz"
+                "Chai"
             ],
             "arrival_time": "2024-09-06",
             "arrival_hard": false,
@@ -625,7 +726,10 @@
             "assign_shifts": "",
             "veto_shifts": "Sat 01-05, Sat 05-09, Sun 01-05, Sun 05-09, Mon 01-05, Mon 05-09",
             "preferred_partners": "Albrecht_Charlie, Fischer_Sahra",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Köppen, Antonia",
@@ -643,16 +747,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Lang_Janina",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -662,7 +770,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Link_Leo",
@@ -682,16 +793,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Loose_Kerstin",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-06",
             "arrival_hard": false,
@@ -701,17 +816,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Maichrowitz_Verena",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Chai",
-                "Ambulanz"
+                "Chai"
             ],
             "arrival_time": "2024-09-06",
             "arrival_hard": false,
@@ -721,16 +839,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "Albrecht_Charlie",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": "Hintergrund?"
         },
         {
             "name": "Maler_Sven",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -740,16 +862,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Manegold_Philipp",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-06",
             "arrival_hard": false,
@@ -759,7 +885,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Marquardt_Annabell",
@@ -778,7 +907,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "",
+            "comment": ""
         },
         {
             "name": "Menzel_Christoph",
@@ -796,16 +928,20 @@
             "assign_shifts": "",
             "veto_shifts": "Sat 05-09, Sun 05-09",
             "preferred_partners": "Albrecht_Charlie, Fischer_Sahra",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Michalzik_Maximilian",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -815,16 +951,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "Csaszar_Tata",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Moroni_Wilko",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -834,16 +974,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Nolting_Luca",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -853,16 +997,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Pamler_Lina",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -872,7 +1020,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Pekmezci_Ozan",
@@ -880,8 +1031,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -891,7 +1041,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Pfisterer_Hannah",
@@ -899,8 +1052,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -910,7 +1062,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Pleiß_Annett",
@@ -918,8 +1073,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -929,7 +1083,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Royes_Bradley",
@@ -937,8 +1094,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -948,7 +1104,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Sanna Feltrin_Benedetta",
@@ -967,7 +1126,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Schroeter_Helen",
@@ -986,7 +1148,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Schwamborn_Natalie",
@@ -1005,7 +1170,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Schüngel_Andrea",
@@ -1024,7 +1192,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Skye",
@@ -1032,9 +1203,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Chai",
-                "Ambulanz"
+                "Chai"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1044,16 +1213,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Speck_Jerome",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
@@ -1063,7 +1236,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Springorum_Luise",
@@ -1071,8 +1247,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1082,7 +1257,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Stepien_Iwona",
@@ -1101,7 +1279,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Stuhr_Marla",
@@ -1120,7 +1301,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Stühring_Laura",
@@ -1128,7 +1312,6 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
                 "Chai",
                 "Ambulanz"
             ],
@@ -1140,16 +1323,20 @@
             "assign_shifts": "",
             "veto_shifts": "Sat 05-09, Sun 05-09",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Thüringer_Sophia",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-06",
             "arrival_hard": false,
@@ -1159,7 +1346,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Timm_Nils",
@@ -1178,17 +1368,18 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Vistorin_Renate",
             "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
+            "experienced_roles": [
                 "Ambulanz"
             ],
+            "inexperienced_roles": [],
             "arrival_time": "",
             "arrival_hard": false,
             "departure_time": "2024-09-10",
@@ -1197,16 +1388,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Wessel_Sandra",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1216,7 +1411,10 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Zinzius_Tanja",
@@ -1233,16 +1431,20 @@
             "assign_shifts": "",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": "Landungsschicht"
         },
         {
             "name": "MÄHREN_Laura",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1252,16 +1454,20 @@
             "assign_shifts": "Ambulanz(Fri 17-21), Ambulanz(Sun 05-09), Ambulanz(Mon 05-09)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "OBERLÄNDER_May",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1271,16 +1477,20 @@
             "assign_shifts": "Ambulanz(Fri 21-01), Ambulanz(Sun 05-09), Ambulanz(Mon 05-09)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "CHRISTMANN_Sarah",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1290,16 +1500,20 @@
             "assign_shifts": "Ambulanz(Sat 01-05), Ambulanz(Sat 17-21), Info(Mon 09-13)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "VON_KELER_Sebastian",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1309,16 +1523,20 @@
             "assign_shifts": "Ambulanz(Sat 05-09), Info(Fri 13-17), Info(Sun 01-05)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "BASTEN_Annika",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1328,16 +1546,20 @@
             "assign_shifts": "Ambulanz(Sat 09-13), Ambulanz(Sun 01-05), Info(Fri 17-21)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "STROUT_Annie",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1347,16 +1569,20 @@
             "assign_shifts": "Ambulanz(Sat 13-17), Info(Sun 21-01), Ambulanz(Fri 17-21)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "HECKENDORF_Esther",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1366,16 +1592,20 @@
             "assign_shifts": "Ambulanz(Sun 13-17), Info(Sat 01-05), Info(Mon 05-09)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "JAKUSOVA_Jasmina",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1385,16 +1615,20 @@
             "assign_shifts": "Ambulanz(Sun 21-01), Ambulanz(Mon 13-17), Info(Fri 21-01)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "KINDERMANN_Aglaia",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1404,16 +1638,20 @@
             "assign_shifts": "Ambulanz(Mon 01-05), Ambulanz(Mon 17-21), Info(Sat 13-17)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "HÖMSCHEMEYER_Jens",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1423,7 +1661,10 @@
             "assign_shifts": "Ambulanz(Sun 21-01), Ambulanz(Mon 13-17), Info(Sat 17-21)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "DESPET_Kamila",
@@ -1441,7 +1682,10 @@
             "assign_shifts": "Info(Sat 05-09), Info(Sun 09-13), Springer(Mon 01-05)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "WALLGRAM_Kim",
@@ -1459,7 +1703,10 @@
             "assign_shifts": "Info(Sat 21-01), Info(Sun 13-17), Springer(Mon 09-13)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "GOZDZ_Dominik",
@@ -1477,7 +1724,10 @@
             "assign_shifts": "Info(Sun 17-21), Info(Mon 13-17), Springer(Sun 01-05)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "BRAUN_Simone_Luna",
@@ -1495,7 +1745,10 @@
             "assign_shifts": "Info(Sat 09-13), Info(Mon 01-05), Springer(Mon 17-21)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "WAGNER_Anke",
@@ -1513,7 +1766,10 @@
             "assign_shifts": "Info(Sat 17-21), Info(Mon 17-21), Springer(Sat 01-05)",
             "veto_shifts": "",
             "preferred_partners": "",
-            "options": ""
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         }
     ],
     "roles": [
@@ -1680,7 +1936,7 @@
         "Info": false,
         "Bauchladen": false,
         "Chai": false,
-        "Ambulanz": false,
+        "Ambulanz": true,
         "Springer": false
     },
     "num_assignments_per_person": "",
@@ -1831,8 +2087,8 @@
         70,
         5
     ],
-    "calculation_key": "78e57827-50bf-4764-9eb1-ff0338e9ddd5",
-    "calculation_start_time": 1725224304.742918,
+    "calculation_key": "b813ad4f-35ca-4292-9253-9bbd6288cf5d",
+    "calculation_start_time": 1725226459.124672,
     "results": {
         "status": "NOT FEASIBLE",
         "stats": {},
@@ -1846,5 +2102,5 @@
         "Ambulanz": 59,
         "Springer": 5
     },
-    "role_availability_string": "{'Info': 77, 'Bauchladen': 69, 'Chai': 9, 'Ambulanz': 70, 'Springer': 5}"
+    "role_availability_string": "{'Info': 74, 'Bauchladen': 62, 'Chai': 8, 'Ambulanz': 56, 'Springer': 5}"
 }

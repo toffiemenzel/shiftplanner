@@ -9,10 +9,11 @@
         {
             "name": "Albrecht_Charlie",
             "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
+            "experienced_roles": [
                 "Ambulanz"
+            ],
+            "inexperienced_roles": [
+                "Info"
             ],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
@@ -24,37 +25,18 @@
             "preferred_partners": "Fischer_Sahra, Menzel_Christoph, Kulesza_Aleksandra, Maichrowitz_Verena",
             "options": "",
             "marker_a": "on",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Amaral_Kevin",
             "gender": "m",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
+            "experienced_roles": [
                 "Ambulanz"
             ],
-            "arrival_time": "2024-09-05",
-            "arrival_hard": false,
-            "departure_time": "",
-            "departure_hard": false,
-            "num_p_shifts": "2",
-            "assign_shifts": "",
-            "veto_shifts": "",
-            "preferred_partners": "",
-            "options": "",
-            "marker_a": "",
-            "marker_b": ""
-        },
-        {
-            "name": "Ambroziak_Marian",
-            "gender": "m",
-            "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -66,16 +48,41 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
+        },
+        {
+            "name": "Ambroziak_Marian",
+            "gender": "m",
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen"
+            ],
+            "arrival_time": "2024-09-05",
+            "arrival_hard": false,
+            "departure_time": "",
+            "departure_hard": false,
+            "num_p_shifts": "3",
+            "assign_shifts": "",
+            "veto_shifts": "",
+            "preferred_partners": "",
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Anke",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -87,7 +94,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Bake_Can",
@@ -95,8 +103,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -108,7 +115,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Becker_Konstantin",
@@ -126,17 +134,19 @@
             "veto_shifts": "",
             "preferred_partners": "",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": "erfahren"
         },
         {
             "name": "Belkaid_Sammy",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -148,7 +158,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Blomeyer_Amrei",
@@ -156,8 +167,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -169,7 +179,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Braun_Timo",
@@ -177,8 +188,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -190,7 +200,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Clasen_Malina",
@@ -198,8 +209,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -211,16 +221,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Csaszar_Tata",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -232,7 +244,8 @@
             "preferred_partners": "Michalzik_Maximilian",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": "Hintergrund"
         },
         {
             "name": "Daude_Alicia",
@@ -240,8 +253,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -253,16 +265,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Dominiecki_Mikolaj",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -274,38 +288,39 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Eckardt_Mascha",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
             "departure_time": "2024-09-08",
             "departure_hard": false,
-            "num_p_shifts": "3",
-            "assign_shifts": "",
+            "num_p_shifts": "1",
+            "assign_shifts": "Info(Fri 13-17)",
             "veto_shifts": "",
             "preferred_partners": "",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Ehmann_Frederick",
             "gender": "m",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
+            "experienced_roles": [
                 "Ambulanz"
             ],
+            "inexperienced_roles": [],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
             "departure_time": "2024-09-10",
@@ -315,8 +330,9 @@
             "veto_shifts": "",
             "preferred_partners": "",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Einhorn_Fabiola",
@@ -324,8 +340,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -337,7 +352,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Fiolka_Anna",
@@ -345,8 +361,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -358,15 +373,17 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Fischer_Sahra",
             "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
+            "experienced_roles": [
                 "Ambulanz"
+            ],
+            "inexperienced_roles": [
+                "Info"
             ],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
@@ -377,18 +394,15 @@
             "veto_shifts": "Sat 05-09, Sun 05-09",
             "preferred_partners": "Albrecht_Charlie, Menzel_Christoph, Kulesza_Aleksandra",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Frehse_Frank",
             "gender": "m",
             "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
-                "Ambulanz"
-            ],
+            "inexperienced_roles": [],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
             "departure_time": "2024-09-10",
@@ -398,8 +412,9 @@
             "veto_shifts": "",
             "preferred_partners": "",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": "Hintergrund"
         },
         {
             "name": "Hager_Michael",
@@ -420,16 +435,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Hassenstein_Moritz",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
@@ -441,16 +458,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Hoffmann_Christian",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -462,15 +481,17 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Hoffmann_Vivienne",
             "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Chai",
+            "experienced_roles": [
                 "Ambulanz"
+            ],
+            "inexperienced_roles": [
+                "Chai"
             ],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
@@ -481,8 +502,9 @@
             "veto_shifts": "",
             "preferred_partners": "",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": "Hintergrund?"
         },
         {
             "name": "Huegli_Karin",
@@ -502,16 +524,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Huntenberg_Julia",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -523,7 +547,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Jansen_Luca",
@@ -543,16 +568,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Jehnert_Stephan",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-04",
             "arrival_hard": false,
@@ -564,16 +591,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Jungnickel_Evelyn",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -585,16 +614,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Karczewska_Roxana",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -606,16 +637,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Knöpfel_Hannah",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -627,16 +660,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Koeppen_Linda",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -648,7 +683,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Krüger_Sophia",
@@ -669,17 +705,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Kulesza_Aleksandra",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Chai",
-                "Ambulanz"
+                "Chai"
             ],
             "arrival_time": "2024-09-06",
             "arrival_hard": false,
@@ -690,8 +727,9 @@
             "veto_shifts": "Sat 01-05, Sat 05-09, Sun 01-05, Sun 05-09, Mon 01-05, Mon 05-09",
             "preferred_partners": "Albrecht_Charlie, Fischer_Sahra",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Köppen, Antonia",
@@ -711,16 +749,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Lang_Janina",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -732,7 +772,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Link_Leo",
@@ -753,17 +794,19 @@
             "veto_shifts": "",
             "preferred_partners": "",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Loose_Kerstin",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-06",
             "arrival_hard": false,
@@ -775,17 +818,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Maichrowitz_Verena",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Chai",
-                "Ambulanz"
+                "Chai"
             ],
             "arrival_time": "2024-09-06",
             "arrival_hard": false,
@@ -796,17 +840,19 @@
             "veto_shifts": "",
             "preferred_partners": "Albrecht_Charlie",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": "Hintergrund?"
         },
         {
             "name": "Maler_Sven",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -818,16 +864,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Manegold_Philipp",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-06",
             "arrival_hard": false,
@@ -839,7 +887,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Marquardt_Annabell",
@@ -860,7 +909,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "",
+            "comment": ""
         },
         {
             "name": "Menzel_Christoph",
@@ -879,17 +929,19 @@
             "veto_shifts": "Sat 05-09, Sun 05-09",
             "preferred_partners": "Albrecht_Charlie, Fischer_Sahra",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Michalzik_Maximilian",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -900,17 +952,19 @@
             "veto_shifts": "",
             "preferred_partners": "Csaszar_Tata",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Moroni_Wilko",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -922,16 +976,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Nolting_Luca",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -943,16 +999,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Pamler_Lina",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-05",
             "arrival_hard": false,
@@ -964,7 +1022,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Pekmezci_Ozan",
@@ -972,8 +1031,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -985,7 +1043,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Pfisterer_Hannah",
@@ -993,8 +1052,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1005,8 +1063,9 @@
             "veto_shifts": "",
             "preferred_partners": "",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Pleiß_Annett",
@@ -1014,8 +1073,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1027,7 +1085,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Royes_Bradley",
@@ -1035,8 +1094,7 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1048,94 +1106,11 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Sanna Feltrin_Benedetta",
-            "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
-                "Ambulanz"
-            ],
-            "arrival_time": "",
-            "arrival_hard": false,
-            "departure_time": "",
-            "departure_hard": false,
-            "num_p_shifts": "2",
-            "assign_shifts": "",
-            "veto_shifts": "",
-            "preferred_partners": "",
-            "options": "",
-            "marker_a": "",
-            "marker_b": ""
-        },
-        {
-            "name": "Schroeter_Helen",
-            "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
-                "Ambulanz"
-            ],
-            "arrival_time": "2024-09-05",
-            "arrival_hard": false,
-            "departure_time": "2024-09-09",
-            "departure_hard": false,
-            "num_p_shifts": "2",
-            "assign_shifts": "",
-            "veto_shifts": "",
-            "preferred_partners": "",
-            "options": "",
-            "marker_a": "",
-            "marker_b": ""
-        },
-        {
-            "name": "Schwamborn_Natalie",
-            "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
-                "Ambulanz"
-            ],
-            "arrival_time": "",
-            "arrival_hard": false,
-            "departure_time": "",
-            "departure_hard": false,
-            "num_p_shifts": "2",
-            "assign_shifts": "",
-            "veto_shifts": "",
-            "preferred_partners": "",
-            "options": "",
-            "marker_a": "",
-            "marker_b": ""
-        },
-        {
-            "name": "Schüngel_Andrea",
-            "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
-                "Ambulanz"
-            ],
-            "arrival_time": "2024-09-07T12:00",
-            "arrival_hard": false,
-            "departure_time": "2024-09-08T18:00",
-            "departure_hard": false,
-            "num_p_shifts": "2",
-            "assign_shifts": "",
-            "veto_shifts": "",
-            "preferred_partners": "",
-            "options": "",
-            "marker_a": "",
-            "marker_b": ""
-        },
-        {
-            "name": "Skye",
             "gender": "w",
             "experienced_roles": [],
             "inexperienced_roles": [
@@ -1154,36 +1129,40 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
-            "name": "Speck_Jerome",
-            "gender": "m",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
-                "Ambulanz"
-            ],
-            "arrival_time": "2024-09-04",
-            "arrival_hard": false,
-            "departure_time": "",
-            "departure_hard": false,
-            "num_p_shifts": "3",
-            "assign_shifts": "",
-            "veto_shifts": "",
-            "preferred_partners": "",
-            "options": "",
-            "marker_a": "",
-            "marker_b": ""
-        },
-        {
-            "name": "Springorum_Luise",
+            "name": "Schroeter_Helen",
             "gender": "w",
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
                 "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "arrival_time": "2024-09-05",
+            "arrival_hard": false,
+            "departure_time": "2024-09-09",
+            "departure_hard": false,
+            "num_p_shifts": "2",
+            "assign_shifts": "",
+            "veto_shifts": "",
+            "preferred_partners": "",
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
+        },
+        {
+            "name": "Schwamborn_Natalie",
+            "gender": "w",
+            "experienced_roles": [],
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
                 "Ambulanz"
             ],
             "arrival_time": "",
@@ -1196,7 +1175,96 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
+        },
+        {
+            "name": "Schüngel_Andrea",
+            "gender": "w",
+            "experienced_roles": [],
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen",
+                "Chai",
+                "Ambulanz"
+            ],
+            "arrival_time": "2024-09-07T12:00",
+            "arrival_hard": false,
+            "departure_time": "2024-09-08T18:00",
+            "departure_hard": false,
+            "num_p_shifts": "2",
+            "assign_shifts": "",
+            "veto_shifts": "",
+            "preferred_partners": "",
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
+        },
+        {
+            "name": "Skye",
+            "gender": "w",
+            "experienced_roles": [],
+            "inexperienced_roles": [
+                "Info",
+                "Chai"
+            ],
+            "arrival_time": "",
+            "arrival_hard": false,
+            "departure_time": "",
+            "departure_hard": false,
+            "num_p_shifts": "2",
+            "assign_shifts": "",
+            "veto_shifts": "",
+            "preferred_partners": "",
+            "options": "",
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
+        },
+        {
+            "name": "Speck_Jerome",
+            "gender": "m",
+            "experienced_roles": [
+                "Ambulanz"
+            ],
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen"
+            ],
+            "arrival_time": "2024-09-04",
+            "arrival_hard": false,
+            "departure_time": "",
+            "departure_hard": false,
+            "num_p_shifts": "3",
+            "assign_shifts": "",
+            "veto_shifts": "",
+            "preferred_partners": "",
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
+        },
+        {
+            "name": "Springorum_Luise",
+            "gender": "w",
+            "experienced_roles": [],
+            "inexperienced_roles": [
+                "Info",
+                "Bauchladen"
+            ],
+            "arrival_time": "",
+            "arrival_hard": false,
+            "departure_time": "",
+            "departure_hard": false,
+            "num_p_shifts": "2",
+            "assign_shifts": "",
+            "veto_shifts": "",
+            "preferred_partners": "",
+            "options": "",
+            "marker_a": "",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Stepien_Iwona",
@@ -1217,7 +1285,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Stuhr_Marla",
@@ -1238,7 +1307,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Stühring_Laura",
@@ -1246,7 +1316,6 @@
             "experienced_roles": [],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
                 "Chai",
                 "Ambulanz"
             ],
@@ -1259,17 +1328,19 @@
             "veto_shifts": "Sat 05-09, Sun 05-09",
             "preferred_partners": "",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Thüringer_Sophia",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "2024-09-06",
             "arrival_hard": false,
@@ -1281,7 +1352,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Timm_Nils",
@@ -1302,17 +1374,16 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Vistorin_Renate",
             "gender": "w",
-            "experienced_roles": [],
-            "inexperienced_roles": [
-                "Info",
-                "Bauchladen",
+            "experienced_roles": [
                 "Ambulanz"
             ],
+            "inexperienced_roles": [],
             "arrival_time": "",
             "arrival_hard": false,
             "departure_time": "2024-09-10",
@@ -1322,17 +1393,19 @@
             "veto_shifts": "",
             "preferred_partners": "",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Wessel_Sandra",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1344,7 +1417,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "Zinzius_Tanja",
@@ -1362,17 +1436,19 @@
             "veto_shifts": "",
             "preferred_partners": "",
             "options": "",
-            "marker_a": "",
-            "marker_b": ""
+            "marker_a": "on",
+            "marker_b": "on",
+            "comment": "Landungsschicht"
         },
         {
             "name": "MÄHREN_Laura",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1384,16 +1460,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "OBERLÄNDER_May",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1405,16 +1483,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "CHRISTMANN_Sarah",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1426,16 +1506,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "VON_KELER_Sebastian",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1447,16 +1529,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "BASTEN_Annika",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1468,16 +1552,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "STROUT_Annie",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1489,16 +1575,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "HECKENDORF_Esther",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1510,16 +1598,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "JAKUSOVA_Jasmina",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1531,16 +1621,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "KINDERMANN_Aglaia",
             "gender": "w",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1552,16 +1644,18 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "HÖMSCHEMEYER_Jens",
             "gender": "m",
-            "experienced_roles": [],
+            "experienced_roles": [
+                "Ambulanz"
+            ],
             "inexperienced_roles": [
                 "Info",
-                "Bauchladen",
-                "Ambulanz"
+                "Bauchladen"
             ],
             "arrival_time": "",
             "arrival_hard": false,
@@ -1573,7 +1667,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "DESPET_Kamila",
@@ -1593,7 +1688,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "WALLGRAM_Kim",
@@ -1613,7 +1709,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "GOZDZ_Dominik",
@@ -1633,7 +1730,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "BRAUN_Simone_Luna",
@@ -1653,7 +1751,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         },
         {
             "name": "WAGNER_Anke",
@@ -1673,7 +1772,8 @@
             "preferred_partners": "",
             "options": "",
             "marker_a": "",
-            "marker_b": ""
+            "marker_b": "on",
+            "comment": ""
         }
     ],
     "roles": [
@@ -1840,12 +1940,12 @@
         "Info": false,
         "Bauchladen": false,
         "Chai": false,
-        "Ambulanz": false,
+        "Ambulanz": true,
         "Springer": false
     },
     "num_assignments_per_person": "",
     "opt_consider_travel": "on",
-    "opt_balance_gender": false,
+    "opt_balance_gender": "on",
     "opt_same_time_slots": false,
     "opt_max_shift_dist": false,
     "opt_enforce_shift_dist": "on",
@@ -1860,7 +1960,7 @@
     "message": "Participant data saved successfully!",
     "not_enough_shifts": false,
     "recommended_nums_people": 63,
-    "solver_timeout_sec": "30",
+    "solver_timeout_sec": "60",
     "role_counts": {
         "Info": [
             2,
@@ -1991,13 +2091,2198 @@
         70,
         5
     ],
-    "calculation_key": "78e57827-50bf-4764-9eb1-ff0338e9ddd5",
-    "calculation_start_time": 1725224304.742918,
+    "calculation_key": "9f0bfd15-fd9c-43b4-a385-682b2640d311",
+    "calculation_start_time": 1725228418.888655,
     "results": {
-        "status": "NOT FEASIBLE",
-        "stats": {},
-        "people_table": [],
-        "shifts_table": []
+        "status": "OPTIMAL",
+        "stats": {
+            "score": 29966.0,
+            "max_shift_distance_score": 32.9166666666667,
+            "gender_parity_score": 53,
+            "time_slot_repetition_score": 20,
+            "time_window_violation_score": 0,
+            "experience_balance_score": 38,
+            "partner_matching_score": 4
+        },
+        "people_table": [
+            [
+                "Person",
+                "Fri 13-17",
+                "Fri 17-21",
+                "Fri 21-01",
+                "Sat 01-05",
+                "Sat 05-09",
+                "Sat 09-13",
+                "Sat 13-17",
+                "Sat 17-21",
+                "Sat 21-01",
+                "Sun 01-05",
+                "Sun 05-09",
+                "Sun 09-13",
+                "Sun 13-17",
+                "Sun 17-21",
+                "Sun 21-01",
+                "Mon 01-05",
+                "Mon 05-09",
+                "Mon 09-13",
+                "Mon 13-17",
+                "Mon 17-21",
+                "Mon 21-01",
+                "Tue 01-05"
+            ],
+            [
+                "Albrecht_Charlie",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Amaral_Kevin",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Ambulanz"
+            ],
+            [
+                "Ambroziak_Marian",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Info",
+                ""
+            ],
+            [
+                "Anke",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz"
+            ],
+            [
+                "Bake_Can",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen"
+            ],
+            [
+                "Becker_Konstantin",
+                "",
+                "Chai",
+                "",
+                "",
+                "",
+                "",
+                "Chai",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Belkaid_Sammy",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                ""
+            ],
+            [
+                "Blomeyer_Amrei",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Braun_Timo",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen"
+            ],
+            [
+                "Clasen_Malina",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "Info",
+                ""
+            ],
+            [
+                "Csaszar_Tata",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Daude_Alicia",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Dominiecki_Mikolaj",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "!!!!!"
+            ],
+            [
+                "Eckardt_Mascha",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Ehmann_Frederick",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "!!!!!"
+            ],
+            [
+                "Einhorn_Fabiola",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info"
+            ],
+            [
+                "Fiolka_Anna",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Fischer_Sahra",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Frehse_Frank",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "!!!!!"
+            ],
+            [
+                "Hager_Michael",
+                "!!!!!",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "!!!!!"
+            ],
+            [
+                "Hassenstein_Moritz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "!!!!!"
+            ],
+            [
+                "Hoffmann_Christian",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "!!!!!"
+            ],
+            [
+                "Hoffmann_Vivienne",
+                "",
+                "",
+                "",
+                "Chai",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Chai",
+                "",
+                "",
+                "!!!!!"
+            ],
+            [
+                "Huegli_Karin",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Huntenberg_Julia",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Jansen_Luca",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Jehnert_Stephan",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Jungnickel_Evelyn",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Karczewska_Roxana",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "!!!!!"
+            ],
+            [
+                "Knöpfel_Hannah",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Koeppen_Linda",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Krüger_Sophia",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Kulesza_Aleksandra",
+                "!!!!!",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Köppen, Antonia",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info"
+            ],
+            [
+                "Lang_Janina",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Link_Leo",
+                "",
+                "",
+                "",
+                "Chai",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Chai",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Loose_Kerstin",
+                "!!!!!",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "!!!!!"
+            ],
+            [
+                "Maichrowitz_Verena",
+                "!!!!!",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "Chai",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Maler_Sven",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "!!!!!"
+            ],
+            [
+                "Manegold_Philipp",
+                "!!!!!",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Marquardt_Annabell",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz"
+            ],
+            [
+                "Menzel_Christoph",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Michalzik_Maximilian",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info"
+            ],
+            [
+                "Moroni_Wilko",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                ""
+            ],
+            [
+                "Nolting_Luca",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Pamler_Lina",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Pekmezci_Ozan",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                ""
+            ],
+            [
+                "Pfisterer_Hannah",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                ""
+            ],
+            [
+                "Pleiß_Annett",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Royes_Bradley",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Sanna Feltrin_Benedetta",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Chai",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Chai"
+            ],
+            [
+                "Schroeter_Helen",
+                "",
+                "Chai",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Chai",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Schwamborn_Natalie",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Chai",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Schüngel_Andrea",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "Chai",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Chai",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Skye",
+                "Chai",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Chai",
+                ""
+            ],
+            [
+                "Speck_Jerome",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Springorum_Luise",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "Stepien_Iwona",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Stuhr_Marla",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                ""
+            ],
+            [
+                "Stühring_Laura",
+                "Chai",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Chai"
+            ],
+            [
+                "Thüringer_Sophia",
+                "!!!!!",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "",
+                "",
+                "",
+                "",
+                "Bauchladen",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!",
+                "!!!!!"
+            ],
+            [
+                "Timm_Nils",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "!!!!!"
+            ],
+            [
+                "Vistorin_Renate",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "!!!!!"
+            ],
+            [
+                "Wessel_Sandra",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "!!!!!"
+            ],
+            [
+                "Zinzius_Tanja",
+                "!!!!!",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Chai",
+                "",
+                "",
+                "",
+                "",
+                "Chai",
+                "!!!!!"
+            ],
+            [
+                "MÄHREN_Laura",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "OBERLÄNDER_May",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "CHRISTMANN_Sarah",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "VON_KELER_Sebastian",
+                "Info",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "BASTEN_Annika",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "STROUT_Annie",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "HECKENDORF_Esther",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "JAKUSOVA_Jasmina",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                ""
+            ],
+            [
+                "KINDERMANN_Aglaia",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                ""
+            ],
+            [
+                "HÖMSCHEMEYER_Jens",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                "",
+                "Ambulanz",
+                "",
+                "",
+                ""
+            ],
+            [
+                "DESPET_Kamila",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "Springer",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "WALLGRAM_Kim",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "Springer",
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                "GOZDZ_Dominik",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Springer",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                ""
+            ],
+            [
+                "BRAUN_Simone_Luna",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "Springer",
+                "",
+                ""
+            ],
+            [
+                "WAGNER_Anke",
+                "",
+                "",
+                "",
+                "Springer",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Info",
+                "",
+                ""
+            ]
+        ],
+        "shifts_table": [
+            [
+                "Role",
+                "Fri 13-17",
+                "Fri 17-21",
+                "Fri 21-01",
+                "Sat 01-05",
+                "Sat 05-09",
+                "Sat 09-13",
+                "Sat 13-17",
+                "Sat 17-21",
+                "Sat 21-01",
+                "Sun 01-05",
+                "Sun 05-09",
+                "Sun 09-13",
+                "Sun 13-17",
+                "Sun 17-21",
+                "Sun 21-01",
+                "Mon 01-05",
+                "Mon 05-09",
+                "Mon 09-13",
+                "Mon 13-17",
+                "Mon 17-21",
+                "Mon 21-01",
+                "Tue 01-05"
+            ],
+            [
+                "Info",
+                "Csaszar_Tata, Eckardt_Mascha, VON_KELER_Sebastian",
+                "Fiolka_Anna, Pamler_Lina, BASTEN_Annika",
+                "Fischer_Sahra, Kulesza_Aleksandra, JAKUSOVA_Jasmina",
+                "Karczewska_Roxana, Pekmezci_Ozan, HECKENDORF_Esther",
+                "Köppen, Antonia, Moroni_Wilko, DESPET_Kamila",
+                "Jansen_Luca, Royes_Bradley, BRAUN_Simone_Luna",
+                "Koeppen_Linda, Speck_Jerome, KINDERMANN_Aglaia",
+                "Huntenberg_Julia, HÖMSCHEMEYER_Jens, WAGNER_Anke",
+                "Fischer_Sahra, Maichrowitz_Verena, WALLGRAM_Kim",
+                "Anke, Huegli_Karin, VON_KELER_Sebastian",
+                "Braun_Timo, Jungnickel_Evelyn, Manegold_Philipp",
+                "Amaral_Kevin, Loose_Kerstin, DESPET_Kamila",
+                "Albrecht_Charlie, Fischer_Sahra, WALLGRAM_Kim",
+                "Einhorn_Fabiola, Pleiß_Annett, GOZDZ_Dominik",
+                "Jehnert_Stephan, Michalzik_Maximilian, STROUT_Annie",
+                "Jansen_Luca, Nolting_Luca, BRAUN_Simone_Luna",
+                "Clasen_Malina, Springorum_Luise, HECKENDORF_Esther",
+                "Daude_Alicia, Pleiß_Annett, CHRISTMANN_Sarah",
+                "Lang_Janina, Maler_Sven, GOZDZ_Dominik",
+                "Hassenstein_Moritz, Pekmezci_Ozan, WAGNER_Anke",
+                "Ambroziak_Marian, Belkaid_Sammy, Clasen_Malina",
+                "Einhorn_Fabiola, Köppen, Antonia, Michalzik_Maximilian"
+            ],
+            [
+                "Bauchladen",
+                "",
+                "",
+                "Knöpfel_Hannah, Speck_Jerome",
+                "Blomeyer_Amrei, Daude_Alicia",
+                "",
+                "",
+                "Lang_Janina, Springorum_Luise",
+                "",
+                "Jehnert_Stephan, Pfisterer_Hannah",
+                "Royes_Bradley, Thüringer_Sophia",
+                "Fiolka_Anna, Nolting_Luca",
+                "",
+                "Blomeyer_Amrei, Huntenberg_Julia",
+                "",
+                "Csaszar_Tata, Thüringer_Sophia",
+                "Moroni_Wilko, Speck_Jerome",
+                "Bake_Can, Karczewska_Roxana",
+                "",
+                "Huegli_Karin, Loose_Kerstin",
+                "Moroni_Wilko, Pfisterer_Hannah",
+                "",
+                "Bake_Can, Braun_Timo"
+            ],
+            [
+                "Chai",
+                "Skye, Stühring_Laura",
+                "Becker_Konstantin, Schroeter_Helen",
+                "",
+                "Hoffmann_Vivienne, Link_Leo",
+                "",
+                "",
+                "Becker_Konstantin, Schüngel_Andrea",
+                "",
+                "",
+                "Link_Leo, Schroeter_Helen",
+                "",
+                "",
+                "Maichrowitz_Verena, Schüngel_Andrea",
+                "",
+                "",
+                "Sanna Feltrin_Benedetta, Zinzius_Tanja",
+                "",
+                "",
+                "Hoffmann_Vivienne, Schwamborn_Natalie",
+                "",
+                "Skye, Zinzius_Tanja",
+                "Sanna Feltrin_Benedetta, Stühring_Laura"
+            ],
+            [
+                "Ambulanz",
+                "Michalzik_Maximilian, Timm_Nils",
+                "MÄHREN_Laura, STROUT_Annie",
+                "Albrecht_Charlie, Menzel_Christoph, OBERLÄNDER_May",
+                "Nolting_Luca, Vistorin_Renate, CHRISTMANN_Sarah",
+                "Krüger_Sophia, Manegold_Philipp, VON_KELER_Sebastian",
+                "Maler_Sven, BASTEN_Annika",
+                "Stepien_Iwona, STROUT_Annie",
+                "Hager_Michael, CHRISTMANN_Sarah",
+                "Albrecht_Charlie, Kulesza_Aleksandra, Menzel_Christoph, Schwamborn_Natalie",
+                "Belkaid_Sammy, Krüger_Sophia, Pamler_Lina, Vistorin_Renate, BASTEN_Annika",
+                "Ehmann_Frederick, Hoffmann_Christian, Stuhr_Marla, MÄHREN_Laura, OBERLÄNDER_May",
+                "Ambroziak_Marian, Knöpfel_Hannah, Lang_Janina",
+                "Menzel_Christoph, HECKENDORF_Esther",
+                "Koeppen_Linda, Stepien_Iwona",
+                "Jungnickel_Evelyn, Wessel_Sandra, JAKUSOVA_Jasmina, HÖMSCHEMEYER_Jens",
+                "Belkaid_Sammy, Dominiecki_Mikolaj, Hassenstein_Moritz, Knöpfel_Hannah, KINDERMANN_Aglaia",
+                "Ambroziak_Marian, Anke, Marquardt_Annabell, MÄHREN_Laura, OBERLÄNDER_May",
+                "Amaral_Kevin, Ehmann_Frederick, Hager_Michael, Koeppen_Linda",
+                "Jehnert_Stephan, JAKUSOVA_Jasmina, HÖMSCHEMEYER_Jens",
+                "Hoffmann_Christian, Stuhr_Marla, KINDERMANN_Aglaia",
+                "Dominiecki_Mikolaj, Timm_Nils, Wessel_Sandra",
+                "Amaral_Kevin, Anke, Marquardt_Annabell"
+            ],
+            [
+                "Springer",
+                "",
+                "",
+                "",
+                "WAGNER_Anke",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "GOZDZ_Dominik",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "DESPET_Kamila",
+                "",
+                "WALLGRAM_Kim",
+                "",
+                "BRAUN_Simone_Luna",
+                "",
+                ""
+            ]
+        ]
     },
     "role_availability": {
         "Info": 78,
@@ -2006,5 +4291,5 @@
         "Ambulanz": 59,
         "Springer": 5
     },
-    "role_availability_string": "{'Info': 77, 'Bauchladen': 69, 'Chai': 8, 'Ambulanz': 70, 'Springer': 5}"
+    "role_availability_string": "{'Info': 73, 'Bauchladen': 62, 'Chai': 12, 'Ambulanz': 56, 'Springer': 5}"
 }

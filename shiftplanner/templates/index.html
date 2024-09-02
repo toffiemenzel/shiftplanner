@@ -192,6 +192,7 @@
                                 <th>Assign Shifts</th>
                                 <th>Veto Shifts</th>
                                 <th>Preferred Partners</th>
+                                <th>Comment</th>
                                 <!--<th>Options</th>-->
                                 <th>Actions</th>
                             </tr>
@@ -242,6 +243,7 @@
                                 <td class="centered"><input type="text" name="assign_shifts_{{ i }}" value="{{ app_data.persons[i]['assign_shifts'] }}" class="large-input"></td>
                                 <td class="centered"><input type="text" name="veto_shifts_{{ i }}" value="{{ app_data.persons[i]['veto_shifts'] }}" class="large-input"></td>
                                 <td class="centered"><input type="text" name="preferred_partners_{{ i }}" value="{{ app_data.persons[i]['preferred_partners'] }}" class="large-input"></td>
+                                <td class="centered"><input type="text" name="comment_{{ i }}" value="{{ app_data.persons[i]['comment'] }}" class="large-input"></td>
                                 <!--<td class="centered"><input type="text" name="options_{{ i }}" value="{{ app_data.persons[i]['options'] }}" class="large-input"></td>-->
                                 <td class="centered">
                                     <button type="button" class="delete-btn" onclick="deletePerson({{ i }})">Delete</button>
@@ -694,6 +696,7 @@
 
             function submitFormData() {
                 const formData = new FormData(participantForm);
+                console.log([...formData.entries()]);
                 
                 fetch('/change_person_table', {
                     method: 'POST',
