@@ -200,6 +200,26 @@ def generate_schedule(ref_app_data):
 
         ##########################################################################################
 
+        # Analyze pre-assigned shifts
+        for i, person in enumerate(persons):
+            if 'assign_shifts_parsed' in person:
+                for role, shift_name in person['assign_shifts_parsed']:
+                    # Check if the shift_name exists in the shift_names list
+                    if shift_name not in shift_names:
+                        print(f"Warning: Shift name '{shift_name}' for {person['name']} is not valid and will be ignored.")
+                    if role:
+                        # If role is specified, check if it exists in the roles list
+                        if role not in roles:
+                            print(f"Warning: Role '{role}' for {person['name']} is not valid and will be ignored.")
+                        
+        # Analyze vetos for shifts
+        for i, person in enumerate(persons):
+            if 'veto_shifts_parsed' in person:
+                for shift_name in person['veto_shifts_parsed']:
+                    # Check if the shift_name exists in the shift_names list
+                    if shift_name not in shift_names:
+                        print(f"Warning: Shift name '{shift_name}' in veto list for {person['name']} is not valid and will be ignored.")
+
         # Decision variables
         shifts = {}
         penalties = []  # List to track penalties for scheduling outside of the availability window
@@ -208,8 +228,20 @@ def generate_schedule(ref_app_data):
             #print(f"{person['name']} latest shift is {person['latest_shift']}")
             for j in range(num_shifts):
                 for r in roles:
-                    if r in person['experienced_roles'] + person['inexperienced_roles']:
-                        shift_var = model.NewBoolVar(f'shift_{i}_{j}_{r}')
+                    shift_var = model.NewBoolVar(f'shift_{i}_{j}_{r}')
+                    specific_shift = f"{r}({shift_names[j]})"
+                    isAssigned = specific_shift in person['assign_shifts']
+                    hasVeto = shift_names[j] in person['veto_shifts']
+
+                    if hasVeto:
+                        shifts[(i, j, r)] = model.NewConstant(0)
+                        conditions.append(f'shift_{person["name"]}_{j}_{r} == 0 because this shift is vetoed')
+
+                    elif isAssigned:
+                        shifts[(i, j, r)] = model.NewConstant(1)
+                        conditions.append(f'shift_{person["name"]}_{j}_{r} == 1 because this shift is pre-assigned')
+
+                    elif r in person['experienced_roles'] + person['inexperienced_roles']:
                         shifts[(i, j, r)] = shift_var
                         
                         # Add penalties for assigning shifts outside availability window
@@ -289,57 +321,6 @@ def generate_schedule(ref_app_data):
                 model.Add(sum(shifts[(i, j, r)] for i in range(num_people)) == shift_table[role_index][j])
                 conditions.append(f'Shift {j} must have exactly {shift_table[role_index][j]} people assigned to role {r}')
         
-        # Enforce pre-assigned shifts
-        for i, person in enumerate(persons):
-            if 'assign_shifts_parsed' in person:
-                for role, shift_name in person['assign_shifts_parsed']:
-                    # Check if the shift_name exists in the shift_names list
-                    if shift_name not in shift_names:
-                        print(f"Warning: Shift name '{shift_name}' for {person['name']} is not valid and will be ignored.")
-                        continue
-
-                    # Get the index of the shift
-                    j = shift_names.index(shift_name)
-
-                    if role:
-                        # If role is specified, check if it exists in the roles list
-                        if role not in roles:
-                            print(f"Warning: Role '{role}' for {person['name']} is not valid and will be ignored.")
-                            continue
-                        
-                        # Add a hard constraint that the person must be assigned to the specific role in the specific shift
-                        print(f"{role} / {shift_name} -> j = {j}")
-                        shift_var = shifts[(i, j, role)]
-                        model.Add(shift_var == 1)
-                        conditions.append(f"{person['name']} must be assigned to role {role} in shift {shift_name}")
-                    else:
-                        # If role is empty, person must be assigned to any of their available roles for this shift
-                        available_roles = person['experienced_roles'] + person['inexperienced_roles']
-                        valid_roles = [r for r in available_roles if r in roles]
-                        
-                        if valid_roles:
-                            # Create a condition that ensures assignment to any valid role in the given shift
-                            model.Add(sum(shifts[(i, j, r)] for r in valid_roles) == 1)
-                            conditions.append(f"{person['name']} must be assigned to any available role in shift {shift_name}")
-                        else:
-                            print(f"Warning: {person['name']} has no valid roles for shift '{shift_name}'.")
-
-        # Enforce vetos for shifts
-        for i, person in enumerate(persons):
-            if 'veto_shifts_parsed' in person:
-                for shift_name in person['veto_shifts_parsed']:
-                    # Check if the shift_name exists in the shift_names list
-                    if shift_name not in shift_names:
-                        print(f"Warning: Shift name '{shift_name}' in veto list for {person['name']} is not valid and will be ignored.")
-                        continue
-
-                    # If the check passes, proceed to enforce the veto
-                    j = shift_names.index(shift_name)
-                    for r in roles:
-                        shift_var = shifts[(i, j, r)]
-                        model.Add(shift_var == 0)
-                        conditions.append(f"{person['name']} cannot be assigned to any role in shift {shift_name}")
-
         # Enforce minimum distance between shifts for each person
         if opt_enforce_shift_dist:
             for i in range(num_people):
